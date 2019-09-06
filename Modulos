@@ -1,0 +1,45 @@
+index -> 
+
+Home -> Menu de aplicativos
+
+(1) Cadastrar funcionários
+(2) Editar funcionários
+(3) Vizualizar funcionários
+
+(4) Cadastrar produto
+(5) Editar produto
+(6) Vizualizar produtos
+
+(7) Cadastrar clientes
+(8) Editar clientes
+(9) Vizualizar clientes
+
+(10) Cadastrar ingredientes
+(11) Editar ingredientes
+(12) Vizualizar ingredientes
+
+(13) Cadastrar pedidos (Funcionamento em horario de atendimento)
+(14) Editar pedidos (Funcionamento em horario de atendimento)
+(15) Vizualizar pedidos (Funcionamento em horario de atendimento)
+(16) Imprimir pedidos (Funcionamento em horario de atendimento)
+
+(17) Cadastrar reclamações
+(18) Vizualizar reclamações
+
+(19) Cadastro de promoções
+(20) Editar promoções
+(21) Vizualizar promoções
+(22) Excluir promoções
+
+(23) Vizualizar relatório -> 
+    Sabores mais pedidos por unidade de rede, 
+    unidade de rede que mais vende, 
+    totalização de area por unidade,
+    totalização de area por rede,
+    totalização mensal por unidade,
+    totalização mensal por rede,
+    quantidade de perdas por unidade,
+    quantidade de perdas por rede,
+    cancelamentos por unidade,
+    cancelamentos por rede
+

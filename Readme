@@ -13,8 +13,3 @@ git checkout <nome da branch> --> Muda a brach atual
 git pull origin <nome da branch> --> Atualiza o repositorio local, com as atualizações da branch
 
 
-
-
-
-
-

@@ -12,4 +12,5 @@ git checkout -b <nome da branch> --> Cria uma branch
 git checkout <nome da branch> --> Muda a brach atual
 git pull origin <nome da branch> --> Atualiza o repositorio local, com as atualizações da branch
 
-
+gcc -o program teach.c --> Compila o programa
+./program --> executa o programa

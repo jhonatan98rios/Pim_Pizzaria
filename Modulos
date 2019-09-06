@@ -31,7 +31,7 @@ Home -> Menu de aplicativos
 (21) Vizualizar promoções
 (22) Excluir promoções
 
-(23) Vizualizar relatório -> 
+(23) Vizualizar relatório ->
     Sabores mais pedidos por unidade de rede, 
     unidade de rede que mais vende, 
     totalização de area por unidade,
@@ -43,3 +43,5 @@ Home -> Menu de aplicativos
     cancelamentos por unidade,
     cancelamentos por rede
 
+(24) Fechamento de expediente -> 
+    Contabilização de vendas (produtos vendidos, preço, estado da venda),

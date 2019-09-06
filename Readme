@@ -1,6 +1,6 @@
 # git commands
 
-git clone <link do projeto> --> Clona o projeto para a maquina
+git clone https://github.com/jhonatan98rios/Pim_Pizzaria --> Clona o projeto para a maquina
 git pull origin --> Atualiza a branch
 git stash --> Descarta as alterações
 

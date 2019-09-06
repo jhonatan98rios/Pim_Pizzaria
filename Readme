@@ -1,0 +1,20 @@
+# git commands
+
+git clone <link do projeto> --> Clona o projeto para a maquina
+git pull origin --> Atualiza a branch
+git stash --> Descarta as alterações
+
+git add <nome do arquivo> --> adiciona o arquivo no commit
+git commit -m "Descrição do commit" --> Salva aquelas alterações no repositorio local
+git push --> Envia o commit para o servidor compartilhado
+
+git checkout -b <nome da branch> --> Cria uma branch
+git checkout <nome da branch> --> Muda a brach atual
+git pull origin <nome da branch> --> Atualiza o repositorio local, com as atualizações da branch
+
+
+
+
+
+
+

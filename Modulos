@@ -2,36 +2,40 @@ index ->
 
 Home -> Menu de aplicativos
 
+Lista de aplicativos ->
+    Funcionarios, Produtos, Clientes, Ingredientes, Pedidos, Reclamações, Promoções, Relatórios, Fechamento.
+
+
 (1) Cadastrar funcionários
 (2) Editar funcionários
 (3) Vizualizar funcionários
 
-(4) Cadastrar produto
-(5) Editar produto
-(6) Vizualizar produtos
+(1) Cadastrar produto
+(2) Editar produto
+(3) Vizualizar produtos
 
-(7) Cadastrar clientes
-(8) Editar clientes
-(9) Vizualizar clientes
+(1) Cadastrar clientes
+(2) Editar clientes
+(3) Vizualizar clientes
 
-(10) Cadastrar ingredientes
-(11) Editar ingredientes
-(12) Vizualizar ingredientes
+(1) Cadastrar ingredientes
+(2) Editar ingredientes
+(3) Vizualizar ingredientes
 
-(13) Cadastrar pedidos (Funcionamento em horario de atendimento)
-(14) Editar pedidos (Funcionamento em horario de atendimento)
-(15) Vizualizar pedidos (Funcionamento em horario de atendimento)
-(16) Imprimir pedidos (Funcionamento em horario de atendimento)
+(1) Cadastrar pedidos (Funcionamento em horario de atendimento)
+(2) Editar pedidos (Funcionamento em horario de atendimento)
+(3) Vizualizar pedidos (Funcionamento em horario de atendimento)
+(4) Imprimir pedidos (Funcionamento em horario de atendimento)
 
-(17) Cadastrar reclamações
-(18) Vizualizar reclamações
+(1) Cadastrar reclamações
+(2) Vizualizar reclamações
 
-(19) Cadastro de promoções
-(20) Editar promoções
-(21) Vizualizar promoções
-(22) Excluir promoções
+(1) Cadastro de promoções
+(2) Editar promoções
+(3) Vizualizar promoções
+(4) Excluir promoções
 
-(23) Vizualizar relatório ->
+(1) Vizualizar relatório ->
     Sabores mais pedidos por unidade de rede, 
     unidade de rede que mais vende, 
     totalização de area por unidade,
@@ -43,5 +47,5 @@ Home -> Menu de aplicativos
     cancelamentos por unidade,
     cancelamentos por rede
 
-(24) Fechamento de expediente -> 
+(1) Fechamento de expediente -> 
     Contabilização de vendas (produtos vendidos, preço, estado da venda),

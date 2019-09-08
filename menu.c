@@ -1,4 +1,6 @@
-#include <stdio.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include <windows.h>
 
 void showFuncionarios(){
     printf("\n Funcionarios");
@@ -39,8 +41,20 @@ void showFechamento(){
 
 int main()
 {
-    int r;
+    //Define a cor azul do terminal
+    system("color 1F");
+    //define o titulo da janela do prompt
+    system("title Menu");
 
+    int r;
+    printf("\n");
+    printf("\n ==============================================");
+    printf("\n ============Controle de Pizzaria==============");
+    printf("\n ==============================================");
+    printf("\n");
+    printf(" Opcoes disponiveis:");
+    printf("\n");
+    printf(" ----------------------------------------------");
     printf("\n");
     printf(" (1) Funcionarios \n (2) Clientes \n (3) Produtos \n (4) Ingredientes \n (5) Contabilizacao \n (6) Esqueci esse \n (7) Esse tambem \n (8) Ralatorios \n (9) Fechamento  \n (0) Sair ");
     printf("\n \n \n Selecione uma das opcoes acima: \n");

@@ -26,8 +26,7 @@ void showFuncionarios(){
         printf("Vizualizar");
         break;
     case 2:
-        printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Adicionar");
+        system("./funcionarios/cadastrar");
         break;
     case 3:
         printf("\e[H\e[2J"); //Limpa a tela

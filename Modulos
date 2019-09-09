@@ -3,19 +3,19 @@ index ->
 Home -> Menu de aplicativos
 
 Lista de aplicativos ->
-    Funcionarios, Produtos, Clientes, Ingredientes, Pedidos, Reclamações, Promoções, Relatórios, Fechamento.
+    Funcionarios,  Clientes, Produtos, Ingredientes, Pedidos, Reclamações, Promoções, Relatórios, Fechamento.
 
 (1) Cadastrar funcionários
 (2) Editar funcionários
 (3) Vizualizar funcionários
 
-(1) Cadastrar produto
-(2) Editar produto
-(3) Vizualizar produtos
-
 (1) Cadastrar clientes
 (2) Editar clientes
 (3) Vizualizar clientes
+
+(1) Cadastrar produto
+(2) Editar produto
+(3) Vizualizar produtos
 
 (1) Cadastrar ingredientes
 (2) Editar ingredientes

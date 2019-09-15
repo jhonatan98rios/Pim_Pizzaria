@@ -4,6 +4,12 @@
 #include <locale.h>
 
 
+/*
+Autor: Hugo Barros
+Data de criação 15/09/2019
+Descrição:
+Implementação 01: Feito a criação da função (LerArquivoUsuario),O mesmo vai ler o arquivo texto com o nome do usuário caso esteja certo usuário e senha o login será feito
+*/
 
 void LerArquivoUsuario(){
 

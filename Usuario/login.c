@@ -1,48 +1,57 @@
 #include <stdio.h>
+#include<stdlib.h>
 /* #include <conio.h> */
+#include <locale.h>
 
-//Ainda estou implementando
-void lerArq()
-{
-       FILE *arq;
-  char Linha[100];
-  char *result;
-  int i;
- // clrscr();
-  // Abre um arquivo TEXTO para LEITURA
-  arq = fopen("ArqTeste.txt", "rt");
-  if (arq == NULL)  // Se houve erro na abertura
-  {
-     printf("Problemas na abertura do arquivo\n");
-     return;
-  }
-  i = 1;
-  while (!feof(arq))
-  {
-      /* char usuario;
-      int senha; */
-	// Lê uma linha (inclusive com o '\n')
-      result = fgets(Linha, 100, arq);  // o 'fgets' lê até 99 caracteres ou até o '\n'
-      if (result){ // Se foi possível ler
-      /* usuario = Linha[4];
-      senha = Linha[6,9]; */
-	  //printf("Linha %d : %s",i,Linha);
-      //i++;
-    }
 
-  }
-   
-  fclose(arq);
-}
+/*
+Autor: Hugo Barros
+Data de criação 15/09/2019
+Descrição:
+Implementação 01: Feito a criação da função (LerArquivoUsuario),O mesmo vai ler o arquivo texto com o nome do usuário caso esteja certo usuário e senha o login será feito
+Implementação 02: Feito a criação do arquivo temporario para que guarde o usuário que logar no sistema
+*/
 
-int main()
-{
+void LerArquivoUsuario(){
+
+    char usuario[50],senha[10],senhareal[10];
+    FILE *ArqUsr;
+    FILE *UsuarioLogado;
+
+    printf("Digite seu nome de usuario: ");gets(usuario);//Usuário digita o nome com que quer se logar
+    ArqUsr = fopen(usuario,"r");//abre o arquivo com o nome do usuário
+    printf("Digite sua senha: ");gets(senha);//usuário informa sua senha
     
-    char user;
-    int password;
-    printf("\n Digite o Usuario:");
-    scanf("%s",&user);
-    printf("\n Digite a Senha:");
-    scanf("%d",&password);
-
+        if(ArqUsr!=NULL){//se o arquivo com o nome informado existir
+            fscanf (ArqUsr,"%*s",&senhareal);//grava o conteúdo de ArqUsr na variável senhareal
+                if (strcmp(senha,senhareal)!=0)//e a senha informada pelo usuário bater com a senha real...
+                {
+                    printf("Login feito com sucesso!");//é informado ao usuário que ele conseguiu se logar
+                    //system("cd..");
+                    //system("cd menu");
+                    UsuarioLogado =fopen("Usuario_Logado.txt","a");
+                    fprintf(UsuarioLogado,"%s",usuario);//grava no arquivo usuário Usuário que logou
+                    fclose(UsuarioLogado);//fecha o arquivo
+                    //break;
+                }
+                else{//se não...
+                        
+                    printf("Usuario ou senha nao estao correto. Tente novamente...");//é informado que os dados estão incorretos
+                        //break;
+                }                                
+        }
+        else{
+            printf("Usuario nao cadastrado...");//quando o usuário tenta entrar com um nome inválido
+            //break;
+        }
+}
+void main()
+{
+          //Define o padrão UTF-8
+    setlocale(LC_ALL, "Portuguese_Brasil");
+    //Define a cor azul do terminal
+    system("color 1F");
+    //define o titulo da janela do prompt
+    system("title Menu");
+    LerArquivoUsuario();
 }

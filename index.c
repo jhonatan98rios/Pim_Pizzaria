@@ -8,8 +8,8 @@ int main(){
     //Define o padrão UTF-8
     setlocale(LC_ALL, "Portuguese_Brasil");
     //Define a cor azul do terminal
-    system("color 1F");
+    /* system("color 1F"); */
     //define o titulo da janela do prompt
 
-    system("./program");
+    system("./Usuario/login");
 }

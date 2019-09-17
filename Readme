@@ -14,3 +14,5 @@ git pull origin <nome da branch> --> Atualiza o repositorio local, com as atuali
 
 gcc -o program teach.c --> Compila o programa
 ./program --> executa o programa
+
+gcc program.c -ljson-c -o program --> Compila um programa com json

@@ -10,25 +10,27 @@ Implementação 01: Feito a criação da função (cadastrar),O mesmo vai criar 
 */
 
 void cadastrar(){
-    char usuario[50],senha[10],setor[1];
+    char usuario[50],senha[10],area[1];
     FILE *ArqUsr;
                 
     printf("\n ==============================================");
-    printf("\n ============ Usuários ==============");
+    printf("\n ========== Usuários/Funcionario ==============");
     printf("\n ==============================================");
     printf("\n \n");
 
     printf("Digite seu nome: ");gets(usuario);//Usuário insere o nome com que quer ser cadastrado
+    printf("Digite seu setor: (1) Administrativo, (2) Operacional) ");gets(area);
     printf("Digite sua senha: ");gets(senha);//usuário digita sua senha
-    printf("Digite seu setor: (1) Administrativo, (2) Operacional) "); gets(setor);
+   
                 
     ArqUsr=fopen(usuario,"a");//fazer um arquivo com o nome do usuário
                   
-    printf("Usuário cadastrado com sucesso!");
-    fprintf(ArqUsr,"*%s \n",senha);//grava no arquivo a senha do usuário, antecedida pelo caractere *
-    fprintf(ArqUsr,"#%s \n",setor);
+    
+    fprintf(ArqUsr,"*%s",senha);//grava no arquivo a senha do usuário, antecedida pelo caractere *
+    senha[10]=" ";
+    fprintf(ArqUsr,"*%s",area);
     fclose(ArqUsr);//fecha o arquivo
-    /* getch(); */
+    printf("Usuário cadastrado com sucesso!");
                 
 }
 

@@ -2,7 +2,6 @@
 #include <string.h>
 /* #include <conio.h> */
 #include <locale.h>
-#include "../../libs/CopyPaste.h"
 
 /*
 Autor: Hugo Barros
@@ -31,10 +30,6 @@ void cadastrar(){
     fprintf(ArqUsr,"#%s \n",setor);
     fclose(ArqUsr);//fecha o arquivo
     /* getch(); */
-
-    char destino[] = "../../data/";
-
-    CopyPaste(usuario, destino);
                 
 }
 

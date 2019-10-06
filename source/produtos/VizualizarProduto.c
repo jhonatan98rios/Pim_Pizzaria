@@ -9,17 +9,18 @@ struct produtos{
     int category;
     char name[10];
     float price;
-}prod;
+};
 
 void LerProd( char titulo[10], int category ){
 
     FILE *infile;
+    struct produtos input;
     infile = fopen ("./data/produtos.dat", "r");
 
     printf("\n =================== %s =================== \n", titulo);
-    while(fread(&prod, sizeof(struct produtos), 1, infile)){
-        if(prod.category == category){
-            printf ("\n nome = %s \n preco = %.2f\n", prod.name, prod.price);
+    while(fread(&input, sizeof(struct produtos), 1, infile)){
+        if(input.category == category){
+            printf ("\n nome = %s \n preco = %.2f\n", input.name, input.price);
         }
     };
 
@@ -53,7 +54,7 @@ int main()
 
     /* Isso se tornará uma biblioteca de cabeçalho */
 
-    int continuar;
+    /* int continuar;
 
     printf("Deseja voltar ao menu? \n [1] Sim \n [2] Nao\n");
     scanf("%d", &continuar);
@@ -61,7 +62,7 @@ int main()
         system("./source/menu");
     }else{
         printf("Programa Encerrado");
-    }
+    } */
 
     return 0;
 }

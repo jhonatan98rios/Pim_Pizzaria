@@ -8,7 +8,7 @@
 /* Sctruct é uma variavel com varias propriedades */
 struct produtos{
     int category; /* Define se é pizza, bebida ou doce */
-    char name[20];
+    char name[10];
     float price;
 };
 
@@ -54,7 +54,7 @@ int main()
     CadastrarProduto();
 
     /* Isso se tornará uma biblioteca de cabeçalho */
-    int continuar;
+    /* int continuar;
 
     printf("Deseja voltar ao menu? \n [1] Sim \n [2] Nao\n");
     scanf("%d", &continuar);
@@ -62,7 +62,7 @@ int main()
         system("./source/menu");
     }else{
         printf("Programa Encerrado");
-    }
+    } */
 
     return 0;
 }

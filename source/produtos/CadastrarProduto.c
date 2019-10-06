@@ -5,108 +5,40 @@
 #include <math.h>
 /* #include <conio.h> */
 
+/* Sctruct é uma variavel com varias propriedades */
 struct produtos{
-    struct pizzas{
-        int id;
-        char nome[10];
-        float preco;
-    } pizzas;
-
-    struct bebidas{
-        int id;
-        char nome[10];
-        float preco;
-        int quantidade;
-    } bebidas;
-};
-
-void LerProdutos(){
-    FILE *infile;
-    struct produtos input;
-    infile = fopen ("produtos.dat", "r");
-    printf ("Pizzas \n");
-    while(fread(&input, sizeof(struct produtos), 1, infile)){
-        printf ("nome = %s \npreco = %.2f\n", input.pizzas.nome, input.pizzas.preco);
-        printf ("nome = %s \npreco = %.2f\n", input.bebidas.nome, input.bebidas.preco);
-    };
-    fclose (infile);
+    int category; /* Define se é pizza, bebida ou doce */
+    char name[20];
+    float price;
 };
 
 void CadastrarProduto(){
 
     FILE *ProdFile;
-    ProdFile = fopen("produtos.dat", "a");
+    ProdFile = fopen("./data/produtos.dat", "a"); /* Abre o arquivo somente para adição */
 
-    struct produtos prod;
-    int resp;
+    struct produtos prod; /* Cria uma instancia, da estrutura (Como uma cópia) */
 
-    printf("Informe o que deseja cadastrar: \n \n [1] Pizzas \n [2] Bebidas \n");
-    scanf("%d", &resp );
+    printf("Informe o que deseja cadastrar: \n \n [1] Pizzas \n [2] Bebidas \n [3] Doces\n\n");
+    scanf("%d", &prod.category ); /* Isso vai definir como vai ser exibido em "Vizualizar Produto" */
 
-    switch (resp)
-    {
-    case 1:
+    printf("\e[1;1H\e[2J"); /* Limpa a Tela */
+    printf("Informe o nome do produto: \n");
+    scanf("%s", prod.name);
+    printf("Informe o preco do produto: \n");
+    scanf("%f", &prod.price);
+
+    fwrite (&prod, sizeof(struct produtos), 1, ProdFile); /* Grava a estrutura no arquivo */
+
+    if(&fwrite != 0){ /* Se conseguir gravar */
         printf("\e[1;1H\e[2J");
-        printf("Informe o nome da pizza: \n");
-        scanf("%s", prod.pizzas.nome);
-        printf("Informe o preco da pizza: \n");
-        scanf("%f", &prod.pizzas.preco);
-        break;
-    
-    default:
-        printf("\e[1;1H\e[2J");
-        printf("Informe o nome da bebida: \n");
-        scanf("%s", prod.bebidas.nome);
-        printf("Informe o preco da bebida: \n");
-        scanf("%f", &prod.bebidas.preco);
-        break;
-    }
-
-    fwrite (&prod, sizeof(struct produtos), 1, ProdFile);
-
-    if(&fwrite != 0){
-        printf("\e[1;1H\e[2J");
-        printf("Salvo com sucesso !\n"); 
+        printf("Salvo com sucesso !\n\n"); 
     }else{
         printf("\e[1;1H\e[2J"); 
         printf("Erro ao gravar !\n");
     }
     
     fclose(ProdFile);
-}
-
-void menu(){
-    int resp;
-    int repeat = 1;
-
-    while(repeat == 1){
-        printf("O que deseja fazer? \n\t[1] Cadastrar \n\t[2] Vizualizar \n");
-        scanf("%d", &resp);
-
-        switch (resp)
-        {
-        case 1:
-            printf("\e[1;1H\e[2J");
-            CadastrarProduto();
-            break;
-
-        case 2:
-            printf("\e[1;1H\e[2J");
-            LerProdutos();
-            break;
-        
-        default:
-            printf("\e[1;1H\e[2J");
-            printf("Essa opcao nao existe seu burro");
-            printf("O que deseja fazer? \n\t[1] Cadastrar \n\t[2] Vizualizar \n");
-
-        }
-
-        printf("Deseja continuar? \n\t [1] Sim \n\t [2] Nao \n");
-        scanf("%d", &repeat);
-        printf("\e[1;1H\e[2J");
-    }
-    
 }
 
 int main()
@@ -119,7 +51,18 @@ int main()
     //system("title Menu");
 
     printf("\e[1;1H\e[2J");
-    menu();
+    CadastrarProduto();
+
+    /* Isso se tornará uma biblioteca de cabeçalho */
+    int continuar;
+
+    printf("Deseja voltar ao menu? \n [1] Sim \n [2] Nao\n");
+    scanf("%d", &continuar);
+    if(continuar == 1){
+        system("./source/menu");
+    }else{
+        printf("Programa Encerrado");
+    }
 
     return 0;
 }

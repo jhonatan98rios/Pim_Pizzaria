@@ -15,7 +15,7 @@ void showClientes2(){
 
     printf("\n (1) Vizualizar Clientes");
     printf("\n (2) Adicionar Clientes");
-    printf("\n (3) Editar Clientes \n");
+    printf("\n (3) Excluir Clientes \n");
 
     scanf("%d", &resposta);
 
@@ -31,7 +31,7 @@ void showClientes2(){
         break;
     case 3:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Editar");
+        printf("\n Excluir");
         break;
     }
 }
@@ -48,7 +48,7 @@ void showProdutos2(){
 
     printf("\n (1) Vizualizar Produtos");
     printf("\n (2) Adicionar Produtos");
-    printf("\n (3) Editar Produtos \n");
+    printf("\n (3) Excluir Produtos \n");
 
     scanf("%d", &resposta);
 
@@ -56,15 +56,15 @@ void showProdutos2(){
     {
     case 1:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Vizualizar");
+        system("./produtos/LerProduto");
         break;
     case 2:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Adicionar");
+        system("./produtos/CadastrarProduto");
         break;
     case 3:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Editar");
+        printf("\n Excluir");
         break;
     }
 }
@@ -81,7 +81,7 @@ void showPedidos2(){
 
     printf("\n (1) Vizualizar Pedidos");
     printf("\n (2) Adicionar Pedidos");
-    printf("\n (3) Editar Pedidos \n");
+    printf("\n (3) Excluir Pedidos \n");
 
     scanf("%d", &resposta);
 
@@ -97,7 +97,7 @@ void showPedidos2(){
         break;
     case 3:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Editar");
+        printf("\n Excluir");
         break;
     }
 }
@@ -114,7 +114,7 @@ void showPromocoes2(){
 
     printf("\n (1) Vizualizar Promoções");
     printf("\n (2) Adicionar Promoções");
-    printf("\n (3) Editar Promoções \n");
+    printf("\n (3) Excluir Promoções \n");
     printf("\n (3) Excluir Promoções \n");
 
     scanf("%d", &resposta);
@@ -130,10 +130,6 @@ void showPromocoes2(){
         printf("\n Adicionar");
         break;
     case 3:
-        printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Editar");
-        break;
-    case 4:
         printf("\e[H\e[2J"); //Limpa a tela
         printf("\n Excluir");
         break;

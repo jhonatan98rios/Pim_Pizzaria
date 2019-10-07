@@ -10,9 +10,10 @@ Descrição:
 Implementação 01: Feito a criação da função (cadastrar),O mesmo vai criar um arquivo de texto com o nome do usuário e inserir a senha dentro dele
 */
 
-void cadastrar(){
+void cadastrarFuncionario(){
     char usuario[50],senha[10],setor[1];
     FILE *ArqUsr;
+    
                 
     printf("\n ==============================================");
     printf("\n ============ Usuários ==============");
@@ -40,5 +41,5 @@ int main(){
     /* system("color 1F"); */
     //define o titulo da janela do prompt
     /* system("title Menu"); */
-    cadastrar();
+    cadastrarFuncionario();
 }

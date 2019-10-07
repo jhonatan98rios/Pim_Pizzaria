@@ -6,25 +6,25 @@
 
 int Cadastrar(){
     //char cliente
-    char Numero[50],Nome[20],Endereço[50];
-    FILE*ArqNumero;
+    char Numero[50],Nome[20],Endereco[50];
+    FILE *ArqNumero;
 
 
     printf("\n ======================================================================");
-    printf("\n =================== Cadastro de Cliente =======================")
+    printf("\n =================== Cadastro de Cliente =======================");
     printf("\n =======================================================================");
     printf("\n\n");
 
 
-    printf("Digite o telefone do cliente: ");gets(Numero);//Usuario insere o telefone que vai cadastrar o cliente
-    printf("Digite o nome do cliente: ");gets(Nome);//Usuario insere o nome do cliente
-    printf("Digite o endereço do cliente: ");gets(Endereço);//Usuario insere o endereço do cliente
+    printf("Digite o telefone do cliente:");gets(Numero);//Usuario insere o telefone que vai cadastrar o cliente
+    printf("Digite o nome do cliente:");gets(Nome);//Usuario insere o nome do cliente
+    printf("Digite o endereço do cliente:");gets(Endereco);//Usuario insere o endereço do cliente
 
     ArqNumero=fopen(Numero,"a");//Fazer um arquivo com o numero do cliente
 
     prinf("Cliente cadastrado com sucesso");
     fprint(ArqNumero,"*%s",Nome);//Grava no arquivo o nome do cliente,antecedida pelo caractete *
-    fprint(ArqNumero,"*%s",Endereço);//Grava no arquivo o endereço do cliente,antecedida pelo caractere *
+    fprint(ArqNumero,"*%s",Endereco);//Grava no arquivo o endereço do cliente,antecedida pelo caractere *
     fclose(ArqNumero);//Fecha o arquivo
 
 

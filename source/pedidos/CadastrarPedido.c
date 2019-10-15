@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include <locale.h>
+#include <string.h>
 
 struct produtos{
     int category;
@@ -26,9 +27,8 @@ void LerProd( char titulo[10], int category ){ /* Isso deve virar uma funcao de 
 
 void CadastrarPedido(){
 
-    int category;
+    int category = 0;
     char produto[10];
-    int produtoValido = 0;
 
     FILE *infile;
     struct produtos prod;
@@ -57,24 +57,25 @@ void CadastrarPedido(){
     printf(" \n Informe o que nome do produto: \n");
     scanf("%s", produto);
     
-    /* Preciso verificar se produto é igual à a prod.name */
+    int compare =  strcmp("Brigadeiro", produto); /* Preciso verificar se produto é igual à a prod.name */
 
     while(fread(&prod, sizeof(struct produtos), 1, infile)){
 
         size_t length = sizeof(produto)/sizeof(produto[0]); /* Isso deve virar uma funcao de cabeçalho */
 
         if(prod.category == category){
-            printf ("\n nome = %s \n", prod.name);
 
-            if(prod.name == produto){
+            printf("%d \n", compare);
+            printf("%s \n", produto);
+            printf("%s \n", prod.name);
+
+            if( compare == 0 ){
                 printf ("\n nome = %s \n preco = %.2f\n", prod.name, prod.price);
-                produtoValido = 1;
             }
         }
-        
     };
 
-    if(produtoValido == 0){
+    if(compare != 0){
         printf("Produto Inválido \n");
         CadastrarPedido();
     }

@@ -7,10 +7,24 @@
 
 /* Sctruct é uma variavel com varias propriedades */
 struct produtos{
+    int id;
     int category; /* Define se é pizza, bebida ou doce */
     char name[10];
     float price;
 };
+
+void GerarID(){
+
+    int contador = 0;
+
+    FILE *infile;
+    struct produtos input;
+    infile = fopen("./data/produtos.dat", "r");
+
+    while(fread(&input, sizeof(struct produtos), 1, infile)){
+        contador++;
+    };
+}
 
 void CadastrarProduto(){
 

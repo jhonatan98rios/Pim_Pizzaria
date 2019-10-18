@@ -13,23 +13,26 @@ struct produtos{
     float price;
 };
 
-void GerarID(){
+int GerarID(){
 
-    int contador = 0;
+    int contador = 101;
 
     FILE *infile;
     struct produtos input;
-    infile = fopen("./data/produtos.dat", "r");
+    infile = fopen("../../data/produtos.dat", "r");
 
     while(fread(&input, sizeof(struct produtos), 1, infile)){
         contador++;
     };
+
+    return contador;
+
 }
 
 void CadastrarProduto(){
 
     FILE *ProdFile;
-    ProdFile = fopen("./data/produtos.dat", "a"); /* Abre o arquivo somente para adição */
+    ProdFile = fopen("../../data/produtos.dat", "a"); /* Abre o arquivo somente para adição */
 
     struct produtos prod; /* Cria uma instancia, da estrutura (Como uma cópia) */
 
@@ -41,6 +44,8 @@ void CadastrarProduto(){
     scanf("%s", prod.name);
     printf("Informe o preco do produto: \n");
     scanf("%f", &prod.price);
+
+    prod.id = GerarID();
 
     fwrite (&prod, sizeof(struct produtos), 1, ProdFile); /* Grava a estrutura no arquivo */
 

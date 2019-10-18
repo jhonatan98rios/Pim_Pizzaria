@@ -5,13 +5,8 @@
 #include <math.h>
 /* #include <conio.h> */
 
-/* Sctruct é uma variavel com varias propriedades */
-struct produtos{
-    int id;
-    int category; /* Define se é pizza, bebida ou doce */
-    char name[10];
-    float price;
-};
+#include "../../libs/structs.h" /* Essa é a classe de produto */
+#include "../../libs/voltar.h" /* Essa é a classe de produto */
 
 int GerarID(){
 
@@ -19,7 +14,7 @@ int GerarID(){
 
     FILE *infile;
     struct produtos input;
-    infile = fopen("../../data/produtos.dat", "r");
+    infile = fopen("./data/produtos.dat", "r");
 
     while(fread(&input, sizeof(struct produtos), 1, infile)){
         contador++;
@@ -32,7 +27,7 @@ int GerarID(){
 void CadastrarProduto(){
 
     FILE *ProdFile;
-    ProdFile = fopen("../../data/produtos.dat", "a"); /* Abre o arquivo somente para adição */
+    ProdFile = fopen("./data/produtos.dat", "a"); /* Abre o arquivo somente para adição */
 
     struct produtos prod; /* Cria uma instancia, da estrutura (Como uma cópia) */
 
@@ -73,15 +68,8 @@ int main()
     CadastrarProduto();
 
     /* Isso se tornará uma biblioteca de cabeçalho */
-    int continuar;
-
-    printf("Deseja voltar ao menu? \n [1] Sim \n [2] Nao\n");
-    scanf("%d", &continuar);
-    if(continuar == 1){
-        system("./source/menu");
-    }else{
-        printf("Programa Encerrado");
-    }
+    
+    voltarMenu();
 
     return 0;
 }

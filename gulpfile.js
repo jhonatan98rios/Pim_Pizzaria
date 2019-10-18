@@ -6,7 +6,9 @@ const builds = [
     "sudo gcc ./source/menu.c -o ./source/menu",
     "sudo gcc ./source/produtos/MenuProduto.c -o ./source/produtos/MenuProduto",
     "sudo gcc ./source/produtos/CadastrarProduto.c -o ./source/produtos/CadastrarProduto",
-    "sudo gcc ./source/produtos/VizualizarProduto.c -o ./source/produtos/VizualizarProduto"
+    "sudo gcc ./source/produtos/VizualizarProduto.c -o ./source/produtos/VizualizarProduto",
+    "sudo gcc ./source/pedidos/MenuPedidos.c -o ./source/pedidos/MenuPedidos",
+    "sudo gcc ./source/pedidos/CadastrarPedido.c -o ./source/produtos/CadastrarPedido",
 ];
 
 for(let i = 0; i < 4; i++){

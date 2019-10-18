@@ -5,29 +5,9 @@
 #include <math.h>
 /* #include <conio.h> */
 
-struct produtos{
-    int id;
-    int category;
-    char name[10];
-    float price;
-};
-
-void LerProd( char titulo[10], int category ){
-
-    FILE *infile;
-    struct produtos input;
-    infile = fopen("../../data/produtos.dat", "r");
-
-    printf("\n =================== %s =================== \n", titulo);
-    while(fread(&input, sizeof(struct produtos), 1, infile)){
-        if(input.category == category){
-            printf
-            ("\n id = %d \n nome = %s \n preco = %.2f\n",input.id, input.name, input.price);
-        }
-    };
-
-    fclose (infile);
-}
+#include "../../libs/structs.h" /* Essa é a classe de produto */
+#include "../../libs/lerProd.h" /* Essa é a classe de produto */
+#include "../../libs/voltar.h" /* Essa é a classe de produto */
 
 void LerProdutos(){
 
@@ -56,15 +36,7 @@ int main()
 
     /* Isso se tornará uma biblioteca de cabeçalho */
 
-    int continuar;
-
-    printf("Deseja voltar ao menu? \n [1] Sim \n [2] Nao\n");
-    scanf("%d", &continuar);
-    if(continuar == 1){
-        system("./source/menu");
-    }else{
-        printf("Programa Encerrado");
-    }
+    voltarMenu();
 
     return 0;
 }

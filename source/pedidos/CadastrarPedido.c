@@ -3,33 +3,15 @@
 #include <locale.h>
 #include <string.h>
 
-struct produtos{
-    int category;
-    char name[10];
-    float price;
-};
-
-void LerProd( char titulo[10], int category ){ /* Isso deve virar uma funcao de cabeçalho */
-
-    FILE *ProdFile;
-    struct produtos prod; /* Cria uma instância para vizualização */
-    ProdFile = fopen("../../data/produtos.dat", "r"); /* Salva os produtos armazenados em memória */
-
-    printf("\n =================== %s =================== \n", titulo);
-    while(fread(&prod, sizeof(struct produtos), 1, ProdFile)){ /* Isso deve virar uma funcao de cabeçalho */
-        if(prod.category == category){
-            printf ("\n nome = %s \n preco = %.2f\n", prod.name, prod.price); /* Percorre o array printando */
-        }
-    };
-
-    fclose (ProdFile);
-}
+#include "../../libs/structs.h" /* Essa é a classe de produto */
+#include "../../libs/lerProd.h" /* Essa é a classe de produto */
+#include "../../libs/voltar.h" /* Essa é a classe de produto */
 
 void LerCarrinho(){
 
     FILE *carrinho;
     struct produtos car; /* Cria uma instância para vizualização */
-    carrinho = fopen("../../data/carrinho_de_compras.dat", "r"); /* Salva os produtos armazenados em memória */
+    carrinho = fopen("./data/carrinho_de_compras.dat", "r"); /* Salva os produtos armazenados em memória */
 
     printf("\n\n === Carrinho de Compras === \n\n");
     while(fread(&car, sizeof(struct produtos), 1, carrinho)){
@@ -41,7 +23,7 @@ void LerCarrinho(){
 void ApagarCarrinho(){
     FILE *carrinho;
     struct produtos car; /* Cria uma instância para vizualização */
-    carrinho = fopen("../../data/carrinho_de_compras.dat", "w"); /* Salva os produtos armazenados em memória */
+    carrinho = fopen("./data/carrinho_de_compras.dat", "w"); /* Salva os produtos armazenados em memória */
 
     fclose(carrinho);
 }
@@ -52,11 +34,11 @@ void CadastrarPedido(){
     int confirm = 0;
 
     FILE *ProdFile;
-    ProdFile = fopen("../../data/produtos.dat", "r"); /* Abre o arquivo para leitura */
+    ProdFile = fopen("./data/produtos.dat", "r"); /* Abre o arquivo para leitura */
     struct produtos prod; /* prod é o objeto vindo da memoria */
 
     FILE *InputFile; /* Cria um arquivo para armazenar a compra */
-    InputFile = fopen("../../data/carrinho_de_compras.dat", "a"); /* Abre o arquivo para adição */
+    InputFile = fopen("./data/carrinho_de_compras.dat", "a"); /* Abre o arquivo para adição */
     struct produtos input; /* input é o objeto informado */
 
     printf("O que deseja comprar? \n\n [1] Pizzas \n [2] Bebidas \n [3] Doces \n");
@@ -81,8 +63,8 @@ void CadastrarPedido(){
 
 /* ========== Isso verifica se o nome digitado é igual ao nome do produto salvo */
 
-    printf(" \n Informe o nome do produto: \n");
-    scanf("%s", input.name);
+    printf(" \n Informe o id do produto: \n");
+    scanf("%d", &input.id);
     
     int produtoValido = 0;
     int compare;
@@ -91,11 +73,9 @@ void CadastrarPedido(){
 
         if(prod.category == input.category){
 
-            compare =  strcmp(prod.name, input.name); /* Verifica se produto é igual à a prod.name */
-
 /* ======================================================   */
-            if( compare == 0 ){
-                printf ("\n nome = %s \n preco = %.2f\n", prod.name, prod.price);
+            if( prod.id == input.id ){
+                printf ("\nid = %d \n nome = %s \n preco = %.2f\n",prod.id,  prod.name, prod.price);
                 produtoValido = 1;
                 input.price = prod.price; /* Salva o valor do produto na struct input */
                 break;
@@ -170,4 +150,6 @@ int main(){
 
     printf("\e[1;1H\e[2J");
     CadastrarPedido();
+
+    voltarMenu();
 }

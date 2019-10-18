@@ -37,6 +37,6 @@
         printf("\n Excluir");
         break;
     case 4:
-        system("../menu");
+        system("./source/menu");
     }
 }   

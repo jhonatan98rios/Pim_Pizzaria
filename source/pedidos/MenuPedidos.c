@@ -28,7 +28,7 @@
         break;
     case 2:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Adicionar");
+        system("./source/pedidos/CadastrarPedido");
         break;
     case 3:
         printf("\e[H\e[2J"); //Limpa a tela

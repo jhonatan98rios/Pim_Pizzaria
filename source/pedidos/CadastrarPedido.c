@@ -41,7 +41,7 @@ void CadastrarPedido(){
     InputFile = fopen("./data/carrinho_de_compras.dat", "a"); /* Abre o arquivo para adição */
     struct produtos input; /* input é o objeto informado */
 
-    printf("O que deseja comprar? \n\n [1] Pizzas \n [2] Bebidas \n [3] Doces \n");
+    printf("O que deseja comprar? \n\n [1] Pizzas \n [2] Bebidas \n [3] Doces \n [4] Pizzas Grandes \n [5] Pizzas 1/2 \n");
     scanf("%d", &input.category );
 
     switch(input.category)
@@ -55,19 +55,22 @@ void CadastrarPedido(){
     case 3:
         LerProd( "Doces" , 3);
         break;
+    case 4:
+        LerProd( "Pizzas Grandes" , 4);
+        break;
+    case 5:
+        LerProd( "Pizzas 1/2" , 5);
+        break;
     default:
         printf("Informe um valor válido");
         CadastrarPedido();
         break;
     }
 
-/* ========== Isso verifica se o nome digitado é igual ao nome do produto salvo */
-
     printf(" \n Informe o id do produto: \n");
     scanf("%d", &input.id);
     
     int produtoValido = 0;
-    int compare;
 
     while(fread(&prod, sizeof(struct produtos), 1, ProdFile)){
 

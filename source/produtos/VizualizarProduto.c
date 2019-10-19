@@ -18,6 +18,9 @@ void LerProdutos(){
     LerProd( "Pizzas" , 1);
     LerProd( "Bebidas" , 2);
     LerProd( "Doces" , 3);
+    LerProd( "Pizzas Grandes", 4);
+    LerProd( "Meias Pizzas", 5);
+    
 
     printf("\n\n");
 };

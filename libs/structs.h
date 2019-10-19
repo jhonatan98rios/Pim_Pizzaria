@@ -4,7 +4,7 @@
 struct produtos{
     int id;
     int category; /* Define se é pizza, bebida ou doce */
-    char name[10];
+    char name[20];
     float price;
 };
 

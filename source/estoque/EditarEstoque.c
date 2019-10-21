@@ -4,16 +4,16 @@
 #include <locale.h>
 #include <math.h>
 /* #include <conio.h> */
-#include "./LerEst.h"
+#include "../../libs/LerEst.h"
 
 void Adicionar(id){
 
     FILE *EstoqueFile;
     struct estoque est;
-    EstoqueFile = fopen("estoque.dat", "r");
+    EstoqueFile = fopen("./data/estoque.dat", "r");
 
     FILE *TempFile;
-    TempFile = fopen("temp.dat", "w");
+    TempFile = fopen("./data/estoqueTemp.dat", "w");
 
     int quant;
 
@@ -32,18 +32,18 @@ void Adicionar(id){
     };
 
     fclose(EstoqueFile);  
-    remove("estoque.dat");
-    rename("temp.dat", "estoque.dat");
+    remove("./data/estoque.dat");
+    rename("./data/estoqueTemp.dat", "./data/estoque.dat");
 }
 
 void Remover(id){
 
     FILE *EstoqueFile;
     struct estoque est;
-    EstoqueFile = fopen("estoque.dat", "r");
+    EstoqueFile = fopen("./data/estoque.dat", "r");
 
     FILE *TempFile;
-    TempFile = fopen("temp.dat", "w");
+    TempFile = fopen("./data/temp.dat", "w");
 
     int quant;
 
@@ -62,8 +62,8 @@ void Remover(id){
     };
 
     fclose(EstoqueFile);  
-    remove("estoque.dat");
-    rename("temp.dat", "estoque.dat");
+    remove("./data/estoque.dat");
+    rename("./data/estoqueTemp.dat", "./data/estoque.dat");
 }
 
 void EditarEstoque(){
@@ -82,7 +82,7 @@ void EditarEstoque(){
 
     FILE *EstoqueFile;
     struct estoque est;
-    EstoqueFile = fopen("estoque.dat", "r");
+    EstoqueFile = fopen("./data/estoque.dat", "r");
 
     while(fread(&est, sizeof(struct estoque), 1, EstoqueFile)){
         if(id == est.id){

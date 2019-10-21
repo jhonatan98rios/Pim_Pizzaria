@@ -11,7 +11,7 @@
 
     int GerarId(){
         FILE *StoreFile;
-        StoreFile = fopen("estoque.dat", "r"); /* Abre o arquivo somente para leitura */
+        StoreFile = fopen("./data/estoque.dat", "r"); /* Abre o arquivo somente para leitura */
 
         struct estoque store;
 
@@ -28,7 +28,7 @@
 
     void CadastrarEstoque(){
         FILE *EstoqueFile;
-        EstoqueFile = fopen("estoque.dat", "a"); /* Abre o arquivo somente para adição */
+        EstoqueFile = fopen("./data/estoque.dat", "a"); /* Abre o arquivo somente para adição */
 
         struct estoque est; /* Cria uma instancia, da estrutura (Como uma cópia) */
 

@@ -5,20 +5,20 @@
 #include <math.h>
 /* #include <conio.h> */
 
-struct produtos{
+struct promocoes{
     int category;
     char name[10];
     float price;
 };
 
-void LerProd( char titulo[10], int category ){
+void LerProm( char titulo[10], int category ){
 
     FILE *infile;
     struct promocoes input;
-    infile = fopen ("./data/promocao.dat", "r");
+    infile = fopen ("prod.dat", "r");
 
     printf("\n =================== %s =================== \n", titulo);
-    while(fread(&input, sizeof(struct promocao), 1, infile)){
+    while(fread(&input, sizeof(struct promocoes), 1, infile)){
         if(input.category == category){
             printf ("\n nome = %s \n preco = %.2f\n", input.name, input.price);
         }

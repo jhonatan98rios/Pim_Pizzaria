@@ -6,7 +6,7 @@
 /* #include <conio.h> */
 
 /* Sctruct é uma variavel com varias propriedades */
-struct produtos{
+struct promocoes{
     int category; /* Define se é pizza, bebida ou doce */
     char name[10];
     float price;
@@ -14,8 +14,8 @@ struct produtos{
 
 void CadastrarPromocao(){
 
-    FILE *ProdFile;
-    ProdFile = fopen("prod.dat", "a"); /* Abre o arquivo somente para adição */
+    FILE *PromFile;
+    PromFile = fopen("prod.dat", "a"); /* Abre o arquivo somente para adição */
 
     struct promocoes prod; /* Cria uma instancia, da estrutura (Como uma cópia) */
 
@@ -38,7 +38,7 @@ void CadastrarPromocao(){
         printf("Erro ao gravar !\n");
     }
     
-    fclose(ProdFile);
+    fclose(PromFile);
 }
 
 int main()

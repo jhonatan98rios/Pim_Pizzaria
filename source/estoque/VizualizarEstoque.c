@@ -3,7 +3,6 @@
 #include <string.h>
 #include <locale.h>
 #include <math.h>
-#include <unistd.h>
 /* #include <conio.h> */
 #include "../../libs/LerEst.h"
 
@@ -29,11 +28,6 @@ int main()
 
     printf("\e[1;1H\e[2J");
     LerEstoque();
-
-    printf("teste");
-
-    int teste;
-    scanf("%d", &teste);
 
     return 0;
 }

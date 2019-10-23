@@ -4,13 +4,7 @@
 #include <locale.h>
 #include <math.h>
 /* #include <conio.h> */
-
-struct funcionario{
-    int category;
-    int tipoLogin;
-    char name[10];
-    char senha[10];
-};
+#include "FuncStruct.h"
 
 void lerLogin(){
 

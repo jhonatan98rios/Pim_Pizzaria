@@ -17,10 +17,7 @@ void CadastrarFuncionario(){
 
     struct funcionario func; /* Cria uma instancia, da estrutura (Como uma cópia) */
 
-    printf("Informe o tipo de funcionario a cadastrar: \n \n [1] Funcionario|Usuário \n [2] Pizzaiolo \n");
-    scanf("%d", &func.category ); /* Isso vai definir como vai ser exibido em "Vizualizar funcionario" */
-
-    printf("Informe o tipo de usuário: \n \n [1] Usuário Master \n [2] Operacional \n");
+    printf("Informe o cargo: \n \n [1] Administrativo \n [2] Operacional \n");
     scanf("%d", &func.tipoLogin); /* Isso vai definir como vai ser exibido em "Vizualizar funcionario" */
 
     

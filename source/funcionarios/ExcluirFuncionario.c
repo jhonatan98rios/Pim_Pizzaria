@@ -16,7 +16,6 @@ void remover(){
 
 printf("Informe o CPF a ser excluido:");
 scanf("%s",cpf);
-printf("%s", cpf);
 
  FuncFile = fopen("funcionarios.dat","r");
 
@@ -27,17 +26,16 @@ printf("%s", cpf);
 
      compare = strcmp(func.cpf, cpf);
 
-     printf("%s", func.cpf);
-
      if(compare != 0){
          fwrite(&func, sizeof(struct funcionario),1,FuncTemp);
      }else{
-         printf("Tem certeza que deseja excluir o %s?\n [1] Sim \n [0] Nao", func.name);
+         printf("Tem certeza que deseja excluir o %s?\n [1] Sim \n [0] Nao\n", func.name);
          scanf("%d", &confirma);
         if(confirma == 1){
             printf("Funcionario Excluido com sucesso!!");
         }else{
             fwrite(&func, sizeof(struct funcionario),1,FuncTemp);
+            printf("Exclusão cancelada!!")
         }
         
      }

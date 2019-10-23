@@ -11,7 +11,7 @@ void LerFunc( char titulo[10], int tipoLogin ){
 
     FILE *infile;
     struct funcionario input;
-    infile = fopen ("funcionariostemp.dat", "r");
+    infile = fopen ("funcionarios.dat", "r");
     
     printf("\n =============== %s =============== \n", titulo);
     while(fread(&input, sizeof(struct funcionario), 1, infile)){

@@ -4,28 +4,7 @@
 #include <locale.h>
 #include <math.h>
 /* #include <conio.h> */
-
-struct promocoes{
-    int category;
-    char name[10];
-    float price;
-};
-
-void LerProm( char titulo[10], int category ){
-
-    FILE *infile;
-    struct promocoes input;
-    infile = fopen ("prod.dat", "r");
-
-    printf("\n =================== %s =================== \n", titulo);
-    while(fread(&input, sizeof(struct promocoes), 1, infile)){
-        if(input.category == category){
-            printf ("\n nome = %s \n preco = %.2f\n", input.name, input.price);
-        }
-    };
-
-    fclose (infile);
-}
+#include "../../libs/LerProm.h" /* Essa é a classe de produto */
 
 void LerPromocoes(){
 

@@ -6,14 +6,25 @@ const builds = [
     "sudo gcc ./source/menu.c -o ./source/menu",
     "sudo gcc ./source/produtos/MenuProduto.c -o ./source/produtos/MenuProduto",
     "sudo gcc ./source/produtos/CadastrarProduto.c -o ./source/produtos/CadastrarProduto",
-    "sudo gcc ./source/produtos/VizualizarProduto.c -o ./source/produtos/VizualizarProduto"
+    "sudo gcc ./source/produtos/VizualizarProduto.c -o ./source/produtos/VizualizarProduto",
+    "sudo gcc ./source/promocoes/VizualizarPromocoes.c -o ./source/promocoes/VizualizarPromocoes"
 ];
 
-for(let i = 0; i < 4; i++){
+builds.forEach((index)=>{
     gulp.task('default', async function(){
-        exec(builds[i], function(error, stdout, stderr){
+        console.log(index);
+        exec(index, function(error, stdout, stderr){
             console.log(stdout);
             console.log(stderr);
         });
     });
-};
+});
+
+
+/* gulp.task('default', async function(){
+    console.log(builds[5]);
+    exec(builds[5], function(error, stdout, stderr){
+        console.log(stdout);
+        console.log(stderr);
+    });
+}); */

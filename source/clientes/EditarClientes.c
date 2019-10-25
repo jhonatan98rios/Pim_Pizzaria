@@ -23,9 +23,9 @@ void editar(){
 
 
 
-    printf("\n ==============================================");
+    printf("\n =====================================================");
     printf("\n ================= Editar Clientes ===================");
-    printf("\n ==============================================\n");
+    printf("\n =====================================================\n");
 
     printf("Informe o Numero do cliente:");
     scanf("%s", foneCliente);
@@ -41,6 +41,7 @@ void editar(){
             printf("\nCliente encontrado com o telefone: %s \n", input.telefone);
             printf ("\n Nome: %s \n Endereço: %s\n Telefone: %s\n", input.nome, input.endereco, input.telefone);
             fflush(stdin);
+            printf(" =====================================================\n");
             printf("\n Digite o novo endereço:");
             gets(input.endereco);
              fwrite(&input, sizeof(struct cliente),1,tempFile);

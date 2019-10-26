@@ -3,7 +3,7 @@
 #include <string.h>
 #include <locale.h>
 #include <math.h>
-#include "StructClie.h"
+#include "../../libs/StructClie.h"
 
 /* Sctruct é uma variavel com varias propriedades */
 
@@ -11,7 +11,7 @@
 void CadastrarCliente(){
 
     FILE *FuncFile;
-    FuncFile = fopen("clientes.dat", "a"); /* Abre o arquivo somente para adição */
+    FuncFile = fopen("./data/clientes.dat", "a"); /* Abre o arquivo somente para adição */
 
     struct cliente cli; /* Cria uma instancia, da estrutura (Como uma cópia) */
 
@@ -50,11 +50,10 @@ int main()
     //define o titulo da janela do prompt
     //system("title Menu");
 
-    printf("\e[1;1H\e[2J");
     CadastrarCliente();
     
     /* Isso se tornará uma biblioteca de cabeçalho */
-    /*int continuar;
+    int continuar;
 
     printf("Deseja voltar ao menu? \n [1] Sim \n [2] Nao\n");
     scanf("%d", &continuar);
@@ -62,7 +61,7 @@ int main()
         system("./source/menu");
     }else{
         printf("Programa Encerrado");
-    }*/
+    }
 
     return 0;
 }

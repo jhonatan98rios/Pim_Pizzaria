@@ -6,6 +6,7 @@
 #include "../../libs/structs.h" /* Essa é a classe de produto */
 #include "../../libs/lerProd.h" /* Essa é a classe de produto */
 #include "../../libs/voltar.h" /* Essa é a classe de produto */
+#include "../../libs/StructClie.h"
 
 void LerCarrinho(){
 
@@ -28,7 +29,7 @@ void ApagarCarrinho(){
     fclose(carrinho);
 }
 
-void CadastrarPedido(){
+void CadastrarPedido(char tel[20]){
 
     char produto[10];
     int confirm = 0;
@@ -63,7 +64,7 @@ void CadastrarPedido(){
         break;
     default:
         printf("Informe um valor válido");
-        CadastrarPedido();
+        CadastrarPedido(tel);
         break;
     }
 
@@ -89,7 +90,7 @@ void CadastrarPedido(){
 
     if(produtoValido != 1){
         printf("Produto Inválido \n");
-        CadastrarPedido();
+        CadastrarPedido(tel);
     };
 
     printf("Confirmar pedido? [1] Sim - [0] Não \n");
@@ -97,7 +98,7 @@ void CadastrarPedido(){
 
     if(confirm != 1){
         printf("Compra cancelada!");
-        CadastrarPedido();
+        CadastrarPedido(tel);
         exit(0);
 
     }else{
@@ -121,7 +122,7 @@ void CadastrarPedido(){
         scanf("%d", &confirm);
 
         if(confirm == 1){
-            CadastrarPedido();
+            CadastrarPedido(tel);
             confirm = 0;
             exit(0);
         }else{
@@ -134,6 +135,7 @@ void CadastrarPedido(){
             scanf("%d", &confirm);
 
             if(confirm == 1){
+                printf("%s \n\n", tel);
                 printf("Compra Finalizada com sucesso \n");
 
             }else{
@@ -148,11 +150,46 @@ void CadastrarPedido(){
 
 }
 
+void IniciarVenda(){
+
+    FILE *infile;
+    struct cliente input;
+    infile = fopen("./data/clientes.dat", "r");
+
+    char tel[20];
+    int isUser = 0;
+
+    printf("Informe o telefone do Cliente: ");
+    scanf("%s", tel);
+
+    while(fread(&input, sizeof(struct cliente), 1, infile)){
+
+        int compare = strcmp(tel, input.telefone);
+
+        if(compare == 0){
+            printf ("\n Nome = %s \n Endereço = %s\n Telefone= %s\n", input.nome, input.endereco, input.telefone);
+            isUser = 1;
+        }
+
+        if(isUser == 1){
+            CadastrarPedido(input.telefone);
+        }else{
+            system("./source/clientes/CadastrarClientes");
+            CadastrarPedido(tel);
+        }
+        
+    };
+
+
+
+    fclose (infile);
+}
+
 int main(){
     setlocale(LC_ALL, "Portuguese_Brasil");
 
     printf("\e[1;1H\e[2J");
-    CadastrarPedido();
+    IniciarVenda();
 
     voltarMenu();
 }

@@ -3,7 +3,7 @@
 #include <string.h>
 #include <locale.h>
 #include <math.h>
-#include "StructClie.h"
+#include "../../libs/StructClie.h"
 /* #include <conio.h> */
 
 
@@ -12,8 +12,7 @@ void LerClie(){
 
     FILE *infile;
     struct cliente input;
-    infile = fopen("clientesTemp.dat", "r");
-
+    infile = fopen("./data/clientes.dat", "r");
 
     // printf("\n =================== %s =================== \n");
     while(fread(&input, sizeof(struct cliente), 1, infile)){

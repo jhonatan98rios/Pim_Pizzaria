@@ -24,15 +24,15 @@
     {
     case 1:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Vizualizar");
+        system("./source/clientes/VizualizarClientes");
         break;
     case 2:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Adicionar");
+        system("./source/clientes/CadastrarClientes");
         break;
     case 3:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Excluir");
+        system("./source/clientes/EditarClientes");
         break;
     }
 }   

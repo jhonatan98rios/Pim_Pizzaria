@@ -8,7 +8,7 @@ void menuFuncionarios(){
 }
 
 void menuClientes(){
-    system("./source/clientes/MenuCientes");
+    system("./source/clientes/MenuClientes");
 }
 
 void menuProdutos(){

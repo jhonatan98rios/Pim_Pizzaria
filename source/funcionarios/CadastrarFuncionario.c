@@ -1,45 +1,67 @@
 #include <stdio.h>
+#include<stdlib.h>
 #include <string.h>
-/* #include <conio.h> */
 #include <locale.h>
+#include <math.h>
 
-/*
-Autor: Hugo Barros
-Data de criação 09/09/2019
-Descrição:
-Implementação 01: Feito a criação da função (cadastrar),O mesmo vai criar um arquivo de texto com o nome do usuário e inserir a senha dentro dele
-*/
+/* Sctruct é uma variavel com varias propriedades */
+struct funcionario{
+    int category; /* Define se é pizza, bebida ou doce */
+    char name[10];
+    char senha[10];
+};
 
-void cadastrarFuncionario(){
-    char usuario[50],senha[10],setor[1];
-    FILE *ArqUsr;
+void CadastrarFuncionario(){
+
+    FILE *FuncFile;
+    FuncFile = fopen("./data/funcionarios.dat", "a"); /* Abre o arquivo somente para adição */
+
+    struct funcionario func; /* Cria uma instancia, da estrutura (Como uma cópia) */
+
+    printf("Informe o tipo de funcionario a cadastrar: \n \n [1] Funcionario|Usuário \n [2] Pizzaiolo \n");
+    scanf("%d", &func.category ); /* Isso vai definir como vai ser exibido em "Vizualizar Produto" */
+
+    printf("\e[1;1H\e[2J"); /* Limpa a Tela */
+    printf("Nome|Usuário: \n");
+    scanf("%s", func.name);
+    printf("Informe a senha: \n");
+    scanf("%s", &func.senha);
+
+    fwrite (&func, sizeof(struct funcionario), 1, FuncFile); /* Grava a estrutura no arquivo */
+
+    if(&fwrite != 0){ /* Se conseguir gravar */
+        printf("\e[1;1H\e[2J");
+        printf("Salvo com sucesso !\n\n"); 
+    }else{
+        printf("\e[1;1H\e[2J"); 
+        printf("Erro ao gravar !\n");
+    }
     
-                
-    printf("\n ==============================================");
-    printf("\n ============ Usuários ==============");
-    printf("\n ==============================================");
-    printf("\n \n");
-
-    printf("Digite seu nome: ");gets(usuario); //Usuário insere o nome com que quer ser cadastrado
-    printf("Digite sua senha: ");gets(senha); //usuário digita sua senha
-    printf("Digite seu setor: (1) Administrativo, (2) Operacional) "); gets(setor);
-                
-    ArqUsr=fopen(usuario, "a");//fazer um arquivo com o nome do usuário
-                  
-    printf("Usuário cadastrado com sucesso!");
-    fprintf(ArqUsr,"*%s \n",senha);//grava no arquivo a senha do usuário, antecedida pelo caractere *
-    fprintf(ArqUsr,"#%s \n",setor);
-    fclose(ArqUsr);//fecha o arquivo
-    /* getch(); */
-                
+    fclose(FuncFile);
 }
 
-int main(){
-        //Define o padrão UTF-8
+int main()
+{
+    //Define o padrão UTF-8
     setlocale(LC_ALL, "Portuguese_Brasil");
     //Define a cor azul do terminal
-    /* system("color 1F"); */
+    //system("color 1F");
     //define o titulo da janela do prompt
-    /* system("title Menu"); */
-    cadastrarFuncionario();
+    //system("title Menu");
+
+    printf("\e[1;1H\e[2J");
+    CadastrarFuncionario();
+    
+    /* Isso se tornará uma biblioteca de cabeçalho */
+    /*int continuar;
+
+    printf("Deseja voltar ao menu? \n [1] Sim \n [2] Nao\n");
+    scanf("%d", &continuar);
+    if(continuar == 1){
+        system("./source/menu");
+    }else{
+        printf("Programa Encerrado");
+    }*/
+
+    return 0;
 }

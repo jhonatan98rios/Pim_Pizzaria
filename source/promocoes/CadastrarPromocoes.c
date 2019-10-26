@@ -3,31 +3,32 @@
 #include <string.h>
 #include <locale.h>
 #include <math.h>
+/* #include <conio.h> */
 
 /* Sctruct é uma variavel com varias propriedades */
-struct funcionario{
+struct promocoes{
     int category; /* Define se é pizza, bebida ou doce */
     char name[10];
-    char senha[10];
+    float price;
 };
 
-void CadastrarFuncionario(){
+void CadastrarPromocao(){
 
-    FILE *FuncFile;
-    FuncFile = fopen("./data/funcionarios.dat", "a"); /* Abre o arquivo somente para adição */
+    FILE *PromFile;
+    PromFile = fopen("prod.dat", "a"); /* Abre o arquivo somente para adição */
 
-    struct funcionario func; /* Cria uma instancia, da estrutura (Como uma cópia) */
+    struct promocoes prod; /* Cria uma instancia, da estrutura (Como uma cópia) */
 
-    printf("Informe o tipo de funcionario a cadastrar: \n \n [1] Funcionario|Usuário \n [2] Pizzaiolo \n");
-    scanf("%d", &func.category ); /* Isso vai definir como vai ser exibido em "Vizualizar Produto" */
+    printf("Informe qual promocao deseja cadastrar: \n \n [1] Pizzas \n [2] Bebidas \n [3] Doces\n\n");
+    scanf("%d", &prod.category ); /* Isso vai definir como vai ser exibido em "Vizualizar Produto" */
 
     printf("\e[1;1H\e[2J"); /* Limpa a Tela */
-    printf("Nome|Usuário: \n");
-    scanf("%s", func.name);
-    printf("Informe a senha: \n");
-    scanf("%s", &func.senha);
+    printf("Informe o nome do promocao: \n");
+    scanf("%s", prod.name);
+    printf("Informe o preco da produto: \n");
+    scanf("%f", &prod.price);
 
-    fwrite (&func, sizeof(struct funcionario), 1, FuncFile); /* Grava a estrutura no arquivo */
+    fwrite (&prod, sizeof(struct promocoes), 1, PromFile); /* Grava a estrutura no arquivo */
 
     if(&fwrite != 0){ /* Se conseguir gravar */
         printf("\e[1;1H\e[2J");
@@ -37,7 +38,7 @@ void CadastrarFuncionario(){
         printf("Erro ao gravar !\n");
     }
     
-    fclose(FuncFile);
+    fclose(PromFile);
 }
 
 int main()
@@ -50,10 +51,10 @@ int main()
     //system("title Menu");
 
     printf("\e[1;1H\e[2J");
-    CadastrarFuncionario();
-    
+    CadastrarPromocao();
+
     /* Isso se tornará uma biblioteca de cabeçalho */
-    /*int continuar;
+    int continuar;
 
     printf("Deseja voltar ao menu? \n [1] Sim \n [2] Nao\n");
     scanf("%d", &continuar);
@@ -61,7 +62,7 @@ int main()
         system("./source/menu");
     }else{
         printf("Programa Encerrado");
-    }*/
+    }
 
     return 0;
 }

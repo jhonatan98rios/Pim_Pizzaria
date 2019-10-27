@@ -160,7 +160,8 @@ void IniciarVenda(){
     int isUser = 0;
 
     printf("Informe o telefone do Cliente: ");
-    scanf("%s", tel);
+    gets(tel);
+    fflush(stdin);
 
     while(fread(&input, sizeof(struct cliente), 1, infile)){
 

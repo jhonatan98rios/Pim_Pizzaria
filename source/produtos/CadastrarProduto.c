@@ -74,8 +74,12 @@ void CadastrarProduto(){
     scanf("%d", &prod.category ); /* Isso vai definir como vai ser exibido em "Vizualizar Produto" */
 
     printf("\e[1;1H\e[2J"); /* Limpa a Tela */
+
+    fflush(stdin);
     printf("Informe o nome do produto: \n");
-    scanf("%s", prod.name);
+    gets(prod.name);
+    fflush(stdin);
+    
     printf("Informe o preco do produto: \n");
     scanf("%f", &prod.price);
 

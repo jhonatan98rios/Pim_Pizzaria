@@ -22,10 +22,13 @@ void CadastrarFuncionario(){
     scanf("%d", &func.category ); /* Isso vai definir como vai ser exibido em "Vizualizar Produto" */
 
     printf("\e[1;1H\e[2J"); /* Limpa a Tela */
+    fflush(stdin);
     printf("Nome|Usuário: \n");
-    scanf("%s", func.name);
+    gets(func.name);
+    fflush(stdin);
     printf("Informe a senha: \n");
-    scanf("%s", func.senha);
+    gets(func.senha);
+    fflush(stdin);
 
     fwrite (&func, sizeof(struct funcionario), 1, FuncFile); /* Grava a estrutura no arquivo */
 

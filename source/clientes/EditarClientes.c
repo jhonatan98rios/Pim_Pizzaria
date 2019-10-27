@@ -6,10 +6,7 @@
 /* #include <conio.h> */
 #include "../../libs/StructClie.h"
 
-
-
 void editar(){
-
 
     FILE *infile;
     FILE *tempFile;
@@ -21,14 +18,13 @@ void editar(){
     tempFile = fopen("./data/clientesTemp.dat", "w");
     setlocale(LC_ALL,"Portuguese_Brazil");
 
-
-
     printf("\n =====================================================");
     printf("\n ================= Editar Clientes ===================");
     printf("\n =====================================================\n");
 
     printf("Informe o Numero do cliente:");
-    scanf("%s", foneCliente);
+    gets(foneCliente);
+    fflush(stdin);
 
     while(fread(&input, sizeof(struct cliente), 1, infile)){
 

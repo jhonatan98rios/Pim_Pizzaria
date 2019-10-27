@@ -15,7 +15,7 @@ void LerProm( char titulo[10], int category ){
 
     FILE *infile;
     struct promocoes input;
-    infile = fopen ("prod.dat", "r");
+    infile = fopen ("./data/promocoes.dat", "r");
 
     printf("\n =================== %s =================== \n", titulo);
     while(fread(&input, sizeof(struct promocoes), 1, infile)){

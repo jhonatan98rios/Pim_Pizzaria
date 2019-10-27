@@ -25,7 +25,7 @@ void CadastrarFuncionario(){
     printf("Nome|Usuário: \n");
     scanf("%s", func.name);
     printf("Informe a senha: \n");
-    scanf("%s", &func.senha);
+    scanf("%s", func.senha);
 
     fwrite (&func, sizeof(struct funcionario), 1, FuncFile); /* Grava a estrutura no arquivo */
 

@@ -15,7 +15,7 @@ struct promocoes{
 void CadastrarPromocao(){
 
     FILE *PromFile;
-    PromFile = fopen("prod.dat", "a"); /* Abre o arquivo somente para adição */
+    PromFile = fopen("./data/promocoes.dat", "a"); /* Abre o arquivo somente para adição */
 
     struct promocoes prod; /* Cria uma instancia, da estrutura (Como uma cópia) */
 

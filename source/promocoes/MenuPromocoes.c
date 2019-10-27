@@ -24,11 +24,11 @@
     {
     case 1:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Vizualizar");
+        system("./source/promocoes/VisualizarPromocoes");
         break;
     case 2:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Adicionar");
+        system("./source/promocoes/CadastrarPromocoes");
         break;
     case 3:
         printf("\e[H\e[2J"); //Limpa a tela

@@ -14,7 +14,7 @@
     printf("\n ==============================================");
     printf("\n \n");
 
-    printf("\n (1) Vizualizar Promoções");
+    printf("\n (1) Visualizar Promoções");
     printf("\n (2) Adicionar Promoções");
     printf("\n (3) Excluir Promoções \n");
 

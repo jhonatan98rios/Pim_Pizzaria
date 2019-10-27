@@ -71,14 +71,12 @@ void CadastrarProduto(){
     struct produtos prod; /* Cria uma instancia, da estrutura (Como uma cópia) */
 
     printf("Informe o que deseja cadastrar: \n \n [1] Pizzas \n [2] Bebidas \n [3] Doces\n\n");
-    scanf("%d", &prod.category ); /* Isso vai definir como vai ser exibido em "Vizualizar Produto" */
+    scanf("%d", &prod.category );
 
     printf("\e[1;1H\e[2J"); /* Limpa a Tela */
 
-    fflush(stdin);
     printf("Informe o nome do produto: \n");
-    gets(prod.name);
-    fflush(stdin);
+    scanf("%s", prod.name);
     
     printf("Informe o preco do produto: \n");
     scanf("%f", &prod.price);

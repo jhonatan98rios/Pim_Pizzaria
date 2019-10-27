@@ -14,7 +14,7 @@
     printf("\n ==============================================");
     printf("\n \n");
 
-    printf("\n (1) Vizualizar Clientes");
+    printf("\n (1) Visualizar Clientes");
     printf("\n (2) Adicionar Clientes");
     printf("\n (3) Excluir Clientes \n");
 
@@ -24,7 +24,7 @@
     {
     case 1:
         printf("\e[H\e[2J"); //Limpa a tela
-        system("./source/clientes/VizualizarClientes");
+        system("./source/clientes/VisualizarClientes");
         break;
     case 2:
         printf("\e[H\e[2J"); //Limpa a tela

@@ -42,7 +42,7 @@ void CadastrarPedido(char tel[20]){
     InputFile = fopen("./data/carrinho_de_compras.dat", "a"); /* Abre o arquivo para adição */
     struct produtos input; /* input é o objeto informado */
 
-    printf("O que deseja comprar? \n\n [1] Pizzas \n [2] Bebidas \n [3] Doces \n [4] Pizzas Grandes \n [5] Pizzas 1/2 \n");
+    printf("O que deseja comprar? \n\n [1] Pizzas \n [2] Bebidas \n [3] Doces \n [4] Pizzas Grandes \n [5] Pizzas 1/2 \n [6] Promocoes \n");
     scanf("%d", &input.category );
 
     switch(input.category)
@@ -61,6 +61,9 @@ void CadastrarPedido(char tel[20]){
         break;
     case 5:
         LerProd( "Pizzas 1/2" , 5);
+        break;
+    case 6:
+        LerProm();
         break;
     default:
         printf("Informe um valor válido");
@@ -160,8 +163,7 @@ void IniciarVenda(){
     int isUser = 0;
 
     printf("Informe o telefone do Cliente: ");
-    gets(tel);
-    fflush(stdin);
+    scanf("%s", tel);
 
     while(fread(&input, sizeof(struct cliente), 1, infile)){
 
@@ -170,18 +172,16 @@ void IniciarVenda(){
         if(compare == 0){
             printf ("\n Nome = %s \n Endereço = %s\n Telefone= %s\n", input.nome, input.endereco, input.telefone);
             isUser = 1;
+            break;
         }
-
-        if(isUser == 1){
-            CadastrarPedido(input.telefone);
-        }else{
-            system("./source/clientes/CadastrarClientes");
-            CadastrarPedido(tel);
-        }
-        
     };
 
-
+    if(isUser == 1){
+        CadastrarPedido(input.telefone);
+    }else{
+        system("./source/clientes/CadastrarClientes");
+        CadastrarPedido(tel);
+    }
 
     fclose (infile);
 }

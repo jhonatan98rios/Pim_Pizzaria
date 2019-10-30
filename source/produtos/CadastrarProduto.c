@@ -70,7 +70,7 @@ void CadastrarProduto(){
 
     struct produtos prod; /* Cria uma instancia, da estrutura (Como uma cópia) */
 
-    printf("Informe o que deseja cadastrar: \n \n [1] Pizzas \n [2] Bebidas \n [3] Doces\n\n");
+    printf("Informe o que deseja cadastrar: \n \n [1] Pizzas \n [2] Bebidas \n [3] Doces\n [9] Promocoes \n\n");
     scanf("%d", &prod.category );
 
     printf("\e[1;1H\e[2J"); /* Limpa a Tela */

@@ -20,6 +20,7 @@ void LerProdutos(){
     LerProd( "Doces" , 3);
     LerProd( "Pizzas Grandes", 4);
     LerProd( "Meias Pizzas", 5);
+    LerProd( "Promocoes", 9);
     
 
     printf("\n\n");

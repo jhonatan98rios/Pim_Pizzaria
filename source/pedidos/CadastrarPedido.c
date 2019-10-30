@@ -12,7 +12,7 @@ void LerCarrinho(){
 
     FILE *carrinho;
     struct produtos car; /* Cria uma instância para vizualização */
-    carrinho = fopen("./data/carrinho_de_compras.dat", "r"); /* Salva os produtos armazenados em memória */
+    carrinho = fopen("./data/vendas/carrinho_de_compras.dat", "r"); /* Salva os produtos armazenados em memória */
 
     printf("\n\n === Carrinho de Compras === \n\n");
     while(fread(&car, sizeof(struct produtos), 1, carrinho)){
@@ -24,25 +24,69 @@ void LerCarrinho(){
 void ApagarCarrinho(){
     FILE *carrinho;
     struct produtos car; /* Cria uma instância para vizualização */
-    carrinho = fopen("./data/carrinho_de_compras.dat", "w"); /* Salva os produtos armazenados em memória */
-
-    fclose(carrinho);
+    carrinho = fopen("./data/vendas/carrinho_de_compras.dat", "w"); /* Salva os produtos armazenados em memória */
+    remove("./data/vendas/carrinho_de_compras.dat");
 }
 
-void CadastrarPedido(char tel[20]){
 
-    char produto[10];
+void isUser(char tel[20]){
+
+    FILE *ClieFile;
+    struct cliente clie;
+    ClieFile = fopen("./data/clientes.dat", "r");
+
+    int hasUser = 0;
+
+    while(fread(&clie, sizeof(struct cliente), 1, ClieFile)){
+        int compare = strcmp(tel, clie.telefone);
+        if(compare == 0){
+            printf ("\n Nome = %s \n Endereço = %s\n Telefone= %s\n", clie.nome, clie.endereco, clie.telefone);
+            hasUser = 1;
+            break;
+        }
+    };
+
+    if(hasUser == 0){
+        system("./source/clientes/CadastrarClientes");
+        fclose (ClieFile); 
+        isUser(tel);
+    }else{
+        printf("Usuario valido \n\n");
+    }
+
+    fclose (ClieFile); 
+
+}
+
+void CadastrarPedido(){
+
+    /* Lê a lista de clientes */
+
+    FILE *Carrinho; /* Cria um arquivo para armazenar a compra */
+    Carrinho = fopen("./data/vendas/carrinho_de_compras.dat", "a"); /* Abre o arquivo para adição */
+    struct produtos input; /* clie é o objeto informado */
+
+    char tel[20]; /* Telefone do clientes */
     int confirm = 0;
+
+    printf("Informe o telefone do Cliente: ");
+    gets(tel);
+
+    /* Verifica se o numero de telefone existe na lista */
+
+    isUser(tel);
+
+    ESCOLHA:
+
+    fflush(stdin);
 
     FILE *ProdFile;
     ProdFile = fopen("./data/produtos.dat", "r"); /* Abre o arquivo para leitura */
     struct produtos prod; /* prod é o objeto vindo da memoria */
 
-    FILE *InputFile; /* Cria um arquivo para armazenar a compra */
-    InputFile = fopen("./data/carrinho_de_compras.dat", "a"); /* Abre o arquivo para adição */
-    struct produtos input; /* input é o objeto informado */
+    input.category = 0;
 
-    printf("O que deseja comprar? \n\n [1] Pizzas \n [2] Bebidas \n [3] Doces \n [4] Pizzas Grandes \n [5] Pizzas 1/2 \n [6] Promocoes \n");
+    printf("O que deseja comprar? \n\n [1] Pizzas \n [2] Bebidas \n [3] Doces \n [4] Pizzas Grandes \n [5] Pizzas 1/2 \n [9] Promocoes \n\n");
     scanf("%d", &input.category );
 
     switch(input.category)
@@ -62,14 +106,17 @@ void CadastrarPedido(char tel[20]){
     case 5:
         LerProd( "Pizzas 1/2" , 5);
         break;
-    case 6:
-        LerProm();
+    case 9:
+        LerProd( "Promocoes" , 9);
         break;
     default:
         printf("Informe um valor válido");
-        CadastrarPedido(tel);
+        fclose(ProdFile);
+        goto ESCOLHA;
         break;
     }
+
+    fflush(stdin);
 
     printf(" \n Informe o id do produto: \n");
     scanf("%d", &input.id);
@@ -78,61 +125,64 @@ void CadastrarPedido(char tel[20]){
 
     while(fread(&prod, sizeof(struct produtos), 1, ProdFile)){
 
-        if(prod.category == input.category){
-
-/* ======================================================   */
-            if( prod.id == input.id ){
+        if( input.category == prod.category ){
+            if( input.id == prod.id ){
                 printf ("\nid = %d \n nome = %s \n preco = %.2f\n",prod.id,  prod.name, prod.price);
                 produtoValido = 1;
                 input.price = prod.price; /* Salva o valor do produto na struct input */
                 break;
             }
-/* ======================================================   */
         }
     };
 
-    if(produtoValido != 1){
+    if(produtoValido == 0){
         printf("Produto Inválido \n");
-        CadastrarPedido(tel);
-    };
-
-    printf("Confirmar pedido? [1] Sim - [0] Não \n");
-    scanf("%d", &confirm);
-
-    if(confirm != 1){
-        printf("Compra cancelada!");
-        CadastrarPedido(tel);
-        exit(0);
-
+        fflush(stdin);
+        input.category = 0;
+        fclose(ProdFile);
+        goto ESCOLHA;
     }else{
-        confirm = 0;
-        
-        fwrite(&input, sizeof(struct produtos), 1, InputFile); /* Grava o produto no carrinho */
 
-        if(&fwrite != 0){ 
-            printf("\e[1;1H\e[2J");
-            printf("Cadastrado com sucesso !\n\n"); 
+        printf("Confirmar pedido? [1] Sim - [0] Não \n");
+        scanf("%d", &confirm);
+
+        if(confirm != 1){
+            printf("Compra cancelada!");
+            fclose(ProdFile);
+            goto ESCOLHA;
         }else{
-            printf("\e[1;1H\e[2J"); 
-            printf("Erro ao gravar !\n");
+
+            confirm = 0;        
+            fwrite(&input, sizeof(struct produtos), 1, Carrinho); /* Grava o produto no carrinho */
+
+            if(&fwrite != 0){ 
+                printf("\e[1;1H\e[2J");
+                printf("Cadastrado com sucesso !\n\n"); 
+            }else{
+                printf("\e[1;1H\e[2J"); 
+                printf("Erro ao gravar !\n");
+            }
+
         }
 
-        /* Mostra o carrinho */
-        LerCarrinho();
-        /* ======================= */
-        
         printf("Deseja adicionar produtos? \n [1] Sim - [0] Não \n");
         scanf("%d", &confirm);
 
         if(confirm == 1){
-            CadastrarPedido(tel);
             confirm = 0;
-            exit(0);
+            fclose(ProdFile);
+            goto ESCOLHA;
+            
         }else{
+
+            fclose(Carrinho);
+            fclose(ProdFile);
 
             /* Mostra o carrinho */
             LerCarrinho();
             /* ======================= */
+
+            PAGAMENTO:
             
             printf("Confirmar pagamento? [1] Sim - [0] Não \n");
             scanf("%d", &confirm);
@@ -140,57 +190,24 @@ void CadastrarPedido(char tel[20]){
             if(confirm == 1){
                 printf("%s \n\n", tel);
                 printf("Compra Finalizada com sucesso \n");
+                ApagarCarrinho();
 
-            }else{
+            }else if(confirm == 0){
                 ApagarCarrinho();
                 exit(0);
+            }else{
+                printf("Informe um valor válido: \n");
+                goto PAGAMENTO;
             }
         }
     }
-
-    fclose(ProdFile);
-    fclose(InputFile);
-
-}
-
-void IniciarVenda(){
-
-    FILE *infile;
-    struct cliente input;
-    infile = fopen("./data/clientes.dat", "r");
-
-    char tel[20];
-    int isUser = 0;
-
-    printf("Informe o telefone do Cliente: ");
-    scanf("%s", tel);
-
-    while(fread(&input, sizeof(struct cliente), 1, infile)){
-
-        int compare = strcmp(tel, input.telefone);
-
-        if(compare == 0){
-            printf ("\n Nome = %s \n Endereço = %s\n Telefone= %s\n", input.nome, input.endereco, input.telefone);
-            isUser = 1;
-            break;
-        }
-    };
-
-    if(isUser == 1){
-        CadastrarPedido(input.telefone);
-    }else{
-        system("./source/clientes/CadastrarClientes");
-        CadastrarPedido(tel);
-    }
-
-    fclose (infile);
 }
 
 int main(){
     setlocale(LC_ALL, "Portuguese_Brasil");
 
     printf("\e[1;1H\e[2J");
-    IniciarVenda();
+    CadastrarPedido();
 
     voltarMenu();
 }

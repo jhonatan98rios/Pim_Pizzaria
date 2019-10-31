@@ -3,7 +3,7 @@
 #include <string.h>
 #include <locale.h>
 #include <math.h>
-#include "../../libs/StructClie.h"
+#include "../../libs/struct.h"
 /* #include <conio.h> */
 
 
@@ -48,17 +48,7 @@ int main()
     printf("\e[1;1H\e[2J");
     LerClientes();
 
-    /* Isso se tornará uma biblioteca de cabeçalho */
-
-    int continuar;
-
-    printf("Deseja voltar ao menu? \n [1] Sim \n [2] Nao\n");
-    scanf("%d", &continuar);
-    if(continuar == 1){
-        system("./source/menu");
-    }else{
-        printf("Programa Encerrado");
-    }
+    voltarMenu();
 
     return 0;
 }

@@ -8,4 +8,15 @@ struct produtos{
     float price;
 };
 
+struct cliente{
+    char nome[20];
+    char endereco[30];
+    char telefone[20];
+};
+
+struct reclamacoes{
+	char nome[20];
+	char msg[150];
+};
+
 #endif

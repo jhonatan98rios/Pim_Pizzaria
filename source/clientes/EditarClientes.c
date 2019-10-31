@@ -3,13 +3,10 @@
 #include <string.h>
 #include <locale.h>
 #include <math.h>
-#include <conio.h>
-#include "StructClie.h"
-
-
+/* #include <conio.h> */
+#include "../../libs/StructClie.h"
 
 void editar(){
-
 
     FILE *infile;
     FILE *tempFile;
@@ -17,18 +14,17 @@ void editar(){
     char foneCliente [20];
     char novoEndereco[20];
 
-    infile = fopen("clientes.dat", "r");
-    tempFile = fopen("clientesTemp.dat", "w");
+    infile = fopen("./data/clientes.dat", "r");
+    tempFile = fopen("./data/clientesTemp.dat", "w");
     setlocale(LC_ALL,"Portuguese_Brazil");
-
-
 
     printf("\n =====================================================");
     printf("\n ================= Editar Clientes ===================");
     printf("\n =====================================================\n");
 
     printf("Informe o Numero do cliente:");
-    scanf("%s", foneCliente);
+    gets(foneCliente);
+    fflush(stdin);
 
     while(fread(&input, sizeof(struct cliente), 1, infile)){
 

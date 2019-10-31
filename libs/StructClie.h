@@ -1,6 +1,6 @@
 struct cliente{
-    char nome[10];
-    char endereco[20];
+    char nome[20];
+    char endereco[30];
     char telefone[20];
 
 };

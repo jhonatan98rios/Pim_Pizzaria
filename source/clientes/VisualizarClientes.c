@@ -3,39 +3,35 @@
 #include <string.h>
 #include <locale.h>
 #include <math.h>
+#include "../../libs/StructClie.h"
 /* #include <conio.h> */
 
-struct promocoes{
-    int category;
-    char name[10];
-    float price;
-};
 
-void LerProm( char titulo[10], int category ){
+
+void LerClie(){
 
     FILE *infile;
-    struct promocoes input;
-    infile = fopen ("prod.dat", "r");
+    struct cliente input;
+    infile = fopen("./data/clientes.dat", "r");
 
-    printf("\n =================== %s =================== \n", titulo);
-    while(fread(&input, sizeof(struct promocoes), 1, infile)){
-        if(input.category == category){
-            printf ("\n nome = %s \n preco = %.2f\n", input.name, input.price);
-        }
+    // printf("\n =================== %s =================== \n");
+    while(fread(&input, sizeof(struct cliente), 1, infile)){
+
+            printf ("\n Nome = %s \n Endereço = %s\n Telefone= %s\n", input.nome, input.endereco, input.telefone);
+
     };
 
     fclose (infile);
 }
 
-void LerPromocoes(){
+void LerClientes(){
 
     printf("\n ==============================================");
-    printf("\n ================= Promocoes ===================");
+    printf("\n ================= Clientes ===================");
     printf("\n ==============================================\n");
 
-    LerProm( "Pizzas" , 1);
-    LerProm( "Bebidas" , 2);
-    LerProm( "Doces" , 3);
+    LerClie();
+
 
     printf("\n\n");
 };
@@ -50,7 +46,7 @@ int main()
     //system("title Menu");
 
     printf("\e[1;1H\e[2J");
-    LerPromocoes();
+    LerClientes();
 
     /* Isso se tornará uma biblioteca de cabeçalho */
 

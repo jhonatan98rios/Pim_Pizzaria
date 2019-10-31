@@ -8,7 +8,7 @@ void menuFuncionarios(){
 }
 
 void menuClientes(){
-    system("./source/clientes/MenuCientes");
+    system("./source/clientes/MenuClientes");
 }
 
 void menuProdutos(){
@@ -25,10 +25,6 @@ void menuPedidos(){
 
 void menuReclamacoes(){
     system("./source/reclamacoes/MenuReclamacoes"); 
-}
-
-void menuPromocoes(){
-    system("./source/promocoes/MenuPromocoes"); 
 }
 
 void menuRelatorios(){
@@ -61,7 +57,7 @@ int main()
     printf("\n");
     printf(" ----------------------------------------------");
     printf("\n");
-    printf(" (1) Funcionarios \n (2) Clientes \n (3) Produtos \n (4) Ingredientes \n (5) Pedidos \n (6) Reclamacoes \n (7) Promocoes \n (8) Ralatorios \n (9) Fechamento  \n (0) Sair ");
+    printf(" (1) Funcionarios \n (2) Clientes \n (3) Produtos \n (4) Ingredientes \n (5) Pedidos \n (6) Reclamacoes \n (7) Ralatorios \n (8) Fechamento  \n (0) Sair ");
     printf("\n \n \n Selecione uma das opcoes acima: \n");
 
     scanf("%d", &resposta);
@@ -93,14 +89,10 @@ int main()
         break;
 
     case 7:
-        menuPromocoes();
-        break;
-
-    case 8:
         menuRelatorios();
         break;
 
-    case 9:
+    case 8:
         menuFechamento();
         break;
 

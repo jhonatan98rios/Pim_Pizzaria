@@ -16,7 +16,7 @@
 
     printf("\n (1) Vizualizar Ingredientes");
     printf("\n (2) Adicionar Ingredientes");
-    printf("\n (3) Excluir Ingredientes \n");
+    printf("\n (3) Editar Ingredientes \n");
 
     scanf("%d", &resposta);
 
@@ -24,15 +24,15 @@
     {
     case 1:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Vizualizar");
+        system("./source/Estoque/VizualizarEstoque"); 
         break;
     case 2:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Adicionar");
+        system("./source/Estoque/CadastrarEstoque"); 
         break;
     case 3:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Excluir");
+        system("./source/Estoque/EditarEstoque"); 
         break;
     }
 }   

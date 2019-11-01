@@ -15,8 +15,8 @@ void menuProdutos(){
     system("./source/produtos/MenuProdutos"); 
 }
 
-void menuIngredientes(){
-    system("./source/ingredientes/MenuIngredientes"); 
+void menuEstoque(){
+    system("./source/Estoque/MenuEstoque"); 
 }
 
 void menuPedidos(){
@@ -77,7 +77,7 @@ int main()
         break;
 
     case 4:
-        menuIngredientes();
+        menuEstoque();
         break;
 
     case 5:

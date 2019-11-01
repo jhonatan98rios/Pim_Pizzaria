@@ -27,7 +27,7 @@
         printf("Vizualizar");
         break;
     case 2:
-        system("./source/funcionarios/CadastrarFuncionarios");
+        system("./dist/funcionarios/CadastrarFuncionarios");
         break;
     case 3:
         printf("\e[H\e[2J"); //Limpa a tela

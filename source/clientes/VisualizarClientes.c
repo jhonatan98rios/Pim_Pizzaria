@@ -3,7 +3,8 @@
 #include <string.h>
 #include <locale.h>
 #include <math.h>
-#include "../../libs/struct.h"
+#include "../../libs/structs.h"
+#include "../../libs/voltar.h"
 /* #include <conio.h> */
 
 

@@ -12,7 +12,7 @@ void LerFunc( char titulo[10], int tipoLogin ){
 
     FILE *infile;
     struct funcionario input;
-    infile = fopen ("funcionarios.dat", "r");
+    infile = fopen ("./data/funcionarios.dat", "r");
     
     printf("\n =============== %s =============== \n", titulo);
     while(fread(&input, sizeof(struct funcionario), 1, infile)){
@@ -43,7 +43,7 @@ void LerFuncionario(){
 
 int main()
 {
-    const char* menu = "/../menu.exe";
+    /* const char* menu = "/../menu.exe"; */
     //Define o padrão UTF-8
     setlocale(LC_ALL, "Portuguese_Brasil");
     //Define a cor azul do terminal

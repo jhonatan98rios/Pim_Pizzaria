@@ -25,7 +25,7 @@
     {
     case 1:
         printf("\e[H\e[2J"); //Limpa a tela
-        system("./dist/funcionarios/VisualizarFuncionarios");
+        system("./dist/funcionarios/VisualizarFuncionario");
         break;
     case 2:
         printf("\e[H\e[2J"); //Limpa a tela

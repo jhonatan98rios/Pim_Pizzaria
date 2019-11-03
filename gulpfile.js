@@ -15,9 +15,6 @@ const builds = [
     "sudo gcc ./source/estoque/VisualizarEstoque.c -o dist/estoque/VisualizarEstoque",
     "sudo gcc ./source/estoque/EditarEstoque.c -o dist/estoque/EditarEstoque",
 
-    "sudo gcc ./source/funcionarios/MenuFuncionarios.c -o dist/funcionarios/MenuFuncionarios",
-    "sudo gcc ./source/funcionarios/CadastrarFuncionario.c -o dist/funcionarios/CadastrarFuncionario",
-
     "sudo gcc ./source/login/Login.c -o dist/login/Login",
 
     "sudo gcc ./source/pedidos/MenuPedidos.c -o dist/pedidos/MenuPedidos",
@@ -30,6 +27,11 @@ const builds = [
     "sudo gcc ./source/reclamacoes/MenuReclamacoes.c -o dist/reclamacoes/MenuReclamacoes",
     "sudo gcc ./source/reclamacoes/CadastrarReclamacoes.c -o dist/reclamacoes/CadastrarReclamacoes",
     "sudo gcc ./source/reclamacoes/VisualizarReclamacao.c -o dist/reclamacoes/VisualizarReclamacao",
+
+    "sudo gcc ./source/funcionarios/MenuFuncionarios.c -o dist/funcionarios/MenuFuncionarios",
+    "sudo gcc ./source/funcionarios/CadastrarFuncionario.c -o dist/funcionarios/CadastrarFuncionario",
+    "sudo gcc ./source/funcionarios/VisualizarFuncionario.c -o dist/funcionarios/VisualizarFuncionario",
+    "sudo gcc ./source/funcionarios/ExcluirFuncionario.c -o dist/funcionarios/ExcluirFuncionario",
 ];
 
 

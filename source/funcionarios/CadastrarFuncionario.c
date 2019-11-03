@@ -14,7 +14,7 @@ char senhaConfirmada[10];
 void CadastrarFuncionario(){
 
     FILE *FuncFile;
-    FuncFile = fopen("funcionarios.dat", "a"); /* Abre o arquivo somente para adição */
+    FuncFile = fopen("./data/funcionarios.dat", "a"); /* Abre o arquivo somente para adição */
 
     struct funcionario func; /* Cria uma instancia, da estrutura (Como uma cópia) */
 

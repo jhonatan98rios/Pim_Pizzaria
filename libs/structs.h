@@ -22,8 +22,8 @@ struct reclamacoes{
 struct funcionario{
     int tipoLogin;
     char cpf[11];
-    char name[10];
-    char senha[10];
+    char name[20];
+    char senha[20];
 };
 
 #endif

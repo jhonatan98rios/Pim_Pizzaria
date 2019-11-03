@@ -11,6 +11,21 @@ struct funcionario{
     char senha[10];
 };
 
+void cab(){
+
+    printf("                                                              \n");
+    printf("                                                              \n");
+    printf("   ---------------------------------------------------------------------------------\n");
+    printf("  |                                                                                 |\n");
+    printf("  |                              Sistema para Pizzaria                              |\n");
+    printf("  |                                                                                 |\n");
+    printf("  |                                    Unip 2019                                    |\n");
+    printf("  |                                                                                 |\n");
+    printf("   ---------------------------------------------------------------------------------\n");
+    printf("\n\n\n");
+
+}
+
 void lerLogin(){
 
     FILE *Loginfile;
@@ -22,16 +37,16 @@ void lerLogin(){
     int userValido = 0;
     int passValido = 0;
 
-    printf("Digite seu usuário:");
+    printf("                               Digite seu usuário:");
     gets(user);
     fflush(stdin);
     
-    printf("Digite sua senha:");
+    printf("                               Digite sua senha...:");
     gets(password);
     fflush(stdin);
 
 
-    Loginfile = fopen ("./data/funcionarios.dat", "r");
+    Loginfile = fopen ("..\\..\\data\\funcionarios.dat", "r");
 
     while(fread(&input, sizeof(struct funcionario), 1, Loginfile)){
         
@@ -53,9 +68,10 @@ void lerLogin(){
     };
 
     if(userValido==1){
-        printf("Usuario Valido \n");
+        //printf("Usuario Valido \n");
         if(passValido==1){
-            printf("Senha Valida\n");
+            //printf("Senha Valida\n");
+            system("..\\menu.exe");
             /* Gravar arquivo temp */
         }else{
             printf("Senha invalida\n");
@@ -73,11 +89,12 @@ int main()
     //Define o padrão UTF-8
     setlocale(LC_ALL, "Portuguese_Brasil");
     //Define a cor azul do terminal
-    //system("color 1F");
+    system("color 1F");
     //define o titulo da janela do prompt
-    //system("title Menu");
+    system("title login");
 
-    printf("\e[1;1H\e[2J");
+    // printf("\e[1;1H\e[2J");
+    cab();
     lerLogin();
 
     /* Isso se tornará uma biblioteca de cabeçalho */

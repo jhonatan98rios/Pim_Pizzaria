@@ -14,7 +14,7 @@ struct funcionario{
 void CadastrarFuncionario(){
 
     FILE *FuncFile;
-    FuncFile = fopen("./data/funcionarios.dat", "a"); /* Abre o arquivo somente para adição */
+    FuncFile = fopen("..\\..\\data\\funcionarios.dat", "a"); /* Abre o arquivo somente para adição */
 
     struct funcionario func; /* Cria uma instancia, da estrutura (Como uma cópia) */
 

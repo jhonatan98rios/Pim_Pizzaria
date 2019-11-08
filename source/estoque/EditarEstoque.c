@@ -5,94 +5,103 @@
 #include <math.h>
 /* #include <conio.h> */
 #include "../../libs/LerEst.h"
+#include "../../libs/voltar.h"
+#include "../../libs/Mensagem.h"
+#include "../../libs/cabSys.h"
+
 
 void Adicionar(id){
 
     FILE *EstoqueFile;
     struct estoque est;
-    EstoqueFile = fopen("./data/estoque.dat", "r");
+    EstoqueFile = fopen("estoque.dat", "r");
 
     FILE *TempFile;
-    TempFile = fopen("./data/estoqueTemp.dat", "w");
+    TempFile = fopen("estoqueTemp.dat", "w");
 
     int quant;
 
-    printf("Quantas unidades deseja adicionar? \n");
+    printf("                               Quantas unidades deseja adicionar? \n");
     scanf("%d", &quant);
 
     while(fread(&est, sizeof(struct estoque), 1, EstoqueFile)){
         if(id == est.id){
             est.quantidade += quant;
-            printf("%s agora tem %d unidades em estoque \n", est.nome, est.quantidade);
+            printf("                               %s agora tem %d unidades em estoque \n", est.nome, est.quantidade);
+            Editar();
         }
         fwrite(&est, sizeof(struct estoque), 1, TempFile); /* Grava a estrutura no arquivo */
         if(&fwrite == 0){
-            printf("Erro ao gravar: %d!\n", est.id);
+            error();
         }
     };
 
     fclose(EstoqueFile);  
-    remove("./data/estoque.dat");
-    rename("./data/estoqueTemp.dat", "./data/estoque.dat");
+    remove("estoque.dat");
+    rename("estoqueTemp.dat", "./data/estoque.dat");
 }
 
 void Remover(id){
 
     FILE *EstoqueFile;
     struct estoque est;
-    EstoqueFile = fopen("./data/estoque.dat", "r");
+    EstoqueFile = fopen("estoque.dat", "r");
 
     FILE *TempFile;
-    TempFile = fopen("./data/temp.dat", "w");
+    TempFile = fopen("temp.dat", "w");
 
     int quant;
 
-    printf("Quantas unidades deseja remover? \n");
+    printf("                               Quantas unidades deseja remover? \n");
     scanf("%d", &quant);
 
     while(fread(&est, sizeof(struct estoque), 1, EstoqueFile)){
         if(id == est.id){
             est.quantidade -= quant;
-            printf("%s agora tem %d unidades em estoque \n", est.nome, est.quantidade);
+
+            printf("                               %s agora tem %d unidades em estoque \n", est.nome, est.quantidade);
         }
         fwrite(&est, sizeof(struct estoque), 1, TempFile); /* Grava a estrutura no arquivo */
         if(&fwrite == 0){
-            printf("Erro ao gravar: %d!\n", est.id);
+            printf("                               Erro ao gravar: %d!\n", est.id);
         }
     };
 
     fclose(EstoqueFile);  
-    remove("./data/estoque.dat");
-    rename("./data/estoqueTemp.dat", "./data/estoque.dat");
+    remove("estoque.dat");
+    rename("estoqueTemp.dat", "./data/estoque.dat");
 }
 
 void EditarEstoque(){
 
-    printf("\n =======================================================");
-    printf("\n ================= Edição de Estoque ===================");
-    printf("\n =======================================================\n");
-
+   printf("   -------------------------------  Editar estoque  -------------------------------\n\n");
     int id;
     int resp;
 
     LerEst();
 
-    printf("\n\n Qual ID deseja alterar? \n");
+    printf("                               Qual ID deseja alterar:");
     scanf("%d", &id);
 
     FILE *EstoqueFile;
     struct estoque est;
-    EstoqueFile = fopen("./data/estoque.dat", "r");
+    EstoqueFile = fopen("estoque.dat", "r");
 
     while(fread(&est, sizeof(struct estoque), 1, EstoqueFile)){
         if(id == est.id){
-            printf ("\n id = %d \n nome = %s \n quantidade = %d \n\n", est.id, est.nome, est.quantidade);
+            printf ("\n                               Id........: %d ", est.id);
+            printf ("\n                               Nome......: %s ", est.nome);
+            printf ("\n                               Quantidade: %d ", est.quantidade);
+            printf("\n   --------------------------------------------------------------------------------\n\n");
         }
     };
 
     fclose (EstoqueFile);
 
-    printf("O que deseja fazer? \n [1] Adicionar \n [2] Remover \n");
+    printf("\n                               Opções disponiveis");
+    printf("\n                               [1] Adicionar");
+    printf("\n                               [2] Remover ");
+    printf("\n                               O que deseja fazer:");
     scanf("%d", &resp);
 
     if(resp == 1){
@@ -113,7 +122,8 @@ int main()
     //define o titulo da janela do prompt
     //system("title Menu");
 
-    printf("\e[1;1H\e[2J");
+    //printf("\e[1;1H\e[2J");
+    cab();
     EditarEstoque();
 
     return 0;

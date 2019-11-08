@@ -5,6 +5,8 @@
 #include <math.h>
 #include "../../libs/structs.h"
 #include "../../libs/voltar.h"
+#include "../../libs/Mensagem.h"
+#include "../../libs/cabSys.h"
 /* #include <conio.h> */
 
 
@@ -15,10 +17,13 @@ void LerClie(){
     struct cliente input;
     infile = fopen("./data/clientes.dat", "r");
 
-    // printf("\n =================== %s =================== \n");
+    printf("   -----------------------------  Visualizar Cliente  ------------------------------\n\n");
     while(fread(&input, sizeof(struct cliente), 1, infile)){
-
-            printf ("\n Nome = %s \n Endereço = %s\n Telefone= %s\n", input.nome, input.endereco, input.telefone);
+            printf ("\n                              Nome....: %s", input.nome);
+            printf ("\n                              Endereço: %s", input.endereco);
+            printf ("\n                              Telefone: %s", input.telefone);
+           
+            //printf ("\n Nome = %s \n Endereço = %s\n Telefone= %s\n", input.nome, input.endereco, input.telefone);
 
     };
 
@@ -26,10 +31,6 @@ void LerClie(){
 }
 
 void LerClientes(){
-
-    printf("\n ==============================================");
-    printf("\n ================= Clientes ===================");
-    printf("\n ==============================================\n");
 
     LerClie();
 
@@ -47,6 +48,7 @@ int main()
     //system("title Menu");
 
     printf("\e[1;1H\e[2J");
+    cab();
     LerClientes();
 
     voltarMenu();

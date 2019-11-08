@@ -3,13 +3,15 @@
 #include <string.h>
 #include <locale.h>
 #include <math.h>
+#include "../../libs/structs.h" /* Essa é a classe de produto */
+#include "../../libs/voltar.h" /* Essa é a classe de produto */
+#include "../../libs/cabSys.h"
+#include "../../libs/Mensagem.h"
 
 /* Sctruct é uma variavel com varias propriedades */
-struct funcionario{
-    int category; /* Define se é pizza, bebida ou doce */
-    char name[10];
-    char senha[10];
-};
+
+
+char senhaConfirmada[10];
 
 void CadastrarFuncionario(){
 
@@ -18,27 +20,37 @@ void CadastrarFuncionario(){
 
     struct funcionario func; /* Cria uma instancia, da estrutura (Como uma cópia) */
 
-    printf("Informe o tipo de funcionario a cadastrar: \n \n [1] Funcionario|Usuário \n [2] Pizzaiolo \n");
-    scanf("%d", &func.category ); /* Isso vai definir como vai ser exibido em "Vizualizar Produto" */
+    printf("   ------------------------------Cadastrar Funcionario------------------------------\n\n");
 
-    printf("\e[1;1H\e[2J"); /* Limpa a Tela */
-    fflush(stdin);
-    printf("Nome|Usuário: \n");
-    gets(func.name);
-    fflush(stdin);
-    printf("Informe a senha: \n");
-    gets(func.senha);
-    fflush(stdin);
+    printf("                              Cargos: [1] Administrativo \n");
+    printf("                                      [2] Operacional \n\n");
+    printf("                              Informe o cargo....: ");
+    scanf("%d", &func.tipoLogin); /* Isso vai definir como vai ser exibido em "Vizualizar funcionario" */
 
-    fwrite (&func, sizeof(struct funcionario), 1, FuncFile); /* Grava a estrutura no arquivo */
+    
+    printf("                              Nome|Usuário......: ");
+    scanf("%s", func.name);
 
-    if(&fwrite != 0){ /* Se conseguir gravar */
-        printf("\e[1;1H\e[2J");
-        printf("Salvo com sucesso !\n\n"); 
+    printf("                              Infome o CPF.......: ");
+    scanf("%s", func.cpf);
+
+    printf("                              Informe a senha....: ");
+    scanf("%s", func.senha);
+
+    printf("                              Confirme sua senha.: ");
+    scanf("%s", senhaConfirmada);
+
+    char senhaOk = strcmp(func.senha, senhaConfirmada);/*Compara as senhas digitadas para verificar se é verdadeira*/
+    if(senhaOk == 0){
+        fwrite (&func, sizeof(struct funcionario), 1, FuncFile); /* Grava a estrutura no arquivo */
+        //printf("                          Funcionário salvo com sucesso!\n\n"); 
+        sucess();
     }else{
-        printf("\e[1;1H\e[2J"); 
-        printf("Erro ao gravar !\n");
+        //printf("\e[1;1H\e[2J"); 
+       // printf("                          Confirmação de senha inválida!!!\n");
+       senhaError();
     }
+   
     
     fclose(FuncFile);
 }
@@ -48,23 +60,15 @@ int main()
     //Define o padrão UTF-8
     setlocale(LC_ALL, "Portuguese_Brasil");
     //Define a cor azul do terminal
-    //system("color 1F");
+    system("color 1F");
     //define o titulo da janela do prompt
     //system("title Menu");
 
-    printf("\e[1;1H\e[2J");
+    //printf("\e[1;1H\e[2J");
+    cab();
     CadastrarFuncionario();
     
-    /* Isso se tornará uma biblioteca de cabeçalho */
-    /*int continuar;
-
-    printf("Deseja voltar ao menu? \n [1] Sim \n [2] Nao\n");
-    scanf("%d", &continuar);
-    if(continuar == 1){
-        system("./dist/menu");
-    }else{
-        printf("Programa Encerrado");
-    }*/
+    voltarMenu();
 
     return 0;
 }

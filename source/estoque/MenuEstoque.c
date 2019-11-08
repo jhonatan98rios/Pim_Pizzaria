@@ -1,23 +1,23 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 /* #include <windows.h> */
 #include <locale.h>
- 
+#include "../../libs/cabSys.h"
+
  int main(){
      
+     cab();
     int resposta;
 
-    printf("\e[H\e[2J"); //Limpa a tela
+    //printf("\e[H\e[2J"); //Limpa a tela
 
-    printf("\n ==============================================");
-    printf("\n ============ Ingredientes ==============");
-    printf("\n ==============================================");
-    printf("\n \n");
-
-    printf("\n (1) Visualizar Ingredientes");
-    printf("\n (2) Adicionar Ingredientes");
-    printf("\n (3) Editar Ingredientes \n");
-
+    printf("   ---------------------------------------------------------------------------------\n");
+    printf("  |                         Opcoes disponiveis:                                     |\n");
+    printf("  |                                                                                 |\n");
+    printf("  |           (1) Visualizar Ingredientes         (3) Editar Ingredientes           |\n");
+    printf("  |           (2) Adicionar Ingredientes          (0) Sair                          |\n");
+    printf("   ---------------------------------------------------------------------------------\n");
+    printf("\n \n Selecione uma das opcoes acima: ");
     scanf("%d", &resposta);
 
     switch (resposta)
@@ -33,6 +33,10 @@
     case 3:
         printf("\e[H\e[2J"); //Limpa a tela
         system("./dist/Estoque/EditarEstoque"); 
+        break;
+    case 0:
+        printf("\e[H\e[2J"); //Limpa a tela
+        system("./dist/menu"); 
         break;
     }
 }   

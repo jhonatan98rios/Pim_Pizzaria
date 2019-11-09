@@ -4,6 +4,7 @@
 #include <locale.h>
 #include <math.h>
 /* #include <conio.h> */
+#include "../../libs/cabSys.h"
 
 #include "../../libs/structs.h" /* Essa é a classe de produto */
 #include "../../libs/lerProd.h" /* Essa é a classe de produto */
@@ -11,9 +12,7 @@
 
 void LerProdutos(){
 
-    printf("\n ==============================================");
-    printf("\n ================= Produtos ===================");
-    printf("\n ==============================================\n");
+    printf("   -----------------------------  Visualizar Produtos  -----------------------------\n\n");
 
     LerProd( "Pizzas" , 1);
     LerProd( "Bebidas" , 2);
@@ -36,6 +35,7 @@ int main()
     //system("title Menu");
 
     printf("\e[1;1H\e[2J");
+     cab();
     LerProdutos();
 
     /* Isso se tornará uma biblioteca de cabeçalho */

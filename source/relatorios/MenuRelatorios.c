@@ -7,8 +7,10 @@
      
     printf("\e[H\e[2J"); //Limpa a tela
 
-    printf("\n ==============================================");
-    printf("\n ============ Relatorios ==============");
-    printf("\n ==============================================");
-    printf("\n \n");
-}   
+     printf("   ---------------------------------------------------------------------------------\n");
+    printf("  |                         Opcoes disponiveis:                                     |\n");
+    printf("  |                                                                                 |\n");
+    printf("  |           (1) Vendas         (5) Produtos Mais Vendidos                         |\n");
+    printf("   ---------------------------------------------------------------------------------\n");
+    printf("\n \n Selecione uma das opcoes acima: ");
+   

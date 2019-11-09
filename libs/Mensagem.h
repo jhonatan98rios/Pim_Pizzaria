@@ -22,3 +22,16 @@ void Editar(){
     printf("                          |   Estoque Editado com sucesso     |\n");
     printf("                          ------------------------------------\n");
 }
+
+void compraFinalizada(){
+    printf("\n");
+    printf("                          ------------------------------------\n");
+    printf("                          |   Compra Finalizada com sucesso   |\n");
+    printf("                          ------------------------------------\n");
+}
+void ValorValido(){
+    printf("\n");
+    printf("                          ------------------------------------\n");
+    printf("                          |   Informe um valor válido         |\n");
+    printf("                          ------------------------------------\n");
+}

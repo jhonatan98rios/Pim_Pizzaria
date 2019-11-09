@@ -6,6 +6,8 @@
 #include "../../libs/structs.h" /* Essa é a classe de produto */
 #include "../../libs/lerProd.h" /* Essa é a classe de produto */
 #include "../../libs/voltar.h" /* Essa é a classe de produto */
+#include "../../libs/cabSys.h"
+#include "../../libs/Mensagem.h"
 
 void LerCarrinho(){
 
@@ -13,9 +15,11 @@ void LerCarrinho(){
     struct produtos car; /* Cria uma instância para vizualização */
     carrinho = fopen("./data/vendas/carrinho_de_compras.dat", "r"); /* Salva os produtos armazenados em memória */
 
-    printf("\n\n === Carrinho de Compras === \n\n");
+    printf("\n\n   ----------------------------- Carrinho de Compras -------------------------------\n");
+    
     while(fread(&car, sizeof(struct produtos), 1, carrinho)){
-        printf ("\n nome = %s \n preco = %.2f\n", car.name, car.price); /* Printa a lista */
+        printf ("\n                          Nome.: %s\n\n", car.name);
+        printf ("\n                          Preco: %.2f\n\n", car.price);
     };
     fclose(carrinho);
 }
@@ -39,7 +43,9 @@ void isUser(char tel[20]){
     while(fread(&clie, sizeof(struct cliente), 1, ClieFile)){
         int compare = strcmp(tel, clie.telefone);
         if(compare == 0){
-            printf ("\n Nome = %s \n Endereço = %s\n Telefone= %s\n", clie.nome, clie.endereco, clie.telefone);
+            printf ("\n                          Nome.....: %s\n\n", clie.nome);
+            printf ("\n                          Endereço.: %s\n\n", clie.endereco);
+            printf ("\n                          Telefone.: %s\n\n", clie.telefone);
             hasUser = 1;
             break;
         }
@@ -68,7 +74,7 @@ void CadastrarPedido(){
     char tel[20]; /* Telefone do clientes */
     int confirm = 0;
 
-    printf("Informe o telefone do Cliente: ");
+    printf ("\n      Informe o telefone do Cliente:");   
     gets(tel);
 
     /* Verifica se o numero de telefone existe na lista */
@@ -85,7 +91,13 @@ void CadastrarPedido(){
 
     input.category = 0;
 
-    printf("O que deseja comprar? \n\n [1] Pizzas \n [2] Bebidas \n [3] Doces \n [4] Pizzas Grandes \n [5] Pizzas 1/2 \n [9] Promocoes \n\n");
+    printf("   ---------------------------------------------------------------------------------\n");
+    printf("  |                        O que deseja comprar:                                    |\n");
+    printf("  |           (1) Pizzas                     (4) Pizzas Grandes                     |\n");
+    printf("  |           (2) Bebidas                    (5) Pizzas 1/2                         |\n");
+    printf("  |           (3) Doces                      (6) Promocoes                          |\n");
+    printf("   ---------------------------------------------------------------------------------\n");
+    printf("\n \n Selecione uma das opcoes acima: ");
     scanf("%d", &input.category );
 
     switch(input.category)
@@ -106,10 +118,10 @@ void CadastrarPedido(){
         LerProd( "Pizzas 1/2" , 5);
         break;
     case 9:
-        LerProd( "Promocoes" , 9);
+        LerProd( "Promocoes" , 6);
         break;
     default:
-        printf("Informe um valor válido");
+        printf ("\n                Informe um valor válido");
         fclose(ProdFile);
         goto ESCOLHA;
         break;
@@ -117,7 +129,7 @@ void CadastrarPedido(){
 
     fflush(stdin);
 
-    printf(" \n Informe o id do produto: \n");
+    printf(" \n                Informe o id do produto:");
     scanf("%d", &input.id);
     
     int produtoValido = 0;
@@ -126,7 +138,9 @@ void CadastrarPedido(){
 
         if( input.category == prod.category ){
             if( input.id == prod.id ){
-                printf ("\nid = %d \n nome = %s \n preco = %.2f\n",prod.id,  prod.name, prod.price);
+                printf ("\n                          id...: %s\n\n", prod.id);
+                printf ("\n                          preco: %s\n\n", prod.name);
+                printf ("\n                          preco: %s\n\n", prod.price);
                 produtoValido = 1;
                 input.price = prod.price; /* Salva o valor do produto na struct input */
                 break;
@@ -135,18 +149,19 @@ void CadastrarPedido(){
     };
 
     if(produtoValido == 0){
-        printf("Produto Inválido \n");
+        printf("                Produto Inválido \n");
         fflush(stdin);
         input.category = 0;
         fclose(ProdFile);
         goto ESCOLHA;
     }else{
 
-        printf("Confirmar pedido? [1] Sim - [0] Não \n");
+        printf ("\n                          id...: %s\n\n", prod.id);
+        printf("         Confirmar pedido? [1] Sim - [0] Não: ");
         scanf("%d", &confirm);
 
         if(confirm != 1){
-            printf("Compra cancelada!");
+            printf("                      Compra cancelada!");
             fclose(ProdFile);
             goto ESCOLHA;
         }else{
@@ -156,15 +171,15 @@ void CadastrarPedido(){
 
             if(&fwrite != 0){ 
                 printf("\e[1;1H\e[2J");
-                printf("Cadastrado com sucesso !\n\n"); 
+                sucess();
             }else{
                 printf("\e[1;1H\e[2J"); 
-                printf("Erro ao gravar !\n");
+                error();
             }
 
         }
 
-        printf("Deseja adicionar produtos? \n [1] Sim - [0] Não \n");
+        printf("  Deseja adicionar produtos? [1] Sim - [0] Não: ");
         scanf("%d", &confirm);
 
         if(confirm == 1){
@@ -183,19 +198,19 @@ void CadastrarPedido(){
 
             PAGAMENTO:
             
-            printf("Confirmar pagamento? [1] Sim - [0] Não \n");
+            printf("     Confirmar pagamento? [1] Sim - [0] Não: ");
             scanf("%d", &confirm);
 
             if(confirm == 1){
                 printf("%s \n\n", tel);
-                printf("Compra Finalizada com sucesso \n");
+                compraFinalizada();
                 ApagarCarrinho();
 
             }else if(confirm == 0){
                 ApagarCarrinho();
                 exit(0);
             }else{
-                printf("Informe um valor válido: \n");
+                ValorValido();
                 goto PAGAMENTO;
             }
         }
@@ -206,6 +221,7 @@ int main(){
     setlocale(LC_ALL, "Portuguese_Brasil");
 
     printf("\e[1;1H\e[2J");
+    cab();
     CadastrarPedido();
 
     voltarMenu();

@@ -26,4 +26,10 @@ struct funcionario{
     char senha[20];
 };
 
+struct estoque{
+    int id;
+    char nome[20];
+    int quantidade;
+};
+
 #endif

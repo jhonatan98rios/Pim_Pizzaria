@@ -7,7 +7,6 @@
 #include "../../libs/structs.h" /* Essa é a classe de produto */
 #include "../../libs/voltar.h" /* Essa é a classe de produto */
 
-
 void LerFunc( char titulo[10], int tipoLogin ){
 
     FILE *infile;

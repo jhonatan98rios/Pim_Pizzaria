@@ -2,12 +2,8 @@
 #include<stdlib.h>
 /* #include <windows.h> */
 #include <locale.h>
- 
-    struct estoque{
-        int id;
-        char nome[20];
-        int quantidade;
-    };
+#include "../../libs/voltar.h"
+#include "../../libs/structs.h" 
 
     int GerarId(){
         FILE *StoreFile;
@@ -63,5 +59,7 @@
 
         printf("\e[1;1H\e[2J");
         CadastrarEstoque();
+
+        voltarMenu()
         
     }

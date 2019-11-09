@@ -5,6 +5,8 @@
 #include <math.h>
 /* #include <conio.h> */
 #include "../../libs/LerEst.h"
+#include "../../libs/voltar.h"
+#include "../../libs/structs.h" 
 
 void Adicionar(id){
 
@@ -115,6 +117,7 @@ int main()
 
     printf("\e[1;1H\e[2J");
     EditarEstoque();
+    voltarMenu();
 
     return 0;
 }

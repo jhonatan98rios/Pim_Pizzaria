@@ -20,10 +20,10 @@ void remover(){
 printf("Informe o CPF a ser excluido:");
 scanf("%s",cpf);
 
- FuncFile = fopen("funcionarios.dat","r");
+ FuncFile = fopen("./data/funcionarios.dat","r");
 
  FILE *FuncTemp;
- FuncTemp = fopen("funcionariosTemp.dat","w");
+ FuncTemp = fopen("./data/funcionariosTemp.dat","w");
 
  while(fread(&func, sizeof(struct funcionario),1,FuncFile)){
 
@@ -45,8 +45,8 @@ scanf("%s",cpf);
  }
 
     fclose(FuncFile);
-    /* remove("funcionarios.dat"); */
-    /* rename("funcionariosTemp.dat","funcionarios.dat"); */
+    remove("./data/funcionarios.dat");
+    rename("./data/funcionariosTemp.dat","./data/funcionarios.dat");
 }
 
 

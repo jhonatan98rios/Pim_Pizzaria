@@ -1,21 +1,23 @@
-	#include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <locale.h>
 #include <math.h>
 /* #include <conio.h> */
 #include "../../libs/structs.h" 
+#include "../../libs/voltar.h"
 
 void lerLogin(){
 
     FILE *Loginfile;
     struct funcionario input;
-   
-   
+
     char user[10];
     char password[10];
     int userValido = 0;
     int passValido = 0;
+
+    printf("\e[1;1H\e[2J");
 
     printf("Digite seu usuário:");
     gets(user);
@@ -51,10 +53,10 @@ void lerLogin(){
         //printf("Usuario Valido \n");
         if(passValido==1){//Verifica se a senha é válida
             if(input.tipoLogin == 1){
-                system("./source/menu");
+                system("./dist/menu");
             }
             else{
-                system("./source/menu-operacional");
+                system("./dist/menu-operacional");
             }
             //printf("Senha Valida\n");//senha válida
             /* Gravar arquivo temp */
@@ -78,7 +80,6 @@ int main()
     //define o titulo da janela do prompt
     //system("title Menu");
 
-    printf("\e[1;1H\e[2J");
     lerLogin();
 
     return 0;

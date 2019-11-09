@@ -46,7 +46,7 @@ void lerLogin(){
     fflush(stdin);
 
 
-    Loginfile = fopen ("..\\..\\data\\funcionarios.dat", "r");
+    Loginfile = fopen ("./data/funcionarios.dat", "r");
 
     while(fread(&input, sizeof(struct funcionario), 1, Loginfile)){
         

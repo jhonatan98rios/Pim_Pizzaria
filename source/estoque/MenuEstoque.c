@@ -10,13 +10,13 @@
     printf("\e[H\e[2J"); //Limpa a tela
 
     printf("\n ==============================================");
-    printf("\n ============ Promoções ==============");
+    printf("\n ============ Ingredientes ==============");
     printf("\n ==============================================");
     printf("\n \n");
 
-    printf("\n (1) Vizualizar Promoções");
-    printf("\n (2) Adicionar Promoções");
-    printf("\n (3) Excluir Promoções \n");
+    printf("\n (1) Visualizar Ingredientes");
+    printf("\n (2) Adicionar Ingredientes");
+    printf("\n (3) Editar Ingredientes \n");
 
     scanf("%d", &resposta);
 
@@ -24,15 +24,15 @@
     {
     case 1:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Vizualizar");
+        system("./dist/Estoque/VisualizarEstoque"); 
         break;
     case 2:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Adicionar");
+        system("./dist/Estoque/CadastrarEstoque"); 
         break;
     case 3:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Excluir");
+        system("./dist/Estoque/EditarEstoque"); 
         break;
     }
 }   

@@ -23,11 +23,11 @@
     {
     case 1:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Vizualizar");
+        system("./dist/reclamacoes/VisualizarReclamacao");
         break;
     case 2:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Adicionar");
+        system("./dist/reclamacoes/CadastrarReclamacoes");
         break;
     }
 }   

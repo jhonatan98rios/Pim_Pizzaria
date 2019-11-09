@@ -14,7 +14,7 @@
     printf("\n ==============================================");
     printf("\n \n");
 
-    printf("\n (1) Vizualizar Produtos");
+    printf("\n (1) Visualizar Produtos");
     printf("\n (2) Adicionar Produto");
     printf("\n (3) Excluir Produtos");
     printf("\n (4) Voltar \n");
@@ -25,18 +25,18 @@
     {
     case 1:
         printf("\e[H\e[2J"); //Limpa a tela
-        system("./source/produtos/VizualizarProduto");
+        system("./dist/produtos/VisualizarProduto");
         break;
         
     case 2:
         printf("\e[H\e[2J"); //Limpa a tela
-        system("./source/produtos/CadastrarProduto");
+        system("./dist/produtos/CadastrarProduto");
         break;
     case 3:
         printf("\e[H\e[2J"); //Limpa a tela
         printf("\n Excluir");
         break;
     case 4:
-        system("../menu");
+        system("./dist/menu");
     }
 }   

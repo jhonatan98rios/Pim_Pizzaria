@@ -5,27 +5,9 @@
 #include <math.h>
 /* #include <conio.h> */
 
-struct produtos{
-    int category;
-    char name[10];
-    float price;
-};
-
-void LerProd( char titulo[10], int category ){
-
-    FILE *infile;
-    struct produtos input;
-    infile = fopen ("./data/produtos.dat", "r");
-
-    printf("\n =================== %s =================== \n", titulo);
-    while(fread(&input, sizeof(struct produtos), 1, infile)){
-        if(input.category == category){
-            printf ("\n nome = %s \n preco = %.2f\n", input.name, input.price);
-        }
-    };
-
-    fclose (infile);
-}
+#include "../../libs/structs.h" /* Essa é a classe de produto */
+#include "../../libs/lerProd.h" /* Essa é a classe de produto */
+#include "../../libs/voltar.h" /* Essa é a classe de produto */
 
 void LerProdutos(){
 
@@ -36,6 +18,10 @@ void LerProdutos(){
     LerProd( "Pizzas" , 1);
     LerProd( "Bebidas" , 2);
     LerProd( "Doces" , 3);
+    LerProd( "Pizzas Grandes", 4);
+    LerProd( "Meias Pizzas", 5);
+    LerProd( "Promocoes", 9);
+    
 
     printf("\n\n");
 };
@@ -54,15 +40,7 @@ int main()
 
     /* Isso se tornará uma biblioteca de cabeçalho */
 
-    int continuar;
-
-    printf("Deseja voltar ao menu? \n [1] Sim \n [2] Nao\n");
-    scanf("%d", &continuar);
-    if(continuar == 1){
-        system("./source/menu");
-    }else{
-        printf("Programa Encerrado");
-    }
+    voltarMenu();
 
     return 0;
 }

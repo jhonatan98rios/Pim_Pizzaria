@@ -3,9 +3,12 @@
 #include <string.h>
 #include <locale.h>
 #include <math.h>
-#include <windows.h>
-#include <conio.h>
-#include "FuncStruct.h"
+
+/* #include <windows.h> */
+/* #include <conio.h> */
+#include "../../libs/structs.h" /* Essa é a classe de produto */
+#include "../../libs/voltar.h" /* Essa é a classe de produto */
+
 
 void remover(){
  FILE *FuncFile;
@@ -51,5 +54,7 @@ scanf("%s",cpf);
 int main(){
 
 remover();
+voltarMenu();
 
 }
+

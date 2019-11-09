@@ -4,7 +4,7 @@
 #include <locale.h>
 #include <math.h>
 /* #include <conio.h> */
-#include "FuncStruct.h"
+#include "../../libs/structs.h" 
 
 void lerLogin(){
 
@@ -18,10 +18,12 @@ void lerLogin(){
     int passValido = 0;
 
     printf("Digite seu usuário:");
-    scanf("%s", &user);
+    gets(user);
+    fflush(stdin);
     
     printf("Digite sua senha:");
-    scanf("%s", &password);
+    gets(password);
+    fflush(stdin);
 
 
     Loginfile = fopen ("./data/funcionarios.dat", "r");

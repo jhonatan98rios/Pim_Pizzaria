@@ -3,7 +3,8 @@
 #include <string.h>
 #include <locale.h>
 #include <math.h>
-#include "FuncStruct.h"
+#include "../../libs/voltar.h"
+#include "../../libs/structs.h" 
 
 /* Sctruct é uma variavel com varias propriedades */
 
@@ -58,16 +59,7 @@ int main()
     printf("\e[1;1H\e[2J");
     CadastrarFuncionario();
     
-    /* Isso se tornará uma biblioteca de cabeçalho */
-    /*int continuar;
-
-    printf("Deseja voltar ao menu? \n [1] Sim \n [2] Nao\n");
-    scanf("%d", &continuar);
-    if(continuar == 1){
-        system("./source/menu");
-    }else{
-        printf("Programa Encerrado");
-    }*/
+    voltarMenu();
 
     return 0;
 }

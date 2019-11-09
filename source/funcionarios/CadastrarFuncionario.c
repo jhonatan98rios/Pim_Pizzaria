@@ -3,8 +3,8 @@
 #include <string.h>
 #include <locale.h>
 #include <math.h>
-#include "../../libs/structs.h" /* Essa é a classe de produto */
-#include "../../libs/voltar.h" /* Essa é a classe de produto */
+#include "../../libs/voltar.h"
+#include "../../libs/structs.h" 
 
 /* Sctruct é uma variavel com varias propriedades */
 
@@ -14,7 +14,7 @@ char senhaConfirmada[10];
 void CadastrarFuncionario(){
 
     FILE *FuncFile;
-    FuncFile = fopen("./data/funcionarios.dat", "a"); /* Abre o arquivo somente para adição */
+    FuncFile = fopen("funcionarios.dat", "a"); /* Abre o arquivo somente para adição */
 
     struct funcionario func; /* Cria uma instancia, da estrutura (Como uma cópia) */
 

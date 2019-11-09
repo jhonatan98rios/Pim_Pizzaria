@@ -5,12 +5,63 @@
 #include <math.h>
 /* #include <conio.h> */
 
-/* Sctruct é uma variavel com varias propriedades */
-struct produtos{
-    int category; /* Define se é pizza, bebida ou doce */
-    char name[10];
-    float price;
-};
+#include "../../libs/structs.h" /* Essa é a classe de produto */
+#include "../../libs/voltar.h" /* Essa é a classe de produto */
+
+int GerarID(){
+
+    int contador = 101;
+
+    FILE *infile;
+    struct produtos input;
+    infile = fopen("./data/produtos.dat", "r");
+
+    while(fread(&input, sizeof(struct produtos), 1, infile)){
+        contador++;
+    };
+
+    return contador;
+
+}
+
+void CadastrarPizzaGrande(struct produtos prod){
+
+    FILE *BigFile;
+    BigFile = fopen("./data/produtos.dat", "a"); /* Abre o arquivo somente para adição */
+
+    struct produtos grande;
+
+    grande.category = 4;
+    grande.id = (prod.id + 1);
+    strcpy(grande.name, prod.name);
+    strcat(grande.name, ":G");
+    grande.price = (prod.price * 1.5);
+
+    fwrite (&grande, sizeof(struct produtos), 1, BigFile); /* Grava a estrutura no arquivo */
+
+    fclose(BigFile);
+
+}
+
+void CadastrarMeiaPizza(struct produtos prod){
+
+    FILE *HalfFile;
+    HalfFile = fopen("./data/produtos.dat", "a"); /* Abre o arquivo somente para adição */
+
+    struct produtos meia;
+
+    meia.category = 5;
+    meia.id = (prod.id + 2);
+    strcpy(meia.name, prod.name);
+    strcat(meia.name, ":1/2");
+    meia.price = (prod.price / 2);
+
+    fwrite (&meia, sizeof(struct produtos), 1, HalfFile); /* Grava a estrutura no arquivo */
+
+    fclose(HalfFile);
+
+}
+
 
 void CadastrarProduto(){
 
@@ -19,14 +70,18 @@ void CadastrarProduto(){
 
     struct produtos prod; /* Cria uma instancia, da estrutura (Como uma cópia) */
 
-    printf("Informe o que deseja cadastrar: \n \n [1] Pizzas \n [2] Bebidas \n [3] Doces\n\n");
-    scanf("%d", &prod.category ); /* Isso vai definir como vai ser exibido em "Vizualizar Produto" */
+    printf("Informe o que deseja cadastrar: \n \n [1] Pizzas \n [2] Bebidas \n [3] Doces\n [9] Promocoes \n\n");
+    scanf("%d", &prod.category );
 
     printf("\e[1;1H\e[2J"); /* Limpa a Tela */
+
     printf("Informe o nome do produto: \n");
     scanf("%s", prod.name);
+    
     printf("Informe o preco do produto: \n");
     scanf("%f", &prod.price);
+
+    prod.id = GerarID();
 
     fwrite (&prod, sizeof(struct produtos), 1, ProdFile); /* Grava a estrutura no arquivo */
 
@@ -36,6 +91,11 @@ void CadastrarProduto(){
     }else{
         printf("\e[1;1H\e[2J"); 
         printf("Erro ao gravar !\n");
+    }
+
+    if(prod.category == 1){
+        CadastrarPizzaGrande(prod);
+        CadastrarMeiaPizza(prod);
     }
     
     fclose(ProdFile);
@@ -54,15 +114,8 @@ int main()
     CadastrarProduto();
 
     /* Isso se tornará uma biblioteca de cabeçalho */
-    int continuar;
-
-    printf("Deseja voltar ao menu? \n [1] Sim \n [2] Nao\n");
-    scanf("%d", &continuar);
-    if(continuar == 1){
-        system("./source/menu");
-    }else{
-        printf("Programa Encerrado");
-    }
+    
+    voltarMenu();
 
     return 0;
 }

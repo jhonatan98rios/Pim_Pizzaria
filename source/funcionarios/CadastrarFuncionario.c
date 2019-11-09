@@ -1,45 +1,65 @@
 #include <stdio.h>
+#include<stdlib.h>
 #include <string.h>
-/* #include <conio.h> */
 #include <locale.h>
+#include <math.h>
+#include "../../libs/structs.h" /* Essa é a classe de produto */
+#include "../../libs/voltar.h" /* Essa é a classe de produto */
 
-/*
-Autor: Hugo Barros
-Data de criação 09/09/2019
-Descrição:
-Implementação 01: Feito a criação da função (cadastrar),O mesmo vai criar um arquivo de texto com o nome do usuário e inserir a senha dentro dele
-*/
+/* Sctruct é uma variavel com varias propriedades */
 
-void cadastrarFuncionario(){
-    char usuario[50],senha[10],setor[1];
-    FILE *ArqUsr;
+
+char senhaConfirmada[10];
+
+void CadastrarFuncionario(){
+
+    FILE *FuncFile;
+    FuncFile = fopen("./data/funcionarios.dat", "a"); /* Abre o arquivo somente para adição */
+
+    struct funcionario func; /* Cria uma instancia, da estrutura (Como uma cópia) */
+
+    printf("Informe o cargo: \n \n [1] Administrativo \n [2] Operacional \n");
+    scanf("%d", &func.tipoLogin); /* Isso vai definir como vai ser exibido em "Vizualizar funcionario" */
+
     
-                
-    printf("\n ==============================================");
-    printf("\n ============ Usuários ==============");
-    printf("\n ==============================================");
-    printf("\n \n");
+    printf("Nome|Usuário: \n");
+    scanf("%s", func.name);
 
-    printf("Digite seu nome: ");gets(usuario); //Usuário insere o nome com que quer ser cadastrado
-    printf("Digite sua senha: ");gets(senha); //usuário digita sua senha
-    printf("Digite seu setor: (1) Administrativo, (2) Operacional) "); gets(setor);
-                
-    ArqUsr=fopen(usuario, "a");//fazer um arquivo com o nome do usuário
-                  
-    printf("Usuário cadastrado com sucesso!");
-    fprintf(ArqUsr,"*%s \n",senha);//grava no arquivo a senha do usuário, antecedida pelo caractere *
-    fprintf(ArqUsr,"#%s \n",setor);
-    fclose(ArqUsr);//fecha o arquivo
-    /* getch(); */
-                
+    printf("Infome o CPF: \n");
+    scanf("%s", func.cpf);
+
+    printf("Informe a senha: \n");
+    scanf("%s", func.senha);
+
+    printf("Confirme sua senha: \n");
+    scanf("%s", senhaConfirmada);
+
+    char senhaOk = strcmp(func.senha, senhaConfirmada);/*Compara as senhas digitadas para verificar se é verdadeira*/
+    if(senhaOk == 0){
+        fwrite (&func, sizeof(struct funcionario), 1, FuncFile); /* Grava a estrutura no arquivo */
+        printf("Funcionário salvo com sucesso!\n\n"); 
+    }else{
+        printf("\e[1;1H\e[2J"); 
+        printf("Confirmação de senha inválida!!!\n");
+    }
+   
+    
+    fclose(FuncFile);
 }
 
-int main(){
-        //Define o padrão UTF-8
+int main()
+{
+    //Define o padrão UTF-8
     setlocale(LC_ALL, "Portuguese_Brasil");
     //Define a cor azul do terminal
-    /* system("color 1F"); */
+    //system("color 1F");
     //define o titulo da janela do prompt
-    /* system("title Menu"); */
-    cadastrarFuncionario();
+    //system("title Menu");
+
+    printf("\e[1;1H\e[2J");
+    CadastrarFuncionario();
+    
+    voltarMenu();
+
+    return 0;
 }

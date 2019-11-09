@@ -14,7 +14,7 @@
     printf("\n ==============================================");
     printf("\n \n");
 
-    printf("\n (1) Vizualizar Clientes");
+    printf("\n (1) Visualizar Clientes");
     printf("\n (2) Adicionar Clientes");
     printf("\n (3) Excluir Clientes \n");
 
@@ -24,15 +24,15 @@
     {
     case 1:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Vizualizar");
+        system("./dist/clientes/VisualizarClientes");
         break;
     case 2:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Adicionar");
+        system("./dist/clientes/CadastrarClientes");
         break;
     case 3:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Excluir");
+        system("./dist/clientes/EditarClientes");
         break;
     }
 }   

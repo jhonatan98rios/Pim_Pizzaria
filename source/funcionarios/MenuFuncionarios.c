@@ -14,9 +14,10 @@
     printf("\n ==============================================");
     printf("\n \n");
 
-    printf("\n (1) Vizualizar Funcionarios");
+    printf("\n (1) Visualizar Funcionarios");
     printf("\n (2) Adicionar funcionario");
-    printf("\n (3) Excluir funcionario \n");
+    printf("\n (3) Editar funcionario");
+    printf("\n (4) Excluir funcionario \n");
 
     scanf("%d", &resposta);
 
@@ -24,14 +25,19 @@
     {
     case 1:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("Vizualizar");
+        system("./dist/funcionarios/VisualizarFuncionario");
         break;
     case 2:
-        system("./source/funcionarios/CadastrarFuncionarios");
+        printf("\e[H\e[2J"); //Limpa a tela
+        system("./dist/funcionarios/CadastrarFuncionario");
         break;
     case 3:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Excluir");
+        system("./dist/funcionarios/EditarFuncionario");
+        break;
+    case 4:
+        printf("\e[H\e[2J"); //Limpa a tela
+        system("./dist/funcionarios/ExcluirFuncionario");
         break;
     }
 }   

@@ -6,7 +6,6 @@
 #include "../../libs/structs.h" /* Essa é a classe de produto */
 #include "../../libs/lerProd.h" /* Essa é a classe de produto */
 #include "../../libs/voltar.h" /* Essa é a classe de produto */
-#include "../../libs/StructClie.h"
 
 void LerCarrinho(){
 
@@ -47,7 +46,7 @@ void isUser(char tel[20]){
     };
 
     if(hasUser == 0){
-        system("./source/clientes/CadastrarClientes");
+        system("./dist/clientes/CadastrarClientes");
         fclose (ClieFile); 
         isUser(tel);
     }else{

@@ -4,8 +4,8 @@
 #include <locale.h>
 
 int main(){
-    /* system('./source/Usuario/Login'); */ //Esse arquivo esta com erro. Mas ele devera ser chamado
-    system("./source/menu"); //Substitui o login por hora
+    /* system('./dist/Usuario/Login'); */ //Esse arquivo esta com erro. Mas ele devera ser chamado
+    system("./dist/menu"); //Substitui o login por hora
 }
 
 

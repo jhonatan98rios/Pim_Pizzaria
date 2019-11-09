@@ -4,35 +4,35 @@
 #include <locale.h>
 
 void menuFuncionarios(){
-    system("./source/funcionarios/MenuFuncionarios");
+    system("./dist/funcionarios/MenuFuncionarios");
 }
 
 void menuClientes(){
-    system("./source/clientes/MenuClientes");
+    system("./dist/clientes/MenuClientes");
 }
 
 void menuProdutos(){
-    system("./source/produtos/MenuProdutos"); 
+    system("./dist/produtos/MenuProdutos"); 
 }
 
-void menuIngredientes(){
-    system("./source/ingredientes/MenuIngredientes"); 
+void menuEstoque(){
+    system("./dist/Estoque/MenuEstoque"); 
 }
 
 void menuPedidos(){
-    system("./source/pedidos/MenuPedidos"); 
+    system("./dist/pedidos/MenuPedidos"); 
 }
 
 void menuReclamacoes(){
-    system("./source/reclamacoes/MenuReclamacoes"); 
+    system("./dist/reclamacoes/MenuReclamacoes"); 
 }
 
 void menuRelatorios(){
-    system("./source/relatorios/MenuRelatorios"); 
+    system("./dist/relatorios/MenuRelatorios"); 
 }
 
 void menuFechamento(){
-    system("./source/fechamento/MenuFechamento"); 
+    system("./dist/fechamento/MenuFechamento"); 
 }
 
 
@@ -77,7 +77,7 @@ int main()
         break;
 
     case 4:
-        menuIngredientes();
+        menuEstoque();
         break;
 
     case 5:

@@ -5,6 +5,8 @@
 
 #include "../../libs/structs.h"
 #include "../../libs/voltar.h"
+#include "../../libs/cabSys.h"
+#include "../../libs/Mensagem.h"
 
 void reclamacao(){
 
@@ -13,19 +15,19 @@ FILE *RecFile;
 
     struct reclamacoes rec; 
 
-	printf("Escreva seu nome: \n"  );
+	printf("                               Escreva seu nome: " );
 	gets(rec.nome); 
 	fflush(stdin);
 
-	printf("Mensagem: \n");
+	printf("                                       Mensagem: ");
 	gets(rec.msg);
 	fflush(stdin);
 
 	fwrite(&rec, sizeof(struct reclamacoes), 1, RecFile); /* Grava a estrutura no arquivo */
 	if(&fwrite == 0){ /* Se conseguir gravar */
-		printf("Erro ao gravar");
+		error();
 	}else{
-		printf("Sucesso ao gravar!");
+		sucess();
 	}
 
 	fclose(RecFile);
@@ -35,7 +37,7 @@ FILE *RecFile;
 int main(){
     //Define o padrão UTF-8
     setlocale(LC_ALL, "Portuguese_Brasil");
-
+	cab();
     reclamacao();
 
     voltarMenu();

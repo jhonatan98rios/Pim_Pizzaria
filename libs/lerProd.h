@@ -6,10 +6,12 @@ void LerProd( char titulo[10], int category ){
     struct produtos input;
     infile = fopen("./data/produtos.dat", "r");
 
-    printf("\n =================== %s =================== \n", titulo);
+    printf("   --------------------------  %s  ------------------------\n", titulo);
     while(fread(&input, sizeof(struct produtos), 1, infile)){
         if(input.category == category){
-            printf("\n id = %d \n nome = %s \n preco = %.2f\n",input.id, input.name, input.price);
+            printf ("\n                  id...: %s\n\n", prod.id);
+            printf ("\n                  preco: %s\n\n", prod.name);
+            printf ("\n                  preco: %s\n\n", prod.price);
         }
     };
 

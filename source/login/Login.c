@@ -7,6 +7,21 @@
 #include "../../libs/structs.h" 
 #include "../../libs/voltar.h"
 
+void cab(){
+
+    printf("                                                              \n");
+    printf("                                                              \n");
+    printf("   ---------------------------------------------------------------------------------\n");
+    printf("  |                                                                                 |\n");
+    printf("  |                              Sistema para Pizzaria                              |\n");
+    printf("  |                                                                                 |\n");
+    printf("  |                                    Unip 2019                                    |\n");
+    printf("  |                                                                                 |\n");
+    printf("   ---------------------------------------------------------------------------------\n");
+    printf("\n\n\n");
+
+}
+
 void lerLogin(){
 
     FILE *Loginfile;
@@ -18,12 +33,12 @@ void lerLogin(){
     int passValido = 0;
 
     printf("\e[1;1H\e[2J");
+    printf("                               Digite seu usuário:");
 
-    printf("Digite seu usuário:");
     gets(user);
     fflush(stdin);
     
-    printf("Digite sua senha:");
+    printf("                               Digite sua senha...:");
     gets(password);
     fflush(stdin);
 
@@ -49,6 +64,7 @@ void lerLogin(){
         }
     };
 
+<<<<<<< HEAD
     if(userValido==1){//Verifica se o usuário é válido
         //printf("Usuario Valido \n");
         if(passValido==1){//Verifica se a senha é válida
@@ -59,6 +75,13 @@ void lerLogin(){
                 system("./dist/menu-operacional");
             }
             //printf("Senha Valida\n");//senha válida
+=======
+    if(userValido==1){
+        //printf("Usuario Valido \n");
+        if(passValido==1){
+            //printf("Senha Valida\n");
+            system("..\\menu.exe");
+>>>>>>> 9a4d848b2e8bf70eb761b9ea316053ac12812df4
             /* Gravar arquivo temp */
         }else{
             printf("Senha invalida\n");
@@ -76,10 +99,15 @@ int main()
     //Define o padrão UTF-8
     setlocale(LC_ALL, "Portuguese_Brasil");
     //Define a cor azul do terminal
-    //system("color 1F");
+    system("color 1F");
     //define o titulo da janela do prompt
-    //system("title Menu");
+    system("title login");
 
+<<<<<<< HEAD
+=======
+    // printf("\e[1;1H\e[2J");
+    cab();
+>>>>>>> 9a4d848b2e8bf70eb761b9ea316053ac12812df4
     lerLogin();
 
     return 0;

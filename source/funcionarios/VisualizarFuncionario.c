@@ -6,6 +6,7 @@
 /* #include <conio.h> */
 #include "../../libs/structs.h" /* Essa é a classe de produto */
 #include "../../libs/voltar.h" /* Essa é a classe de produto */
+#include "../../libs/cabSys.h"
 
 void LerFunc( char titulo[10], int tipoLogin ){
 
@@ -13,26 +14,26 @@ void LerFunc( char titulo[10], int tipoLogin ){
     struct funcionario input;
     infile = fopen ("./data/funcionarios.dat", "r");
     
-    printf("\n =============== %s =============== \n", titulo);
+    printf("   ------------------------------%s--------------------------------------\n\n",titulo);
     while(fread(&input, sizeof(struct funcionario), 1, infile)){
         
         if(tipoLogin == input.tipoLogin){
-            printf ("\n Nome do usuario: %s\n\n", input.name);
-            printf ("\n CPF do usuario: %s\n\n", input.cpf);
-            printf(" 1-Administrativo\n 2-Operacional\n Cargo: %d \n", input.tipoLogin);
-            printf("\n-----------------------------------------------");
+            printf ("\n               Nome do usuario.: %s\n\n", input.name);
+            printf ("\n               CPF do usuario..: %s\n\n", input.cpf);
+            printf("                  1-Administrativo\n");
+            printf("                  2-Operacional\n");
+            printf("                  Cargo...........: %d \n", input.tipoLogin);
+            printf("   --------------------------------------------------------------------------------\n\n");
         }
     }
 
-    printf("=========================================");
+    printf("   --------------------------------------------------------------------------------\n\n");
     fclose (infile);
 }
 
 void LerFuncionario(){
 
-    printf("\n ==============================================");
-    printf("\n =============== Funcionarios =================");
-    printf("\n ==============================================\n");
+    printf("   ------------------------------Visualizar Funcionario------------------------------\n\n");
 
     LerFunc( "Usuário Master" , 1);
     LerFunc( "Usuário Opera." , 2);
@@ -51,6 +52,7 @@ int main()
     //system("title Menu");
 
     printf("\e[1;1H\e[2J");
+    cab();
     LerFuncionario();
 
     /* Isso se tornará uma biblioteca de cabeçalho */

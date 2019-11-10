@@ -2,13 +2,14 @@
 #include<stdlib.h>
 /* #include <windows.h> */
 #include <locale.h>
+#include"..\\libs\\cabSys.h"
 
 void menuFuncionarios(){
-    system("./dist/funcionarios/MenuFuncionarios");
+    system("..\\dist\\funcionarios\\MenuFuncionarios.exe");
 }
 
 void menuClientes(){
-    system("./dist/clientes/MenuClientes");
+    system("..\\dist\\clientes\\MenuClientes.exe");
 }
 
 void menuProdutos(){
@@ -46,19 +47,19 @@ int main()
     system("title Menu");
 
     printf("\e[H\e[2J"); //Limpa a tela
-
+    cab();
     int resposta;
-    printf("\n");
-    printf("\n ==============================================");
-    printf("\n ============ Controle de Pizzaria ==============");
-    printf("\n ==============================================");
-    printf("\n");
-    printf(" Opcoes disponiveis:");
-    printf("\n");
-    printf(" ----------------------------------------------");
-    printf("\n");
-    printf(" (1) Funcionarios \n (2) Clientes \n (3) Produtos \n (4) Estoque \n (5) Pedidos \n (6) Reclamacoes \n (7) Ralatorios \n (8) Fechamento  \n (0) Sair ");
-    printf("\n \n \n Selecione uma das opcoes acima: \n");
+
+    printf("   ---------------------------------------------------------------------------------\n");
+    printf("  |                         Opcoes disponiveis:                                     |\n");
+    printf("  |                                                                                 |\n");
+    printf("  |                 (1) Funcionarios         (5) Pedidos                            |\n");
+    printf("  |                 (2) Clientes             (6) Reclamacoes                        |\n");
+    printf("  |                 (3) Produtos             (7) Ralatorios                         |\n");
+    printf("  |                 (4) Estoque              (8) Fechamento                         |\n");
+    printf("  |                 (0) Sair                                                        |\n");
+    printf("   ---------------------------------------------------------------------------------\n");
+    printf("\n \n Selecione uma das opcoes acima: ");
 
     scanf("%d", &resposta);
 

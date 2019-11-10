@@ -169,8 +169,7 @@ void CadastrarPedido(){
         goto ESCOLHA;
     }else{
 
-        printf ("\n                          %s : %.2f\n\n", input.name, input.price);
-        printf("         Confirmar pedido? [1] Sim - [0] Não: ");
+        printf("         \nConfirmar pedido? [1] Sim - [0] Não: ");
 
         scanf("%d", &confirm);
 
@@ -216,7 +215,7 @@ void CadastrarPedido(){
             scanf("%d", &confirm);
 
             if(confirm == 1){
-                printf("%s \n\n", tel);
+
                 compraFinalizada();
                 ApagarCarrinho();
 

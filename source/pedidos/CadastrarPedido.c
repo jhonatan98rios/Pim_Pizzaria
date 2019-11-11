@@ -3,9 +3,9 @@
 #include <locale.h>
 #include <string.h>
 
-#include "../../libs/structs.h" /* Essa é a classe de produto */
-#include "../../libs/lerProd.h" /* Essa é a classe de produto */
-#include "../../libs/voltar.h" /* Essa é a classe de produto */
+#include "../../libs/structs.h"
+#include "../../libs/lerProd.h"
+#include "../../libs/voltar.h"
 #include "../../libs/cabSys.h"
 #include "../../libs/Mensagem.h"
 
@@ -19,7 +19,7 @@ void LerCarrinho(){
     printf("\n\n   ----------------------------- Carrinho de Compras -------------------------------\n");
     
     while(fread(&car, sizeof(struct produtos), 1, carrinho)){
-        printf ("\n                          Nome.: %s\n\n", car.name);
+        printf ("\n                          Nome.: %s", car.name);
         printf ("\n                          Preco: %.2f\n\n", car.price);
         total += car.price;
     };
@@ -35,7 +35,6 @@ void ApagarCarrinho(){
     carrinho = fopen("./data/vendas/carrinho_de_compras.dat", "w"); /* Salva os produtos armazenados em memória */
     remove("./data/vendas/carrinho_de_compras.dat");
 }
-
 
 void isUser(char tel[20]){
 
@@ -54,8 +53,8 @@ void isUser(char tel[20]){
     while(fread(&clie, sizeof(struct cliente), 1, ClieFile)){
         int compare = strcmp(tel, clie.telefone);
         if(compare == 0){
-            printf ("\n                          Nome.....: %s\n\n", clie.nome);
-            printf ("\n                          Endereço.: %s\n\n", clie.endereco);
+            printf ("\n                          Nome.....: %s", clie.nome);
+            printf ("\n                          Endereço.: %s", clie.endereco);
             printf ("\n                          Telefone.: %s\n\n", clie.telefone);
             hasUser = 1;
             break;
@@ -72,6 +71,24 @@ void isUser(char tel[20]){
     }
 
     fclose (ClieFile); 
+
+}
+
+void SalvarRelatorio(){
+
+    FILE *Carrinho; 
+    Carrinho = fopen("./data/vendas/carrinho_de_compras.dat", "r"); 
+    struct produtos prod;
+
+    FILE *relatorio;
+    relatorio = fopen("./data/relatorio/data.dat", "a");
+
+    while(fread(&prod, sizeof(struct produtos), 1, Carrinho)){
+        fwrite(&prod, sizeof(struct produtos), 1, relatorio);
+    };
+
+    fclose (Carrinho); 
+    fclose (relatorio); 
 
 }
 
@@ -150,9 +167,9 @@ void CadastrarPedido(){
 
         if( input.category == prod.category ){
             if( input.id == prod.id ){
-                printf ("\n                          id...: %s\n\n", prod.id);
-                printf ("\n                          preco: %s\n\n", prod.name);
-                printf ("\n                          preco: %s\n\n", prod.price);
+                printf ("\n                          id...: %d", prod.id);
+                printf ("\n                          preco: %s", prod.name);
+                printf ("\n                          preco: %.2f\n\n", prod.price);
                 produtoValido = 1;
                 input.price = prod.price; /* Salva o valor do produto na struct input */
                 strcpy(input.name, prod.name);
@@ -169,7 +186,7 @@ void CadastrarPedido(){
         goto ESCOLHA;
     }else{
 
-        printf("         \nConfirmar pedido? [1] Sim - [0] Não: ");
+        printf("         \n\nConfirmar pedido? [1] Sim - [0] Não: ");
 
         scanf("%d", &confirm);
 
@@ -217,6 +234,8 @@ void CadastrarPedido(){
             if(confirm == 1){
 
                 compraFinalizada();
+                fclose (Carrinho); 
+                SalvarRelatorio(); /* Grava os dados em outro arquivo */
                 ApagarCarrinho();
 
             }else if(confirm == 0){

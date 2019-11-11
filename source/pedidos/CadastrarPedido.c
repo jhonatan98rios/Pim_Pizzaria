@@ -13,10 +13,16 @@ void LerCarrinho(){
     struct produtos car; /* Cria uma instância para vizualização */
     carrinho = fopen("./data/vendas/carrinho_de_compras.dat", "r"); /* Salva os produtos armazenados em memória */
 
+    float total;
+
     printf("\n\n === Carrinho de Compras === \n\n");
     while(fread(&car, sizeof(struct produtos), 1, carrinho)){
         printf ("\n nome = %s \n preco = %.2f\n", car.name, car.price); /* Printa a lista */
+        total += car.price;
     };
+
+    printf("\n\n Total: %.2f \n\n", total);
+    
     fclose(carrinho);
 }
 
@@ -29,6 +35,12 @@ void ApagarCarrinho(){
 
 
 void isUser(char tel[20]){
+
+    /* 
+        Essa função verifica se o telefone existe.
+        Se ele existir, o programa segue em execução
+        Se não, o modulo de cadastro de clientes e chamado
+    */
 
     FILE *ClieFile;
     struct cliente clie;
@@ -46,6 +58,7 @@ void isUser(char tel[20]){
     };
 
     if(hasUser == 0){
+        /* Se o usuario for inválido, execute Cadastrar e repita a verificação */
         system("./dist/clientes/CadastrarClientes");
         fclose (ClieFile); 
         isUser(tel);
@@ -129,6 +142,7 @@ void CadastrarPedido(){
                 printf ("\nid = %d \n nome = %s \n preco = %.2f\n",prod.id,  prod.name, prod.price);
                 produtoValido = 1;
                 input.price = prod.price; /* Salva o valor do produto na struct input */
+                strcpy(input.name, prod.name);
                 break;
             }
         }
@@ -141,6 +155,8 @@ void CadastrarPedido(){
         fclose(ProdFile);
         goto ESCOLHA;
     }else{
+
+        printf("%s : %.2f ",input.name, input.price);
 
         printf("Confirmar pedido? [1] Sim - [0] Não \n");
         scanf("%d", &confirm);

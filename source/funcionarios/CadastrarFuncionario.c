@@ -3,8 +3,8 @@
 #include <string.h>
 #include <locale.h>
 #include <math.h>
-#include "../../libs/structs.h" /* Essa é a classe de produto */
-#include "../../libs/voltar.h" /* Essa é a classe de produto */
+#include "../../libs/voltar.h"
+#include "../../libs/structs.h" 
 
 /* Sctruct é uma variavel com varias propriedades */
 

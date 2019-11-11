@@ -32,6 +32,8 @@ const builds = [
     "sudo gcc ./source/funcionarios/CadastrarFuncionario.c -o dist/funcionarios/CadastrarFuncionario",
     "sudo gcc ./source/funcionarios/VisualizarFuncionario.c -o dist/funcionarios/VisualizarFuncionario",
     "sudo gcc ./source/funcionarios/ExcluirFuncionario.c -o dist/funcionarios/ExcluirFuncionario",
+
+    "sudo gcc ./source/login/Login.c -o dist/login/Login",
 ];
 
 

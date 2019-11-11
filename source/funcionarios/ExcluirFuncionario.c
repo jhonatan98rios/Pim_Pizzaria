@@ -3,10 +3,12 @@
 #include <string.h>
 #include <locale.h>
 #include <math.h>
+
 /* #include <windows.h> */
 /* #include <conio.h> */
 #include "../../libs/structs.h" /* Essa é a classe de produto */
 #include "../../libs/voltar.h" /* Essa é a classe de produto */
+
 
 void remover(){
  FILE *FuncFile;
@@ -18,10 +20,10 @@ void remover(){
 printf("Informe o CPF a ser excluido:");
 scanf("%s",cpf);
 
- FuncFile = fopen("funcionarios.dat","r");
+ FuncFile = fopen("./data/funcionarios.dat","r");
 
  FILE *FuncTemp;
- FuncTemp = fopen("funcionariosTemp.dat","w");
+ FuncTemp = fopen("./data/funcionariosTemp.dat","w");
 
  while(fread(&func, sizeof(struct funcionario),1,FuncFile)){
 
@@ -36,15 +38,15 @@ scanf("%s",cpf);
             printf("Funcionario Excluido com sucesso!!");
         }else{
             fwrite(&func, sizeof(struct funcionario),1,FuncTemp);
-            printf("Exclusão cancelada!!");
+            printf("Exclusão cancelada!!")
         }
         
      }
  }
 
     fclose(FuncFile);
-    /* remove("funcionarios.dat"); */
-    /* rename("funcionariosTemp.dat","funcionarios.dat"); */
+    remove("./data/funcionarios.dat");
+    rename("./data/funcionariosTemp.dat","./data/funcionarios.dat");
 }
 
 
@@ -55,3 +57,4 @@ remover();
 voltarMenu();
 
 }
+

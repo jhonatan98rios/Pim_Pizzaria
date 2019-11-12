@@ -89,6 +89,8 @@ void CadastrarPedido(){
     printf ("\n      Informe o telefone do Cliente:");   
     gets(tel);
 
+    int emptyCar = 1; /* Verifica se o carrinho ainda esta vazio */
+
     /* Verifica se o numero de telefone existe na lista */
 
     isUser(tel);
@@ -108,6 +110,7 @@ void CadastrarPedido(){
     printf("  |           (1) Pizzas                     (4) Pizzas Grandes                     |\n");
     printf("  |           (2) Bebidas                    (5) Pizzas 1/2                         |\n");
     printf("  |           (3) Doces                      (6) Promocoes                          |\n");
+    printf("  |           (0) Cancelar                                                          |\n");
     printf("   ---------------------------------------------------------------------------------\n");
     printf("\n \n Selecione uma das opcoes acima: ");
     scanf("%d", &input.category );
@@ -129,11 +132,18 @@ void CadastrarPedido(){
     case 5:
         LerProd( "Pizzas 1/2" , 5);
         break;
-    case 9:
+    case 6:
         LerProd( "Promocoes" , 6);
         break;
+    case 0:
+        if(emptyCar == 1){
+            exit(0);
+        }else if(emptyCar == 0){
+            goto ADICIONAR;
+        }
+
     default:
-        printf ("\n                Informe um valor válido");
+        printf ("\n                Informe um valor válido \n\n");
         fclose(ProdFile);
         goto ESCOLHA;
         break;
@@ -182,6 +192,8 @@ void CadastrarPedido(){
             confirm = 0;        
             fwrite(&input, sizeof(struct produtos), 1, Carrinho); /* Grava o produto no carrinho */
 
+            emptyCar = 0;
+
             if(&fwrite != 0){ 
                 printf("\e[1;1H\e[2J");
                 sucess();
@@ -191,6 +203,8 @@ void CadastrarPedido(){
             }
 
         }
+
+        ADICIONAR:
 
         printf("  Deseja adicionar produtos? [1] Sim - [0] Não: ");
         scanf("%d", &confirm);

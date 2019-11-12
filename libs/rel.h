@@ -11,13 +11,13 @@ struct registro{
 
 void SalvarRelatorio(){
     
-    time_t current_time;
+    /* time_t current_time;
     current_time = time(NULL);
     char* c_time_string;
 
     c_time_string = ctime(&current_time);
 
-    printf("Current time is %s", c_time_string);
+    printf("Current time is %s", c_time_string); */
 
 
     FILE *Carrinho; 

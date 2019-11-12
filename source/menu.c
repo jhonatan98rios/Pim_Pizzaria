@@ -53,7 +53,7 @@ int main()
     printf("   ---------------------------------------------------------------------------------\n");
     printf("  |                         Opcoes disponiveis:                                     |\n");
     printf("  |                                                                                 |\n");
-    printf("  |                 (1) Funcionarios         (5) Pedidos                            |\n");
+    printf("  |                 (1) Funcionarios         (5) Vendas                             |\n");
     printf("  |                 (2) Clientes             (6) Reclamacoes                        |\n");
     printf("  |                 (3) Produtos             (7) Ralatorios                         |\n");
     printf("  |                 (4) Estoque              (8) Fechamento                         |\n");

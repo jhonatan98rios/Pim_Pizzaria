@@ -21,7 +21,7 @@ void LerClie(){
     while(fread(&input, sizeof(struct cliente), 1, infile)){
             printf ("\n                              Nome....: %s", input.nome);
             printf ("\n                              Endereço: %s", input.endereco);
-            printf ("\n                              Telefone: %s", input.telefone);
+            printf ("\n                              Telefone: %s \n", input.telefone);
            
             //printf ("\n Nome = %s \n Endereço = %s\n Telefone= %s\n", input.nome, input.endereco, input.telefone);
 

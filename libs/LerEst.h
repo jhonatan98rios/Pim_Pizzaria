@@ -1,11 +1,4 @@
-#include "voltar.h"
-/* #include "structs.h" */
-
-struct estoque{
-    int id;
-    char nome[20];
-    int quantidade;
-};
+#include "structs.h"
 
 void LerEst(){
     FILE *EstoqueFile;

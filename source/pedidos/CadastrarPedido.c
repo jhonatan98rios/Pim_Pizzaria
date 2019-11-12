@@ -8,6 +8,7 @@
 #include "../../libs/voltar.h"
 #include "../../libs/cabSys.h"
 #include "../../libs/Mensagem.h"
+#include "../../libs/rel.h"
 
 void LerCarrinho(){
 
@@ -71,24 +72,6 @@ void isUser(char tel[20]){
     }
 
     fclose (ClieFile); 
-
-}
-
-void SalvarRelatorio(){
-
-    FILE *Carrinho; 
-    Carrinho = fopen("./data/vendas/carrinho_de_compras.dat", "r"); 
-    struct produtos prod;
-
-    FILE *relatorio;
-    relatorio = fopen("./data/relatorio/data.dat", "a");
-
-    while(fread(&prod, sizeof(struct produtos), 1, Carrinho)){
-        fwrite(&prod, sizeof(struct produtos), 1, relatorio);
-    };
-
-    fclose (Carrinho); 
-    fclose (relatorio); 
 
 }
 

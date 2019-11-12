@@ -32,6 +32,9 @@ const builds = [
     "sudo gcc ./source/funcionarios/CadastrarFuncionario.c -o dist/funcionarios/CadastrarFuncionario",
     "sudo gcc ./source/funcionarios/VisualizarFuncionario.c -o dist/funcionarios/VisualizarFuncionario",
     "sudo gcc ./source/funcionarios/ExcluirFuncionario.c -o dist/funcionarios/ExcluirFuncionario",
+
+    "sudo gcc ./source/relatorios/MenuRelatorios.c -o dist/relatorios/MenuRelatorios",
+    "sudo gcc ./source/relatorios/VisualizarRelatorios.c -o dist/relatorios/VisualizarRelatorios"
 ];
 
 

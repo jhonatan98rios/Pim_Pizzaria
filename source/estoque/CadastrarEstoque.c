@@ -26,7 +26,7 @@
 
     void CadastrarEstoque(){
         FILE *EstoqueFile;
-        EstoqueFile = fopen("estoque.dat", "a"); /* Abre o arquivo somente para adição */
+        EstoqueFile = fopen("./data/estoque.dat", "a"); /* Abre o arquivo somente para adição */
 
         struct estoque est; /* Cria uma instancia, da estrutura (Como uma cópia) */
 

@@ -37,6 +37,7 @@ void Adicionar(id){
     };
 
     fclose(EstoqueFile);  
+    fclose(TempFile);  
     remove("./data/estoque.dat");
     rename("./data/estoqueTemp.dat", "./data/estoque.dat");
 }
@@ -48,7 +49,7 @@ void Remover(id){
     EstoqueFile = fopen("./data/estoque.dat", "r");
 
     FILE *TempFile;
-    TempFile = fopen("./data/temp.dat", "w");
+    TempFile = fopen("./data/estoqueTemp.dat", "w");
 
     int quant;
 
@@ -67,7 +68,8 @@ void Remover(id){
         }
     };
 
-    fclose(EstoqueFile);  
+    fclose(EstoqueFile);
+    fclose(TempFile);
     remove("./data/estoque.dat");
     rename("./data/estoqueTemp.dat", "./data/estoque.dat");
 }

@@ -17,7 +17,7 @@ printf("   ----------------------------- Visualizar Reclamacoes ----------------
     
     while(fread(&input, sizeof(struct reclamacoes), 1, infile)){
 
-        printf ("\n                       Nome...: %s\n\n", input.nome);
+        printf ("\n                       Nome...: %s", input.nome);
         printf ("\n                       Mensage: %s\n\n", input.msg);
 	}
 

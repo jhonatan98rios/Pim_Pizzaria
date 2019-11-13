@@ -1,15 +1,35 @@
 #include "structs.h"
 
-void editar(){
-    printf("Editar!!");
+
+void editar(struct produtos item){
+    FILE *relatorioFile;
+    struct produtos rel;
+    relatorioFile = fopen("./data/relatorio/relatorio.dat", "r");
+
+    FILE *TempFile;
+    TempFile = fopen("./data/relatorio/temp.dat", "w");
+
+    while(fread(&rel, sizeof(struct produtos), 1, relatorioFile)){
+        if(item.id == rel.id){
+            rel.quant += 1;
+        }
+        fwrite(&rel, sizeof(struct produtos), 1, TempFile); /* Grava a estrutura no arquivo */
+        if(&fwrite == 0){
+            error();
+        }
+    };
+
+    fclose(relatorioFile);  
+    fclose(TempFile);  
+    remove("./data/relatorio/relatorio.dat");
+    rename("./data/relatorio/temp.dat", "./data/relatorio/relatorio.dat");
 }
 
-void gravar(){
-    printf("Gravar!!");
-    FILE *RelatorioA; 
-    RelatorioA = fopen("./data/relatorio/relatorio.dat", "a"); 
-        fwrite (&item, sizeof(struct produtos), 1, RelatorioA); /* Grava a estrutura no arquivo */
-    fclose(RelatorioA);
+void gravar(struct produtos item){
+    FILE *Relatorio; 
+    Relatorio = fopen("./data/relatorio/relatorio.dat", "a"); 
+        fwrite (&item, sizeof(struct produtos), 1, Relatorio); /* Grava a estrutura no arquivo */
+    fclose(Relatorio);
 }
 
 void SalvarRelatorio(){
@@ -38,13 +58,13 @@ void SalvarRelatorio(){
         fclose (Relatorio);
 
         if(exist == 1){
-            editar();
+            editar(item);
         }else{
-        gravar();
+        gravar(item);
         }
     };
 
     fclose (Carrinho);
     
-
 }
+

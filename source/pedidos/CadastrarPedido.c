@@ -21,11 +21,11 @@ void LerCarrinho(){
     
     while(fread(&car, sizeof(struct produtos), 1, carrinho)){
         printf ("\n                          Nome.: %s", car.name);
-        printf ("\n                          Preco: %.2f\n\n", car.price);
+        printf ("\n                          Preco: %.2f \n", car.price);
         total += car.price;
     };
 
-    printf("\n\n Total: %.2f \n\n", total);
+    printf("\n\n                         Total: %.2f \n\n", total);
     
     fclose(carrinho);
 }
@@ -161,10 +161,11 @@ void CadastrarPedido(){
         if( input.category == prod.category ){
             if( input.id == prod.id ){
                 printf ("\n                          id...: %d", prod.id);
-                printf ("\n                          preco: %s", prod.name);
+                printf ("\n                          nome.: %s", prod.name);
                 printf ("\n                          preco: %.2f\n\n", prod.price);
                 produtoValido = 1;
                 input.price = prod.price; /* Salva o valor do produto na struct input */
+                input.quant = prod.quant;
                 strcpy(input.name, prod.name);
                 break;
             }

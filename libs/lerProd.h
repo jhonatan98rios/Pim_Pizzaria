@@ -11,7 +11,6 @@ void LerProd( char titulo[10], int category ){
         if(prod.category == category){
             printf ("\n                  id...: %d", prod.id);
             printf ("\n                  preco: %s", prod.name);
-            printf ("\n                  quant: %d", prod.quant);
             printf ("\n                  preco: %.2f\n\n", prod.price);
         }
     };

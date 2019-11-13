@@ -1,71 +1,50 @@
-/* #include <time.h> */
 #include "structs.h"
 
-struct registro{
-    int id;
-    int category;
-    char name[20];
-    float price;
-    int quant;
-};
-
-gravarRelatorio(){
-
-    /* Preciso passar os valores de produtos para registros para poder gravar */
-
-    FILE *relatorio;
-    relatorio = fopen("./data/relatorio/data.dat", "a");
-    
-    fwrite(&prod, sizeof(struct registro), 1, relatorio);
-    fclose (relatorio); 
+void editar(){
+    printf("Editar!!");
 }
 
-editarRelatorio(){
-    /* Adiciona à quantidade do item mais 1 */
+void gravar(){
+    printf("Gravar!!");
+    FILE *RelatorioA; 
+    RelatorioA = fopen("./data/relatorio/relatorio.dat", "a"); 
+        fwrite (&item, sizeof(struct produtos), 1, RelatorioA); /* Grava a estrutura no arquivo */
+    fclose(RelatorioA);
 }
 
 void SalvarRelatorio(){
     
-    /* time_t current_time;
-    current_time = time(NULL);
-    char* c_time_string;
-
-    c_time_string = ctime(&current_time);
-
-    printf("Current time is %s", c_time_string); */
-
-
     FILE *Carrinho; 
     Carrinho = fopen("./data/vendas/carrinho_de_compras.dat", "r"); 
-    struct produtos prod;
+    struct produtos item;
 
     int exist = 0;
 
-    while(fread(&prod, sizeof(struct produtos), 1, Carrinho)){
+    while(fread(&item, sizeof(struct produtos), 1, Carrinho)){
 
-        FILE *read;
-        read = fopen("./data/relatorio/data.dat", "r");
-        struct registro test;
-
+        FILE *Relatorio; 
+        Relatorio = fopen("./data/relatorio/relatorio.dat", "r"); 
+        struct produtos index;
         exist = 0;
 
-        /* Percorre a lista de registros atras de um ID igual. Caso haja, exit = 1 */
-        while(fread(&test, sizeof(struct registro), 1, read)){
-            if(test.id == prod.id){
+        while(fread(&index, sizeof(struct produtos), 1, Relatorio)){
+
+            if(index.id == item.id){
                 exist = 1;
+                break;
             }
         }
 
-        if(exist == 0){
-            gravarRelatorio();
+        fclose (Relatorio);
+
+        if(exist == 1){
+            editar();
         }else{
-            editarRelatorio();
+        gravar();
         }
-
-
     };
 
-    fclose (Carrinho); 
+    fclose (Carrinho);
     
 
 }

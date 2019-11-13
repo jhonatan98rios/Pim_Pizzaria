@@ -7,18 +7,27 @@
 #include "../../libs/voltar.h" 
 #include "../../libs/cabSys.h" 
 
+struct registro{
+    int id;
+    int category;
+    char name[20];
+    float price;
+    int quant;
+};
+
 void LerRelatorios(){
 
     FILE *infile;
-    struct produtos prod;
+    struct registro prod;
     infile = fopen("./data/relatorio/data.dat", "r");
 
 printf("   ----------------------------- Visualizar produtos -----------------------------\n\n");
     
-    while(fread(&prod, sizeof(struct produtos), 1, infile)){
+    while(fread(&prod, sizeof(struct registro), 1, infile)){
 
-        printf ("\n      Nome...: %s", prod.name);
-        printf ("\n      Preço..: %.2f\n\n", prod.price);
+        printf ("\n      Nome.......: %s", prod.name);
+        printf ("\n      Preço......: %.2f", prod.price);
+        printf ("\n      Quantidade.: %d\n\n" prod.quant);
 	}
 
     fclose (infile);

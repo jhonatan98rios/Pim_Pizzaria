@@ -24,15 +24,15 @@
     {
     case 1:
         printf("\e[H\e[2J"); //Limpa a tela
-        system("./dist/Estoque/VisualizarEstoque"); 
+        system("./dist/estoque/VisualizarEstoque"); 
         break;
     case 2:
         printf("\e[H\e[2J"); //Limpa a tela
-        system("./dist/Estoque/CadastrarEstoque"); 
+        system("./dist/estoque/CadastrarEstoque"); 
         break;
     case 3:
         printf("\e[H\e[2J"); //Limpa a tela
-        system("./dist/Estoque/EditarEstoque"); 
+        system("./dist/estoque/EditarEstoque"); 
         break;
     case 0:
         printf("\e[H\e[2J"); //Limpa a tela

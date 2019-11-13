@@ -3,11 +3,12 @@
 #include <locale.h>
 #include <string.h>
 
-#include "../../libs/structs.h" /* Essa é a classe de produto */
-#include "../../libs/lerProd.h" /* Essa é a classe de produto */
-#include "../../libs/voltar.h" /* Essa é a classe de produto */
+#include "../../libs/structs.h"
+#include "../../libs/lerProd.h"
+#include "../../libs/voltar.h"
 #include "../../libs/cabSys.h"
 #include "../../libs/Mensagem.h"
+#include "../../libs/rel.h"
 
 void LerCarrinho(){
 
@@ -19,12 +20,12 @@ void LerCarrinho(){
     printf("\n\n   ----------------------------- Carrinho de Compras -------------------------------\n");
     
     while(fread(&car, sizeof(struct produtos), 1, carrinho)){
-        printf ("\n                          Nome.: %s\n\n", car.name);
-        printf ("\n                          Preco: %.2f\n\n", car.price);
+        printf ("\n                          Nome.: %s", car.name);
+        printf ("\n                          Preco: %.2f \n", car.price);
         total += car.price;
     };
 
-    printf("\n\n Total: %.2f \n\n", total);
+    printf("\n\n                         Total: %.2f \n\n", total);
     
     fclose(carrinho);
 }
@@ -35,7 +36,6 @@ void ApagarCarrinho(){
     carrinho = fopen("./data/vendas/carrinho_de_compras.dat", "w"); /* Salva os produtos armazenados em memória */
     remove("./data/vendas/carrinho_de_compras.dat");
 }
-
 
 void isUser(char tel[20]){
 
@@ -54,8 +54,8 @@ void isUser(char tel[20]){
     while(fread(&clie, sizeof(struct cliente), 1, ClieFile)){
         int compare = strcmp(tel, clie.telefone);
         if(compare == 0){
-            printf ("\n                          Nome.....: %s\n\n", clie.nome);
-            printf ("\n                          Endereço.: %s\n\n", clie.endereco);
+            printf ("\n                          Nome.....: %s", clie.nome);
+            printf ("\n                          Endereço.: %s", clie.endereco);
             printf ("\n                          Telefone.: %s\n\n", clie.telefone);
             hasUser = 1;
             break;
@@ -89,6 +89,8 @@ void CadastrarPedido(){
     printf ("\n      Informe o telefone do Cliente:");   
     gets(tel);
 
+    int emptyCar = 1; /* Verifica se o carrinho ainda esta vazio */
+
     /* Verifica se o numero de telefone existe na lista */
 
     isUser(tel);
@@ -108,6 +110,7 @@ void CadastrarPedido(){
     printf("  |           (1) Pizzas                     (4) Pizzas Grandes                     |\n");
     printf("  |           (2) Bebidas                    (5) Pizzas 1/2                         |\n");
     printf("  |           (3) Doces                      (6) Promocoes                          |\n");
+    printf("  |           (0) Cancelar                                                          |\n");
     printf("   ---------------------------------------------------------------------------------\n");
     printf("\n \n Selecione uma das opcoes acima: ");
     scanf("%d", &input.category );
@@ -129,11 +132,18 @@ void CadastrarPedido(){
     case 5:
         LerProd( "Pizzas 1/2" , 5);
         break;
-    case 9:
+    case 6:
         LerProd( "Promocoes" , 6);
         break;
+    case 0:
+        if(emptyCar == 1){
+            exit(0);
+        }else if(emptyCar == 0){
+            goto ADICIONAR;
+        }
+
     default:
-        printf ("\n                Informe um valor válido");
+        printf ("\n                Informe um valor válido \n\n");
         fclose(ProdFile);
         goto ESCOLHA;
         break;
@@ -150,11 +160,12 @@ void CadastrarPedido(){
 
         if( input.category == prod.category ){
             if( input.id == prod.id ){
-                printf ("\n                          id...: %s\n\n", prod.id);
-                printf ("\n                          preco: %s\n\n", prod.name);
-                printf ("\n                          preco: %s\n\n", prod.price);
+                printf ("\n                          id...: %d", prod.id);
+                printf ("\n                          nome.: %s", prod.name);
+                printf ("\n                          preco: %.2f\n\n", prod.price);
                 produtoValido = 1;
                 input.price = prod.price; /* Salva o valor do produto na struct input */
+                input.quant = prod.quant;
                 strcpy(input.name, prod.name);
                 break;
             }
@@ -169,7 +180,7 @@ void CadastrarPedido(){
         goto ESCOLHA;
     }else{
 
-        printf("         \nConfirmar pedido? [1] Sim - [0] Não: ");
+        printf("         \n\nConfirmar pedido? [1] Sim - [0] Não: ");
 
         scanf("%d", &confirm);
 
@@ -182,6 +193,8 @@ void CadastrarPedido(){
             confirm = 0;        
             fwrite(&input, sizeof(struct produtos), 1, Carrinho); /* Grava o produto no carrinho */
 
+            emptyCar = 0;
+
             if(&fwrite != 0){ 
                 printf("\e[1;1H\e[2J");
                 sucess();
@@ -191,6 +204,8 @@ void CadastrarPedido(){
             }
 
         }
+
+        ADICIONAR:
 
         printf("  Deseja adicionar produtos? [1] Sim - [0] Não: ");
         scanf("%d", &confirm);
@@ -217,6 +232,8 @@ void CadastrarPedido(){
             if(confirm == 1){
 
                 compraFinalizada();
+                fclose (Carrinho); 
+                SalvarRelatorio(); /* Grava os dados em outro arquivo */
                 ApagarCarrinho();
 
             }else if(confirm == 0){

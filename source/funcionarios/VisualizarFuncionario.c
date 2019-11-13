@@ -18,11 +18,8 @@ void LerFunc( char titulo[10], int tipoLogin ){
     while(fread(&input, sizeof(struct funcionario), 1, infile)){
         
         if(tipoLogin == input.tipoLogin){
-            printf ("\n               Nome do usuario.: %s\n\n", input.name);
+            printf ("\n               Nome do usuario.: %s\n", input.name);
             printf ("\n               CPF do usuario..: %s\n\n", input.cpf);
-            printf("                  1-Administrativo\n");
-            printf("                  2-Operacional\n");
-            printf("                  Cargo...........: %d \n", input.tipoLogin);
             printf("   --------------------------------------------------------------------------------\n\n");
         }
     }

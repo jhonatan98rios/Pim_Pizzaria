@@ -2,14 +2,14 @@
 #include<stdlib.h>
 /* #include <windows.h> */
 #include <locale.h>
-#include"..\\libs\\cabSys.h"
+#include"../libs/cabSys.h"
 
 void menuFuncionarios(){
-    system("..\\dist\\funcionarios\\MenuFuncionarios.exe");
+    system("./dist/funcionarios/MenuFuncionarios");
 }
 
 void menuClientes(){
-    system("..\\dist\\clientes\\MenuClientes.exe");
+    system("./dist/clientes/MenuClientes");
 }
 
 void menuProdutos(){
@@ -17,7 +17,7 @@ void menuProdutos(){
 }
 
 void menuEstoque(){
-    system("./dist/Estoque/MenuEstoque"); 
+    system("./dist/estoque/MenuEstoque"); 
 }
 
 void menuPedidos(){
@@ -53,9 +53,9 @@ int main()
     printf("   ---------------------------------------------------------------------------------\n");
     printf("  |                         Opcoes disponiveis:                                     |\n");
     printf("  |                                                                                 |\n");
-    printf("  |                 (1) Funcionarios         (5) Pedidos                            |\n");
+    printf("  |                 (1) Funcionarios         (5) Vendas                             |\n");
     printf("  |                 (2) Clientes             (6) Reclamacoes                        |\n");
-    printf("  |                 (3) Produtos             (7) Ralatorios                         |\n");
+    printf("  |                 (3) Produtos             (7) Relatorios                         |\n");
     printf("  |                 (4) Estoque              (8) Fechamento                         |\n");
     printf("  |                 (0) Sair                                                        |\n");
     printf("   ---------------------------------------------------------------------------------\n");

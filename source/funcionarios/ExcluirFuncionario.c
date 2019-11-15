@@ -32,13 +32,13 @@ scanf("%s",cpf);
      if(compare != 0){
          fwrite(&func, sizeof(struct funcionario),1,FuncTemp);
      }else{
-         printf("Tem certeza que deseja excluir o %s?\n [1] Sim \n [0] Nao\n", func.name);
+         printf("Tem certeza que deseja excluir o %s? [1] Sim [0] Nao: ", func.name);
          scanf("%d", &confirma);
         if(confirma == 1){
-            printf("Funcionario Excluido com sucesso!!");
+            printf("                     Funcionario Excluido com sucesso!!");
         }else{
             fwrite(&func, sizeof(struct funcionario),1,FuncTemp);
-            printf("Exclusão cancelada!!")
+            printf("                      Exclusão cancelada!!");
         }
         
      }

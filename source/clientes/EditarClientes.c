@@ -5,6 +5,10 @@
 #include <math.h>
 /* #include <conio.h> */
 #include "../../libs/structs.h"
+#include "../../libs/voltar.h"
+#include "../../libs/cabSys.h"
+#include "../../libs/Mensagem.h"
+
 
 void editar(){
 
@@ -16,13 +20,10 @@ void editar(){
 
     infile = fopen("./data/clientes.dat", "r");
     tempFile = fopen("./data/clientesTemp.dat", "w");
-    setlocale(LC_ALL,"Portuguese_Brazil");
+    
 
-    printf("\n =====================================================");
-    printf("\n ================= Editar Clientes ===================");
-    printf("\n =====================================================\n");
-
-    printf("Informe o Numero do cliente:");
+    printf("   -------------------------------  Editar Cliente  --------------------------------\n\n");
+    printf("                            Informe o Numero do cliente: ");
     gets(foneCliente);
     fflush(stdin);
 
@@ -34,15 +35,17 @@ void editar(){
         if(Compare != 0){
            fwrite(&input, sizeof(struct cliente),1,tempFile);
         }else{
-            printf("\nCliente encontrado com o telefone: %s \n", input.telefone);
-            printf ("\n Nome: %s \n Endereço: %s\n Telefone: %s\n", input.nome, input.endereco, input.telefone);
+            printf("\n                            Cliente encontrado com o telefone: %s ", input.telefone);
+            printf ("\n                            Nome....: %s", input.nome);
+            printf ("\n                            Endereço: %s", input.endereco);
+            printf ("\n                            Telefone: %s", input.telefone);
             fflush(stdin);
-            printf(" =====================================================\n");
-            printf("\n Digite o novo endereço:");
+             printf("\n   ---------------------------------------------------------------------------------\n");
+            printf("                             Digite o novo endereço: ");
             gets(input.endereco);
              fwrite(&input, sizeof(struct cliente),1,tempFile);
 
-             printf("\n Cadastro Atualizado!!!\n\n");
+             sucess();
         }
     };
     fclose(infile);
@@ -52,18 +55,9 @@ void editar(){
 int main(){
     system("color 1F");
     setlocale(LC_ALL,"Portuguese_Brazil");
+    cab();
     editar();
-
-    
-    int continuar;
-
-    printf("Deseja voltar ao menu? \n [1] Sim \n [2] Nao\n");
-    scanf("%d", &continuar);
-    if(continuar == 1){
-        system("./dist/menu");
-    }else{
-        printf("Programa Encerrado");
-    }
+    voltarMenu();
 
     return 0;
 }

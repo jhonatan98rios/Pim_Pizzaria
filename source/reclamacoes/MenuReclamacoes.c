@@ -9,14 +9,12 @@
 
     printf("\e[H\e[2J"); //Limpa a tela
 
-    printf("\n ==============================================");
-    printf("\n ============ Reclamações ==============");
-    printf("\n ==============================================");
-    printf("\n \n");
-
-    printf("\n (1) Vizualizar Reclamações");
-    printf("\n (2) Adicionar Reclamações");
-
+    printf("   ---------------------------------------------------------------------------------\n");
+    printf("  |                         Opcoes disponiveis:                                     |\n");
+    printf("  |                                                                                 |\n");
+    printf("  |           (1) Visualizar Reclamações         (2) Cadastrar Reclamações          |\n");
+    printf("   ---------------------------------------------------------------------------------\n");
+    printf("\n \n Selecione uma das opcoes acima: ");
     scanf("%d", &resposta);
 
     switch (resposta)

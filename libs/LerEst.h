@@ -1,8 +1,4 @@
-struct estoque{
-    int id;
-    char nome[20];
-    int quantidade;
-};
+#include "structs.h"
 
 void LerEst(){
     FILE *EstoqueFile;

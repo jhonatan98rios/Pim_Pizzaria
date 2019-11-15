@@ -6,6 +6,7 @@
 /* #include <conio.h> */
 #include "../../libs/structs.h" 
 #include "../../libs/voltar.h"
+#include "../../libs/cabSys.h"
 
 void lerLogin(){
 
@@ -18,12 +19,12 @@ void lerLogin(){
     int passValido = 0;
 
     printf("\e[1;1H\e[2J");
+    printf("                               Digite seu usuário:");
 
-    printf("Digite seu usuário:");
     gets(user);
     fflush(stdin);
     
-    printf("Digite sua senha:");
+    printf("                               Digite sua senha...:");
     gets(password);
     fflush(stdin);
 
@@ -76,9 +77,12 @@ int main()
     //Define o padrão UTF-8
     setlocale(LC_ALL, "Portuguese_Brasil");
     //Define a cor azul do terminal
-    //system("color 1F");
+    system("color 1F");
     //define o titulo da janela do prompt
-    //system("title Menu");
+    system("title login");
+
+    // printf("\e[1;1H\e[2J");
+    cab();
 
     lerLogin();
 

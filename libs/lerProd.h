@@ -3,13 +3,15 @@
 void LerProd( char titulo[10], int category ){
 
     FILE *infile;
-    struct produtos input;
+    struct produtos prod;
     infile = fopen("./data/produtos.dat", "r");
 
-    printf("\n =================== %s =================== \n", titulo);
-    while(fread(&input, sizeof(struct produtos), 1, infile)){
-        if(input.category == category){
-            printf("\n id = %d \n nome = %s \n preco = %.2f\n",input.id, input.name, input.price);
+    printf("   --------------------------  %s  ------------------------\n", titulo);
+    while(fread(&prod, sizeof(struct produtos), 1, infile)){
+        if(prod.category == category){
+            printf ("\n                  id...: %d", prod.id);
+            printf ("\n                  preco: %s", prod.name);
+            printf ("\n                  preco: %.2f\n\n", prod.price);
         }
     };
 

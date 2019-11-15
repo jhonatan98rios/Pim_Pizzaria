@@ -4,6 +4,8 @@
 #include <locale.h>
 #include "../../libs/voltar.h"
 #include "../../libs/structs.h" 
+#include "../../libs/Mensagem.h"
+#include "../../libs/cabSys.h"
 
     int GerarId(){
         FILE *StoreFile;
@@ -28,9 +30,10 @@
 
         struct estoque est; /* Cria uma instancia, da estrutura (Como uma cópia) */
 
-        printf("Informe o nome do produto a ser cadastrado\n");
+        printf("   ------------------------------  Cadastrar estoque  ------------------------------\n\n");
+        printf("                      Informe o nome do produto a ser cadastrado: ");
         scanf("%s", est.nome);
-        printf("Informe a quantidade a ser cadastrada:  \n");
+        printf("\n                      Informe a quantidade a ser cadastrada.....: ");
         scanf("%d", &est.quantidade);
 
         est.id = GerarId();
@@ -38,11 +41,11 @@
         fwrite (&est, sizeof(struct estoque), 1, EstoqueFile); /* Grava a estrutura no arquivo */
 
         if(&fwrite != 0){ /* Se conseguir gravar */
-            printf("\e[1;1H\e[2J");
-            printf("Salvo com sucesso !\n\n"); 
+            //printf("\e[1;1H\e[2J");
+            //printf("Salvo com sucesso !\n\n"); 
+            sucess();
         }else{
-            printf("\e[1;1H\e[2J"); 
-            printf("Erro ao gravar !\n");
+            error();
         }
 
         fclose(EstoqueFile);
@@ -59,7 +62,7 @@
 
         printf("\e[1;1H\e[2J");
         CadastrarEstoque();
-
-        voltarMenu()
         
+        voltarMenu();
+
     }

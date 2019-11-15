@@ -2,37 +2,32 @@
 #include<stdlib.h>
 /* #include <windows.h> */
 #include <locale.h>
+#include "../../libs/cabSys.h"
+#include "../../libs/voltar.h"
  
  int main(){
-     
+    cab();
     int resposta;
 
     printf("\e[H\e[2J"); //Limpa a tela
 
-    printf("\n ==============================================");
-    printf("\n ============ Pedidos ==============");
-    printf("\n ==============================================");
-    printf("\n \n");
-
-    printf("\n (1) Vizualizar Pedidos");
-    printf("\n (2) Adicionar Pedidos");
-    printf("\n (3) Excluir Pedidos \n");
-
+    printf("   ---------------------------------------------------------------------------------\n");
+    printf("  |                         Opcoes disponiveis:                                     |\n");
+    printf("  |                                                                                 |\n");
+    printf("  |             (1) Realizar Venda        (2) Voltar                                |\n");
+    printf("   ---------------------------------------------------------------------------------\n");
+    printf("\n \n Selecione uma das opcoes acima: ");
     scanf("%d", &resposta);
 
     switch (resposta)
     {
     case 1:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Vizualizar");
+        system("./dist/pedidos/CadastrarPedido");
         break;
     case 2:
         printf("\e[H\e[2J"); //Limpa a tela
-        system("./dist/pedidos/CadastrarPedido");
-        break;
-    case 3:
-        printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Excluir");
+        voltarMenu();
         break;
     }
 }   

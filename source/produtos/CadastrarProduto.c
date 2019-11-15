@@ -7,6 +7,8 @@
 
 #include "../../libs/structs.h" /* Essa é a classe de produto */
 #include "../../libs/voltar.h" /* Essa é a classe de produto */
+#include "../../libs/Mensagem.h"
+#include "../../libs/cabSys.h"
 
 int GerarID(){
 
@@ -32,6 +34,7 @@ void CadastrarPizzaGrande(struct produtos prod){
     struct produtos grande;
 
     grande.category = 4;
+    grande.quant = 1;
     grande.id = (prod.id + 1);
     strcpy(grande.name, prod.name);
     strcat(grande.name, ":G");
@@ -51,6 +54,7 @@ void CadastrarMeiaPizza(struct produtos prod){
     struct produtos meia;
 
     meia.category = 5;
+    meia.quant = 1;
     meia.id = (prod.id + 2);
     strcpy(meia.name, prod.name);
     strcat(meia.name, ":1/2");
@@ -70,27 +74,35 @@ void CadastrarProduto(){
 
     struct produtos prod; /* Cria uma instancia, da estrutura (Como uma cópia) */
 
-    printf("Informe o que deseja cadastrar: \n \n [1] Pizzas \n [2] Bebidas \n [3] Doces\n [9] Promocoes \n\n");
+   printf("   ---------------------------------------------------------------------------------\n");
+    printf("  |                        O que deseja cadastrar:                                    |\n");
+    printf("  |           (1) Pizzas                     (4) Pizzas Grandes                     |\n");
+    printf("  |           (2) Bebidas                    (5) Pizzas 1/2                         |\n");
+    printf("  |           (3) Doces                      (6) Promocoes                          |\n");
+    printf("   ---------------------------------------------------------------------------------\n");
+    printf("\n \n Selecione uma das opcoes acima: ");
+     
     scanf("%d", &prod.category );
 
     printf("\e[1;1H\e[2J"); /* Limpa a Tela */
 
-    printf("Informe o nome do produto: \n");
+    printf("                    Informe o nome do produto.: \n");
     scanf("%s", prod.name);
     
-    printf("Informe o preco do produto: \n");
+    printf("                    Informe o preco do produto: \n");
     scanf("%f", &prod.price);
 
+    prod.quant = 1;
     prod.id = GerarID();
 
     fwrite (&prod, sizeof(struct produtos), 1, ProdFile); /* Grava a estrutura no arquivo */
 
     if(&fwrite != 0){ /* Se conseguir gravar */
         printf("\e[1;1H\e[2J");
-        printf("Salvo com sucesso !\n\n"); 
+        sucess();
     }else{
         printf("\e[1;1H\e[2J"); 
-        printf("Erro ao gravar !\n");
+        error();
     }
 
     if(prod.category == 1){
@@ -111,6 +123,7 @@ int main()
     //system("title Menu");
 
     printf("\e[1;1H\e[2J");
+    cab();
     CadastrarProduto();
 
     /* Isso se tornará uma biblioteca de cabeçalho */

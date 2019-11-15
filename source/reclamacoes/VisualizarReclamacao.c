@@ -5,6 +5,7 @@
 
 #include "../../libs/structs.h" 
 #include "../../libs/voltar.h" 
+#include "../../libs/cabSys.h" 
 
 void LerRec(){
 
@@ -12,9 +13,12 @@ void LerRec(){
     struct reclamacoes input;
     infile = fopen("./data/reclamacoes.dat", "r");
 
-    printf("\n =================== Reclamacoes =================== \n");
+printf("   ----------------------------- Visualizar Reclamacoes -----------------------------\n\n");
+    
     while(fread(&input, sizeof(struct reclamacoes), 1, infile)){
-		printf("\n nome = %s \n mensage = %s \n\n", input.nome, input.msg);
+
+        printf ("\n                       Nome...: %s", input.nome);
+        printf ("\n                       Mensage: %s\n\n", input.msg);
 	}
 
     fclose (infile);
@@ -26,7 +30,7 @@ int main()
 {
     //Define o padrão UTF-8
     setlocale(LC_ALL, "Portuguese_Brasil");
-
+    cab();
     LerRec();
 
     voltarMenu();

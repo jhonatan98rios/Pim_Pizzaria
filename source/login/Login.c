@@ -29,7 +29,7 @@ void lerLogin(){
     fflush(stdin);
 
 
-    Loginfile = fopen ("./data/funcionarios.dat", "r");
+    Loginfile = fopen (".\\data\\funcionarios.dat", "r");
 
     while(fread(&input, sizeof(struct funcionario), 1, Loginfile)){
         
@@ -54,10 +54,10 @@ void lerLogin(){
         //printf("Usuario Valido \n");
         if(passValido==1){//Verifica se a senha é válida
             if(input.tipoLogin == 1){
-                system("./dist/menu");
+                system(".\\dist\\menu");
             }
             else{
-                system("./dist/menu-operacional");
+                system(".\\dist\\menu-operacional");
             }
             //printf("Senha Valida\n");//senha válida
             /* Gravar arquivo temp */

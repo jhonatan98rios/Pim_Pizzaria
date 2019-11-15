@@ -14,7 +14,7 @@
 void CadastrarCliente(){
 
     FILE *FuncFile;
-    FuncFile = fopen("./data/clientes.dat", "a"); /* Abre o arquivo somente para adição */
+    FuncFile = fopen(".\\data\\clientes.dat", "a"); /* Abre o arquivo somente para adição */
 
     struct cliente cli; /* Cria uma instancia, da estrutura (Como uma cópia) */
 

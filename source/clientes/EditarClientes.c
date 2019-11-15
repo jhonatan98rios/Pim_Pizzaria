@@ -18,8 +18,8 @@ void editar(){
     char foneCliente [20];
     char novoEndereco[20];
 
-    infile = fopen("./data/clientes.dat", "r");
-    tempFile = fopen("./data/clientesTemp.dat", "w");
+    infile = fopen(".\\data\\clientes.dat", "r");
+    tempFile = fopen(".\\data\\clientesTemp.dat", "w");
     
 
     printf("   -------------------------------  Editar Cliente  --------------------------------\n\n");

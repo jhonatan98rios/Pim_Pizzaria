@@ -11,7 +11,7 @@ void LerRec(){
 
     FILE *infile;
     struct reclamacoes input;
-    infile = fopen("./data/reclamacoes.dat", "r");
+    infile = fopen(".\\data/reclamacoes.dat", "r");
 
 printf("   ----------------------------- Visualizar Reclamacoes -----------------------------\n\n");
     

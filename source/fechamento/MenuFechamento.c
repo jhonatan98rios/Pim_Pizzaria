@@ -22,15 +22,15 @@
     {
     case 1:
         printf("\e[H\e[2J"); //Limpa a tela
-        system("./dist/fechamento/VisualizarFechamento");
+        system(".\\dist\\fechamento\\VisualizarFechamento");
         break;
     case 2:
         printf("\e[H\e[2J"); //Limpa a tela
-        system("./dist/fechamento/RealizarFechamento");
+        system(".\\dist\\fechamento\\RealizarFechamento");
         break;
     case 3:
         printf("\e[H\e[2J"); //Limpa a tela
-        system("./dist/menu");
+        system(".\\dist\\menu");
         break;
     }
 }   

@@ -4,7 +4,7 @@ void LerProd( char titulo[10], int category ){
 
     FILE *infile;
     struct produtos prod;
-    infile = fopen("./data/produtos.dat", "r");
+    infile = fopen(".\\data\\produtos.dat", "r");
 
     printf("   --------------------------  %s  ------------------------\n", titulo);
     while(fread(&prod, sizeof(struct produtos), 1, infile)){

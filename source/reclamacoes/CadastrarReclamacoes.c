@@ -11,7 +11,7 @@
 void reclamacao(){
 
 FILE *RecFile;
-    RecFile = fopen("./data/reclamacoes.dat", "a");	
+    RecFile = fopen(".\\data\\reclamacoes.dat", "a");	
 
     struct reclamacoes rec; 
 

@@ -14,7 +14,7 @@ void LerCarrinho(){
 
     FILE *carrinho;
     struct produtos car; /* Cria uma instância para vizualização */
-    carrinho = fopen("./data/vendas/carrinho_de_compras.dat", "r"); /* Salva os produtos armazenados em memória */
+    carrinho = fopen(".\\data\\vendas\\carrinho_de_compras.dat", "r"); /* Salva os produtos armazenados em memória */
 
     float total;
     printf("\n\n   ----------------------------- Carrinho de Compras -------------------------------\n");
@@ -33,8 +33,8 @@ void LerCarrinho(){
 void ApagarCarrinho(){
     FILE *carrinho;
     struct produtos car; /* Cria uma instância para vizualização */
-    carrinho = fopen("./data/vendas/carrinho_de_compras.dat", "w"); /* Salva os produtos armazenados em memória */
-    remove("./data/vendas/carrinho_de_compras.dat");
+    carrinho = fopen(".\\data\\vendas\\carrinho_de_compras.dat", "w"); /* Salva os produtos armazenados em memória */
+    remove(".\\data\\vendas\\carrinho_de_compras.dat");
 }
 
 void isUser(char tel[20]){
@@ -47,7 +47,7 @@ void isUser(char tel[20]){
 
     FILE *ClieFile;
     struct cliente clie;
-    ClieFile = fopen("./data/clientes.dat", "r");
+    ClieFile = fopen(".\\data\\clientes.dat", "r");
 
     int hasUser = 0;
 
@@ -64,7 +64,7 @@ void isUser(char tel[20]){
 
     if(hasUser == 0){
         /* Se o usuario for inválido, execute Cadastrar e repita a verificação */
-        system("./dist/clientes/CadastrarClientes");
+        system(".\\dist\\clientes\\CadastrarClientes");
         fclose (ClieFile); 
         isUser(tel);
     }else{
@@ -80,7 +80,7 @@ void CadastrarPedido(){
     /* Lê a lista de clientes */
 
     FILE *Carrinho; /* Cria um arquivo para armazenar a compra */
-    Carrinho = fopen("./data/vendas/carrinho_de_compras.dat", "a"); /* Abre o arquivo para adição */
+    Carrinho = fopen(".\\data\\vendas\\carrinho_de_compras.dat", "a"); /* Abre o arquivo para adição */
     struct produtos input; /* clie é o objeto informado */
 
     char tel[20]; /* Telefone do clientes */
@@ -100,7 +100,7 @@ void CadastrarPedido(){
     fflush(stdin);
 
     FILE *ProdFile;
-    ProdFile = fopen("./data/produtos.dat", "r"); /* Abre o arquivo para leitura */
+    ProdFile = fopen(".\\data\\produtos.dat", "r"); /* Abre o arquivo para leitura */
     struct produtos prod; /* prod é o objeto vindo da memoria */
 
     input.category = 0;

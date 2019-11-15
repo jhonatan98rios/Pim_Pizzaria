@@ -12,7 +12,7 @@ void LerFunc( char titulo[10], int tipoLogin ){
 
     FILE *infile;
     struct funcionario input;
-    infile = fopen ("./data/funcionarios.dat", "r");
+    infile = fopen (".\\data\\funcionarios.dat", "r");
     
     printf("   ------------------------------%s--------------------------------------\n\n",titulo);
     while(fread(&input, sizeof(struct funcionario), 1, infile)){

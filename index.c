@@ -7,7 +7,7 @@ int main(){
     
     printf("\e[1;1H\e[2J");
     
-    system("./dist/login/Login"); //Esse arquivo esta com erro. Mas ele devera ser chamado
+    system(".\\dist\\login\\Login"); //Esse arquivo esta com erro. Mas ele devera ser chamado
     /* system("./dist/menu"); */ //Substitui o login por hora
 }
 

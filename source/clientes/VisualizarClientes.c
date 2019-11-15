@@ -15,7 +15,7 @@ void LerClie(){
 
     FILE *infile;
     struct cliente input;
-    infile = fopen("./data/clientes.dat", "r");
+    infile = fopen(".\\data\\clientes.dat", "r");
 
     printf("   -----------------------------  Visualizar Cliente  ------------------------------\n\n");
     while(fread(&input, sizeof(struct cliente), 1, infile)){

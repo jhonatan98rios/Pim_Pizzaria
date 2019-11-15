@@ -25,19 +25,19 @@
     {
     case 1:
         printf("\e[H\e[2J"); //Limpa a tela
-        system("./dist/funcionarios/VisualizarFuncionario");
+        system(".\\dist\\funcionarios\\VisualizarFuncionario");
         break;
     case 2:
         printf("\e[H\e[2J"); //Limpa a tela
-        system("./dist/funcionarios/CadastrarFuncionario");
+        system(".\\dist\\funcionarios\\CadastrarFuncionario");
         break;
     case 3:
         printf("\e[H\e[2J"); //Limpa a tela
-        system("./dist/funcionarios/EditarFuncionario");
+        system(".\\dist\\funcionarios\\EditarFuncionario");
         break;
     case 4:
         printf("\e[H\e[2J"); //Limpa a tela
-        system("./dist/funcionarios/ExcluirFuncionario");
+        system(".\\dist\\funcionarios\\ExcluirFuncionario");
         break;
     }
 }   

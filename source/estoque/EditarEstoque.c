@@ -14,10 +14,10 @@ void Adicionar(id){
 
     FILE *EstoqueFile;
     struct estoque est;
-    EstoqueFile = fopen("./data/estoque.dat", "r");
+    EstoqueFile = fopen(".\\data\\estoque.dat", "r");
 
     FILE *TempFile;
-    TempFile = fopen("./data/estoqueTemp.dat", "w");
+    TempFile = fopen(".\\data\\estoqueTemp.dat", "w");
 
     int quant;
 
@@ -38,18 +38,18 @@ void Adicionar(id){
 
     fclose(EstoqueFile);  
     fclose(TempFile);  
-    remove("./data/estoque.dat");
-    rename("./data/estoqueTemp.dat", "./data/estoque.dat");
+    remove(".\\data\\estoque.dat");
+    rename(".\\data\\estoqueTemp.dat", ".\\data\\estoque.dat");
 }
 
 void Remover(id){
 
     FILE *EstoqueFile;
     struct estoque est;
-    EstoqueFile = fopen("./data/estoque.dat", "r");
+    EstoqueFile = fopen(".\\data\\estoque.dat", "r");
 
     FILE *TempFile;
-    TempFile = fopen("./data/estoqueTemp.dat", "w");
+    TempFile = fopen(".\\data\\estoqueTemp.dat", "w");
 
     int quant;
 
@@ -70,8 +70,8 @@ void Remover(id){
 
     fclose(EstoqueFile);
     fclose(TempFile);
-    remove("./data/estoque.dat");
-    rename("./data/estoqueTemp.dat", "./data/estoque.dat");
+    remove(".\\data\\estoque.dat");
+    rename(".\\data\\estoqueTemp.dat", ".\\data\\estoque.dat");
 }
 
 void EditarEstoque(){
@@ -87,7 +87,7 @@ void EditarEstoque(){
 
     FILE *EstoqueFile;
     struct estoque est;
-    EstoqueFile = fopen("./data/estoque.dat", "r");
+    EstoqueFile = fopen(".\\data\\estoque.dat", "r");
 
     while(fread(&est, sizeof(struct estoque), 1, EstoqueFile)){
         if(id == est.id){

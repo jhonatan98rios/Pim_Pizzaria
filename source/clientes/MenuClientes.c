@@ -25,19 +25,19 @@
     {
     case 1:
         printf("\e[H\e[2J"); //Limpa a tela
-        system("./dist/clientes/VisualizarClientes");
+        system(".\\dist\\clientes\\VisualizarClientes");
         break;
     case 2:
         printf("\e[H\e[2J"); //Limpa a tela
-        system("./dist/clientes/CadastrarClientes");
+        system(".\\dist\\clientes\\CadastrarClientes");
         break;
     case 3:
         printf("\e[H\e[2J"); //Limpa a tela
-        system("./dist/clientes/EditarClientes");
+        system(".\\dist\\clientes\\EditarClientes");
         break;
     case 0:
         printf("\e[H\e[2J"); //Limpa a tela
-        system("./dist/menu");
+        system(".\\dist\\menu");
         break;
     }
 }   

@@ -9,7 +9,7 @@ void voltarMenu(){
     printf("   [2] Nao\n");
     scanf("%d", &continuar);
     if(continuar == 1){
-        system("./dist/menu");
+        system(".\\dist\\menu");
     }else{
         printf("--------------------\n");
         printf("| Programa Encerrado |\n");

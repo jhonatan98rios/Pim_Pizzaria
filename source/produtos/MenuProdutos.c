@@ -24,18 +24,18 @@
     {
     case 1:
         printf("\e[H\e[2J"); //Limpa a tela
-        system("./dist/produtos/VisualizarProduto");
+        system(".\\dist\\produtos\\VisualizarProduto");
         break;
         
     case 2:
         printf("\e[H\e[2J"); //Limpa a tela
-        system("./dist/produtos/CadastrarProduto");
+        system(".\\dist\\produtos\\CadastrarProduto");
         break;
     case 3:
         printf("\e[H\e[2J"); //Limpa a tela
         printf("\n Excluir");
         break;
     case 0:
-        system("./dist/menu");
+        system(".\\dist\\menu");
     }
 }   

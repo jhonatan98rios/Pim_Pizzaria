@@ -11,7 +11,7 @@ void LerRelatorios(){
 
     FILE *infile;
     struct produtos prod;
-    infile = fopen("./data/relatorio/relatorio.dat", "r");
+    infile = fopen(".\\data\\relatorio\\relatorio.dat", "r");
 
     printf("   ----------------------------- Visualizar Relatorios -----------------------------\n\n");
     

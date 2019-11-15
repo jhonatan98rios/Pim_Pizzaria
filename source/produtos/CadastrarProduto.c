@@ -16,7 +16,7 @@ int GerarID(){
 
     FILE *infile;
     struct produtos input;
-    infile = fopen("./data/produtos.dat", "r");
+    infile = fopen(".\\data\\produtos.dat", "r");
 
     while(fread(&input, sizeof(struct produtos), 1, infile)){
         contador++;
@@ -29,7 +29,7 @@ int GerarID(){
 void CadastrarPizzaGrande(struct produtos prod){
 
     FILE *BigFile;
-    BigFile = fopen("./data/produtos.dat", "a"); /* Abre o arquivo somente para adição */
+    BigFile = fopen(".\\data\\produtos.dat", "a"); /* Abre o arquivo somente para adição */
 
     struct produtos grande;
 
@@ -49,7 +49,7 @@ void CadastrarPizzaGrande(struct produtos prod){
 void CadastrarMeiaPizza(struct produtos prod){
 
     FILE *HalfFile;
-    HalfFile = fopen("./data/produtos.dat", "a"); /* Abre o arquivo somente para adição */
+    HalfFile = fopen(".\\data\\produtos.dat", "a"); /* Abre o arquivo somente para adição */
 
     struct produtos meia;
 
@@ -70,7 +70,7 @@ void CadastrarMeiaPizza(struct produtos prod){
 void CadastrarProduto(){
 
     FILE *ProdFile;
-    ProdFile = fopen("./data/produtos.dat", "a"); /* Abre o arquivo somente para adição */
+    ProdFile = fopen(".\\data\\produtos.dat", "a"); /* Abre o arquivo somente para adição */
 
     struct produtos prod; /* Cria uma instancia, da estrutura (Como uma cópia) */
 

@@ -5,35 +5,35 @@
 #include"../libs/cabSys.h"
 
 void menuFuncionarios(){
-    system("./dist/funcionarios/MenuFuncionarios");
+    system(".\\dist\\funcionarios\\MenuFuncionarios");
 }
 
 void menuClientes(){
-    system("./dist/clientes/MenuClientes");
+    system(".\\dist\\clientes\\MenuClientes");
 }
 
 void menuProdutos(){
-    system("./dist/produtos/MenuProdutos"); 
+    system(".\\dist\\produtos\\MenuProdutos"); 
 }
 
 void menuEstoque(){
-    system("./dist/estoque/MenuEstoque"); 
+    system(".\\dist\\estoque\\MenuEstoque"); 
 }
 
 void menuPedidos(){
-    system("./dist/pedidos/MenuPedidos"); 
+    system(".\\dist\\pedidos\\MenuPedidos"); 
 }
 
 void menuReclamacoes(){
-    system("./dist/reclamacoes/MenuReclamacoes"); 
+    system(".\\dist\\reclamacoes\\MenuReclamacoes"); 
 }
 
 void menuRelatorios(){
-    system("./dist/relatorios/MenuRelatorios"); 
+    system(".\\dist\\relatorios\\MenuRelatorios"); 
 }
 
 void menuFechamento(){
-    system("./dist/fechamento/MenuFechamento"); 
+    system(".\\dist\\fechamento\\MenuFechamento"); 
 }
 
 

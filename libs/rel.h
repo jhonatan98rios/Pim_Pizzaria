@@ -4,10 +4,10 @@
 void editar(struct produtos item){
     FILE *relatorioFile;
     struct produtos rel;
-    relatorioFile = fopen("./data/relatorio/relatorio.dat", "r");
+    relatorioFile = fopen(".\\data\\relatorio\\relatorio.dat", "r");
 
     FILE *TempFile;
-    TempFile = fopen("./data/relatorio/temp.dat", "w");
+    TempFile = fopen(".\\data\\relatorio\\temp.dat", "w");
 
     while(fread(&rel, sizeof(struct produtos), 1, relatorioFile)){
         if(item.id == rel.id){
@@ -21,13 +21,13 @@ void editar(struct produtos item){
 
     fclose(relatorioFile);  
     fclose(TempFile);  
-    remove("./data/relatorio/relatorio.dat");
-    rename("./data/relatorio/temp.dat", "./data/relatorio/relatorio.dat");
+    remove(".\\data\\relatorio\\relatorio.dat");
+    rename(".\\data\\relatorio\\temp.dat", ".\\data\\relatorio\\relatorio.dat");
 }
 
 void gravar(struct produtos item){
     FILE *Relatorio; 
-    Relatorio = fopen("./data/relatorio/relatorio.dat", "a"); 
+    Relatorio = fopen(".\\data\\relatorio\\relatorio.dat", "a"); 
         fwrite (&item, sizeof(struct produtos), 1, Relatorio); /* Grava a estrutura no arquivo */
     fclose(Relatorio);
 }
@@ -35,7 +35,7 @@ void gravar(struct produtos item){
 void SalvarRelatorio(){
     
     FILE *Carrinho; 
-    Carrinho = fopen("./data/vendas/carrinho_de_compras.dat", "r"); 
+    Carrinho = fopen(".\\data\\vendas\\carrinho_de_compras.dat", "r"); 
     struct produtos item;
 
     int exist = 0;
@@ -43,7 +43,7 @@ void SalvarRelatorio(){
     while(fread(&item, sizeof(struct produtos), 1, Carrinho)){
 
         FILE *Relatorio; 
-        Relatorio = fopen("./data/relatorio/relatorio.dat", "r"); 
+        Relatorio = fopen(".\\data\\relatorio\\relatorio.dat", "r"); 
         struct produtos index;
         exist = 0;
 

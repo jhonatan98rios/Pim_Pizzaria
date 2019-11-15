@@ -14,7 +14,7 @@ gravarRelatorio(){
     /* Preciso passar os valores de produtos para registros para poder gravar */
 
     FILE *relatorio;
-    relatorio = fopen("./data/relatorio/data.dat", "a");
+    relatorio = fopen(".\\data\\relatorio\\data.dat", "a");
     
     fwrite(&prod, sizeof(struct registro), 1, relatorio);
     fclose (relatorio); 
@@ -36,7 +36,7 @@ void SalvarRelatorio(){
 
 
     FILE *Carrinho; 
-    Carrinho = fopen("./data/vendas/carrinho_de_compras.dat", "r"); 
+    Carrinho = fopen(".\\data\\vendas\\carrinho_de_compras.dat", "r"); 
     struct produtos prod;
 
     int exist = 0;
@@ -44,7 +44,7 @@ void SalvarRelatorio(){
     while(fread(&prod, sizeof(struct produtos), 1, Carrinho)){
 
         FILE *read;
-        read = fopen("./data/relatorio/data.dat", "r");
+        read = fopen(".\\data\\relatorio\\data.dat", "r");
         struct registro test;
 
         exist = 0;

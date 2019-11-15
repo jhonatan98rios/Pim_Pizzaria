@@ -23,7 +23,7 @@
     {
     case 1:
         printf("\e[H\e[2J"); //Limpa a tela
-        system("./dist/pedidos/CadastrarPedido");
+        system(".\\dist\\pedidos\\CadastrarPedido");
         break;
     case 2:
         printf("\e[H\e[2J"); //Limpa a tela

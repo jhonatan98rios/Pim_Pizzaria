@@ -2,39 +2,39 @@ const gulp = require('gulp');
 const exec = require('child_process').exec;
 
 const builds = [
-    "sudo gcc ./index.c -o ./index",
-    "sudo gcc ./source/menu.c -o dist/menu",
+    "gcc ./index.c -o ./index",
+    "gcc ./source/menu.c -o dist/menu",
 
-    "sudo gcc ./source/clientes/MenuClientes.c -o dist/clientes/MenuClientes",
-    "sudo gcc ./source/clientes/CadastrarClientes.c -o dist/clientes/CadastrarClientes",
-    "sudo gcc ./source/clientes/VisualizarClientes.c -o dist/clientes/VisualizarClientes",
-    "sudo gcc ./source/clientes/EditarClientes.c -o dist/clientes/EditarClientes",
+    "gcc ./source/clientes/MenuClientes.c -o dist/clientes/MenuClientes",
+    "gcc ./source/clientes/CadastrarClientes.c -o dist/clientes/CadastrarClientes",
+    "gcc ./source/clientes/VisualizarClientes.c -o dist/clientes/VisualizarClientes",
+    "gcc ./source/clientes/EditarClientes.c -o dist/clientes/EditarClientes",
 
-    "sudo gcc ./source/estoque/MenuEstoque.c -o dist/estoque/MenuEstoque",
-    "sudo gcc ./source/estoque/CadastrarEstoque.c -o dist/estoque/CadastrarEstoque",
-    "sudo gcc ./source/estoque/VisualizarEstoque.c -o dist/estoque/VisualizarEstoque",
-    "sudo gcc ./source/estoque/EditarEstoque.c -o dist/estoque/EditarEstoque",
+    "gcc ./source/estoque/MenuEstoque.c -o dist/estoque/MenuEstoque",
+    "gcc ./source/estoque/CadastrarEstoque.c -o dist/estoque/CadastrarEstoque",
+    "gcc ./source/estoque/VisualizarEstoque.c -o dist/estoque/VisualizarEstoque",
+    "gcc ./source/estoque/EditarEstoque.c -o dist/estoque/EditarEstoque",
 
-    "sudo gcc ./source/login/Login.c -o dist/login/Login",
+    "gcc ./source/login/Login.c -o dist/login/Login",
 
-    "sudo gcc ./source/pedidos/MenuPedidos.c -o dist/pedidos/MenuPedidos",
-    "sudo gcc ./source/pedidos/CadastrarPedido.c -o dist/pedidos/CadastrarPedido",
+    "gcc ./source/pedidos/MenuPedidos.c -o dist/pedidos/MenuPedidos",
+    "gcc ./source/pedidos/CadastrarPedido.c -o dist/pedidos/CadastrarPedido",
 
-    "sudo gcc ./source/produtos/MenuProdutos.c -o dist/produtos/MenuProdutos",
-    "sudo gcc ./source/produtos/CadastrarProduto.c -o dist/produtos/CadastrarProduto",
-    "sudo gcc ./source/produtos/VisualizarProduto.c -o dist/produtos/VisualizarProduto",
+    "gcc ./source/produtos/MenuProdutos.c -o dist/produtos/MenuProdutos",
+    "gcc ./source/produtos/CadastrarProduto.c -o dist/produtos/CadastrarProduto",
+    "gcc ./source/produtos/VisualizarProduto.c -o dist/produtos/VisualizarProduto",
 
-    "sudo gcc ./source/reclamacoes/MenuReclamacoes.c -o dist/reclamacoes/MenuReclamacoes",
-    "sudo gcc ./source/reclamacoes/CadastrarReclamacoes.c -o dist/reclamacoes/CadastrarReclamacoes",
-    "sudo gcc ./source/reclamacoes/VisualizarReclamacao.c -o dist/reclamacoes/VisualizarReclamacao",
+    "gcc ./source/reclamacoes/MenuReclamacoes.c -o dist/reclamacoes/MenuReclamacoes",
+    "gcc ./source/reclamacoes/CadastrarReclamacoes.c -o dist/reclamacoes/CadastrarReclamacoes",
+    "gcc ./source/reclamacoes/VisualizarReclamacao.c -o dist/reclamacoes/VisualizarReclamacao",
 
-    "sudo gcc ./source/funcionarios/MenuFuncionarios.c -o dist/funcionarios/MenuFuncionarios",
-    "sudo gcc ./source/funcionarios/CadastrarFuncionario.c -o dist/funcionarios/CadastrarFuncionario",
-    "sudo gcc ./source/funcionarios/VisualizarFuncionario.c -o dist/funcionarios/VisualizarFuncionario",
-    "sudo gcc ./source/funcionarios/ExcluirFuncionario.c -o dist/funcionarios/ExcluirFuncionario",
+    "gcc ./source/funcionarios/MenuFuncionarios.c -o dist/funcionarios/MenuFuncionarios",
+    "gcc ./source/funcionarios/CadastrarFuncionario.c -o dist/funcionarios/CadastrarFuncionario",
+    "gcc ./source/funcionarios/VisualizarFuncionario.c -o dist/funcionarios/VisualizarFuncionario",
+    "gcc ./source/funcionarios/ExcluirFuncionario.c -o dist/funcionarios/ExcluirFuncionario",
 
-    "sudo gcc ./source/relatorios/MenuRelatorios.c -o dist/relatorios/MenuRelatorios",
-    "sudo gcc ./source/relatorios/VisualizarRelatorios.c -o dist/relatorios/VisualizarRelatorios"
+    "gcc ./source/relatorios/MenuRelatorios.c -o dist/relatorios/MenuRelatorios",
+    "gcc ./source/relatorios/VisualizarRelatorios.c -o dist/relatorios/VisualizarRelatorios"
 ];
 
 

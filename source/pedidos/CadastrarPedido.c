@@ -16,7 +16,7 @@ void LerCarrinho(){
     struct produtos car; /* Cria uma instância para vizualização */
     carrinho = fopen(".\\data\\vendas\\carrinho_de_compras.dat", "r"); /* Salva os produtos armazenados em memória */
 
-    float total;
+    float total = 0.00;
     printf("\n\n   ----------------------------- Carrinho de Compras -------------------------------\n");
     
     while(fread(&car, sizeof(struct produtos), 1, carrinho)){

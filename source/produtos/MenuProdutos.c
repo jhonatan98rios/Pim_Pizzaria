@@ -14,7 +14,7 @@
     printf("  |                         Opcoes disponiveis:                                     |\n");
     printf("  |                                                                                 |\n");
     printf("  |           (1) Visualizar Produtos      (2) Adicionar Produtos                   |\n");
-    printf("  |           (0) Sair                                                              |\n");
+    printf("  |           (3) Editar Produtos          (0) Sair                                 |\n");
     printf("   ---------------------------------------------------------------------------------\n");
     printf("\n \n Selecione uma das opcoes acima: ");
 
@@ -25,15 +25,14 @@
     case 1:
         printf("\e[H\e[2J"); //Limpa a tela
         system(".\\dist\\produtos\\VisualizarProduto");
-        break;
-        
+        break;  
     case 2:
         printf("\e[H\e[2J"); //Limpa a tela
         system(".\\dist\\produtos\\CadastrarProduto");
         break;
     case 3:
         printf("\e[H\e[2J"); //Limpa a tela
-        printf("\n Excluir");
+        system(".\\dist\\produtos\\EditarProdutos");
         break;
     case 0:
         system(".\\dist\\menu");

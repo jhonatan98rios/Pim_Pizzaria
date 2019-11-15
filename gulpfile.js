@@ -23,6 +23,7 @@ const builds = [
     "gcc ./source/produtos/MenuProdutos.c -o dist/produtos/MenuProdutos",
     "gcc ./source/produtos/CadastrarProduto.c -o dist/produtos/CadastrarProduto",
     "gcc ./source/produtos/VisualizarProduto.c -o dist/produtos/VisualizarProduto",
+    "gcc ./source/produtos/EditarProdutos.c -o dist/produtos/EditarProdutos",
 
     "gcc ./source/reclamacoes/MenuReclamacoes.c -o dist/reclamacoes/MenuReclamacoes",
     "gcc ./source/reclamacoes/CadastrarReclamacoes.c -o dist/reclamacoes/CadastrarReclamacoes",
@@ -41,8 +42,8 @@ const builds = [
 gulp.task('default', async function(){
     builds.forEach((build)=>{
         exec(build, function(stdout, stderr){
-            /* console.log(stdout);
-            console.log(stderr); */
+            //console.log(stdout);
+            //console.log(stderr);
         });
     });
 });

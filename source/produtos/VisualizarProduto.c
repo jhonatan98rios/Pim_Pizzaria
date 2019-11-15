@@ -34,8 +34,7 @@ int main()
     //define o titulo da janela do prompt
     //system("title Menu");
 
-    printf("\e[1;1H\e[2J");
-     cab();
+    cab();
     LerProdutos();
 
     /* Isso se tornará uma biblioteca de cabeçalho */

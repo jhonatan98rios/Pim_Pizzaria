@@ -3,7 +3,7 @@
 #include <string.h>
 #include <locale.h>
 #include <math.h>
-/* #include <conio.h> */
+#include <conio.h>
 #include "../../libs/structs.h" 
 #include "../../libs/voltar.h"
 #include "../../libs/cabSys.h"
@@ -18,7 +18,6 @@ void lerLogin(){
     int userValido = 0;
     int passValido = 0;
 
-    printf("\e[1;1H\e[2J");
     printf("                               Digite seu usuário:");
 
     gets(user);
@@ -36,30 +35,28 @@ void lerLogin(){
         char compare = strcmp(input.name,user); //Atribui o valor da comparação a "Compare"
         char comparesenha = strcmp(input.senha,password); //Atribui o valor da comparação a "Comparesenha"
 
-        if (compare==0){//Verifica se a comparação de senha é verdadeira
-            userValido = 1;//atriubui o valor 1 se o usuário existir
+        if (compare==0){    //Verifica se a comparação de senha é verdadeira
+            userValido = 1; //atriubui o valor 1 se o usuário existir
 
-            if(comparesenha==0){//verifica se a comparação de senha é verdadeira
-                passValido = 1;//Adiciona o valor 1 se a senha é verdadeira
+            if(comparesenha==0){    //verifica se a comparação de senha é verdadeira
+                passValido = 1; //Adiciona o valor 1 se a senha é verdadeira
                 break;
             }else{
-                passValido = 0;//Adiciona 0 se a senha for inválida
+                passValido = 0; //Adiciona 0 se a senha for inválida
             }
         }else{
-            userValido = 0;//Adiciona 0 se o usuário é inválido
+            userValido = 0; //Adiciona 0 se o usuário é inválido
         }
     };
 
-    if(userValido==1){//Verifica se o usuário é válido
-        //printf("Usuario Valido \n");
-        if(passValido==1){//Verifica se a senha é válida
+    if(userValido==1){  //Verifica se o usuário é válido
+        if(passValido==1){  //Verifica se a senha é válida
             if(input.tipoLogin == 1){
                 system(".\\dist\\menu");
             }
             else{
                 system(".\\dist\\menu-operacional");
             }
-            //printf("Senha Valida\n");//senha válida
             /* Gravar arquivo temp */
         }else{
             printf("Senha invalida\n");
@@ -81,7 +78,6 @@ int main()
     //define o titulo da janela do prompt
     system("title login");
 
-    // printf("\e[1;1H\e[2J");
     cab();
 
     lerLogin();

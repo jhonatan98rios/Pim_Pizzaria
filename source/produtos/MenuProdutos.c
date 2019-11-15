@@ -13,8 +13,8 @@
     printf("   ---------------------------------------------------------------------------------\n");
     printf("  |                         Opcoes disponiveis:                                     |\n");
     printf("  |                                                                                 |\n");
-    printf("  |           (1) Visualizar Produtos         (3) Excluir Produtos                  |\n");
-    printf("  |           (2) Adicionar Produtos          (0) Sair                              |\n");
+    printf("  |           (1) Visualizar Produtos      (2) Adicionar Produtos                   |\n");
+    printf("  |           (0) Sair                                                              |\n");
     printf("   ---------------------------------------------------------------------------------\n");
     printf("\n \n Selecione uma das opcoes acima: ");
 

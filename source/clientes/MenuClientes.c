@@ -6,7 +6,7 @@
  
  int main(){
      
-     cab();
+    cab();
     int resposta;
 
    // printf("\e[H\e[2J"); //Limpa a tela

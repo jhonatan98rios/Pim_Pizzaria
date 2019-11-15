@@ -6,7 +6,8 @@
 /* #include <conio.h> */
 #include "../../libs/LerEst.h"
 #include "../../libs/voltar.h"
-#include "../../libs/structs.h" 
+#include "../../libs/structs.h"
+#include "../../libs/cabSys.h"
 
 void LerEstoque(){
 
@@ -25,7 +26,7 @@ int main()
     //define o titulo da janela do prompt
     //system("title Menu");
 
-    printf("\e[1;1H\e[2J");
+    cab();
     LerEstoque();
 
     voltarMenu();

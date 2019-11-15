@@ -41,8 +41,6 @@
         fwrite (&est, sizeof(struct estoque), 1, EstoqueFile); /* Grava a estrutura no arquivo */
 
         if(&fwrite != 0){ /* Se conseguir gravar */
-            //printf("\e[1;1H\e[2J");
-            //printf("Salvo com sucesso !\n\n"); 
             sucess();
         }else{
             error();
@@ -56,11 +54,11 @@
         //Define o padrão UTF-8
         setlocale(LC_ALL, "Portuguese_Brasil");
         //Define a cor azul do terminal
-        //system("color 1F");
+        system("color 1F");
         //define o titulo da janela do prompt
-        //system("title Menu");
+        system("title Menu");
 
-        printf("\e[1;1H\e[2J");
+        cab();
         CadastrarEstoque();
         
         voltarMenu();

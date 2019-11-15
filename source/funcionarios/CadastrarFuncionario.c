@@ -43,11 +43,8 @@ void CadastrarFuncionario(){
     char senhaOk = strcmp(func.senha, senhaConfirmada);/*Compara as senhas digitadas para verificar se é verdadeira*/
     if(senhaOk == 0){
         fwrite (&func, sizeof(struct funcionario), 1, FuncFile); /* Grava a estrutura no arquivo */
-        //printf("                          Funcionário salvo com sucesso!\n\n"); 
         sucess();
     }else{
-        //printf("\e[1;1H\e[2J"); 
-       // printf("                          Confirmação de senha inválida!!!\n");
        senhaError();
     }
    
@@ -62,9 +59,8 @@ int main()
     //Define a cor azul do terminal
     system("color 1F");
     //define o titulo da janela do prompt
-    //system("title Menu");
+    system("title Menu");
 
-    //printf("\e[1;1H\e[2J");
     cab();
     CadastrarFuncionario();
     

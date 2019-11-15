@@ -250,7 +250,6 @@ void CadastrarPedido(){
 int main(){
     setlocale(LC_ALL, "Portuguese_Brasil");
 
-    printf("\e[1;1H\e[2J");
     cab();
     CadastrarPedido();
 

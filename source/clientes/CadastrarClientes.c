@@ -35,12 +35,8 @@ void CadastrarCliente(){
     fwrite (&cli, sizeof(struct cliente), 1, FuncFile); /* Grava a estrutura no arquivo */
 
     if(&fwrite != 0){ /* Se conseguir gravar */
-        //printf("\e[1;1H\e[2J");
-        //printf("Cadastro realizado com sucesso !\n\n"); 
         sucess();
-    }else{
-        //printf("\e[1;1H\e[2J"); 
-        //printf("Erro ao gravar !\n");
+    }else{ 
         error();
     }
     
@@ -54,7 +50,7 @@ int main()
     //Define a cor azul do terminal
     system("color 1F");
     //define o titulo da janela do prompt
-    //system("title Menu");
+    system("title Menu");
 
     cab();
     CadastrarCliente();

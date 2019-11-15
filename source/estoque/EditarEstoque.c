@@ -124,7 +124,6 @@ int main()
     //define o titulo da janela do prompt
     //system("title Menu");
 
-    //printf("\e[1;1H\e[2J");
     cab();
     EditarEstoque();
     voltarMenu();

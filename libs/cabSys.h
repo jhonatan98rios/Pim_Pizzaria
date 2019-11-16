@@ -1,5 +1,6 @@
 void cab(){
-    printf("\e[1;1H\e[2J"); /* Limpa a Tela */
+    //printf("\e[1;1H\e[2J"); /* Limpa a Tela */
+    system("cls");
 
     printf("                                                              \n");
     printf("   ---------------------------------------------------------------------------------\n");

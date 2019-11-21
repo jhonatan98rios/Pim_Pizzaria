@@ -9,12 +9,12 @@
 
 void LerRelatorios(){
 
-    char ano[8];
-    char mes[4];
-    char dia[4];
+    char ano[8] = "";
+    char mes[4] = "";
+    char dia[4] = "";
 
-    char data[20];
-    char path[30] = ".\\data\\relatorio\\";
+    char data[20] = "";
+    char path[60] = ".\\data\\relatorio\\";
 
     float total = 0.0;
 
@@ -41,7 +41,7 @@ void LerRelatorios(){
     strcat(path, data);
     strcat(path, ".dat");
 
-    printf("\n Data: %s. \n\n", path);
+    printf("\n Data: %s \n\n", data);
 
 // ===================================================
 
@@ -61,7 +61,7 @@ void LerRelatorios(){
 
 	}
 
-    printf("\nO Lucro total desse dia foi de: %.2f \n", total);
+    printf("\nO Lucro total desse dia foi de: R$ %.2f \n", total);
 
     fclose (infile);
 };

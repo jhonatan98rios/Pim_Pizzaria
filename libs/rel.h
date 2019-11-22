@@ -1,6 +1,7 @@
 #include "structs.h"
 #include <time.h>
 #include<stdio.h>
+3
 
 void editar(struct produtos item){
 
@@ -16,6 +17,7 @@ void editar(struct produtos item){
     sprintf(data, "%d-%d-%d", data_hora_atual->tm_mday, data_hora_atual->tm_mon+1, data_hora_atual->tm_year+1900);
     /* Cria o nome do arquivo de relatorios baseado na data */
     char relatorioName[40];
+
     strcpy(relatorioName, ".\\data\\relatorio\\");
     strcat(relatorioName, data);
     strcat(relatorioName, ".dat");
@@ -59,6 +61,7 @@ void gravar(struct produtos item){
     sprintf(data, "%d-%d-%d", data_hora_atual->tm_mday, data_hora_atual->tm_mon+1, data_hora_atual->tm_year+1900);
     /* Cria o nome do arquivo de relatorios baseado na data */
     char relatorioName[40];
+
     strcpy(relatorioName, ".\\data\\relatorio\\");
     strcat(relatorioName, data);
     strcat(relatorioName, ".dat");

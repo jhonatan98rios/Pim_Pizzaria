@@ -13,8 +13,8 @@
    printf("   ---------------------------------------------------------------------------------\n");
    printf("  |                         Opcoes disponiveis:                                     |\n");
    printf("  |                                                                                 |\n");
-   printf("  |            (1) Vendas           (2) Produtos Mais Vendidos                      |\n");
-   printf("  |            (0) Voltar                                                           |\n");
+   printf("  |             (1) Relatorio Diário       (2) Relatorio Mensal                     |\n");
+   printf("  |             (0) Voltar                                                          |\n");
    printf("   ---------------------------------------------------------------------------------\n");
    printf("\n \n Selecione uma das opcoes acima: ");
    scanf("%d", &resposta);
@@ -23,11 +23,11 @@
    {
    case 1:
       printf("\e[H\e[2J"); //Limpa a tela
-      system(".\\dist\\relatorios\\VisualizarRelatorios");
+      system(".\\dist\\relatorios\\RelatoriosDiarios");
       break;
    case 2:
       printf("\e[H\e[2J"); //Limpa a tela
-      printf(" Pizza de Escarola é a melhor!! ");
+      system(".\\dist\\relatorios\\RelatoriosMensais");
       break;
    default:
       voltarMenu();

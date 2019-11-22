@@ -35,7 +35,9 @@ const builds = [
     "gcc ./source/funcionarios/ExcluirFuncionario.c -o dist/funcionarios/ExcluirFuncionario",
 
     "gcc ./source/relatorios/MenuRelatorios.c -o dist/relatorios/MenuRelatorios",
-    "gcc ./source/relatorios/VisualizarRelatorios.c -o dist/relatorios/VisualizarRelatorios"
+    "gcc ./source/relatorios/VisualizarRelatorios.c -o dist/relatorios/VisualizarRelatorios",
+    "gcc ./source/relatorios/RelatoriosDiarios.c -o dist/relatorios/RelatoriosDiarios",
+    "gcc ./source/relatorios/RelatoriosMensais.c -o dist/relatorios/RelatoriosMensais"
 ];
 
 

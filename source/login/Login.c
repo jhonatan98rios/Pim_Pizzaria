@@ -55,7 +55,7 @@ void lerLogin(){
                 system(".\\dist\\menu");
             }
             else{
-                system(".\\dist\\menu-operacional");
+                system(".\\dist\\operacional\\MenuEstoque.exe");
             }
             /* Gravar arquivo temp */
         }else{

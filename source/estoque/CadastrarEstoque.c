@@ -26,9 +26,9 @@
 
     void CadastrarEstoque(){
         FILE *EstoqueFile;
-        EstoqueFile = fopen(".\\data\\estoque.dat", "a"); /* Abre o arquivo somente para adição */
+        EstoqueFile = fopen(".\\data\\estoque.dat", "a"); /* Abre o arquivo somente para adicao */
 
-        struct estoque est; /* Cria uma instancia, da estrutura (Como uma cópia) */
+        struct estoque est; /* Cria uma instancia, da estrutura (Como uma copia) */
 
         printf("   ------------------------------  Cadastrar estoque  ------------------------------\n\n");
         printf("                      Informe o nome do produto a ser cadastrado: ");
@@ -51,7 +51,7 @@
 
     int main(){
 
-        //Define o padrão UTF-8
+        //Define o padrao UTF-8
         setlocale(LC_ALL, "Portuguese_Brasil");
         //Define a cor azul do terminal
         system("color 1F");

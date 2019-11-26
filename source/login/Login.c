@@ -18,7 +18,7 @@ void lerLogin(){
     int userValido = 0;
     int passValido = 0;
 
-    printf("                               Digite seu usuário:");
+    printf("                               Digite seu usuario:");
 
     gets(user);
     fflush(stdin);
@@ -32,30 +32,30 @@ void lerLogin(){
 
     while(fread(&input, sizeof(struct funcionario), 1, Loginfile)){
         
-        char compare = strcmp(input.name,user); //Atribui o valor da comparação a "Compare"
-        char comparesenha = strcmp(input.senha,password); //Atribui o valor da comparação a "Comparesenha"
+        char compare = strcmp(input.name,user); //Atribui o valor da comparacao a "Compare"
+        char comparesenha = strcmp(input.senha,password); //Atribui o valor da comparacao a "Comparesenha"
 
-        if (compare==0){    //Verifica se a comparação de senha é verdadeira
-            userValido = 1; //atriubui o valor 1 se o usuário existir
+        if (compare==0){    //Verifica se a comparacao de senha e verdadeira
+            userValido = 1; //atriubui o valor 1 se o usuario existir
 
-            if(comparesenha==0){    //verifica se a comparação de senha é verdadeira
-                passValido = 1; //Adiciona o valor 1 se a senha é verdadeira
+            if(comparesenha==0){    //verifica se a comparacao de senha e verdadeira
+                passValido = 1; //Adiciona o valor 1 se a senha e verdadeira
                 break;
             }else{
-                passValido = 0; //Adiciona 0 se a senha for inválida
+                passValido = 0; //Adiciona 0 se a senha for invalida
             }
         }else{
-            userValido = 0; //Adiciona 0 se o usuário é inválido
+            userValido = 0; //Adiciona 0 se o usuario e invalido
         }
     };
 
-    if(userValido==1){  //Verifica se o usuário é válido
-        if(passValido==1){  //Verifica se a senha é válida
+    if(userValido==1){  //Verifica se o usuario e valido
+        if(passValido==1){  //Verifica se a senha e valida
             if(input.tipoLogin == 1){
                 system(".\\dist\\menu");
             }
             else{
-                system(".\\dist\\operacional\\MenuEstoque.exe");
+                system(".\\dist\\operacional\\MenuEstoque");
             }
             /* Gravar arquivo temp */
         }else{
@@ -71,7 +71,7 @@ void lerLogin(){
 
 int main()
 {
-    //Define o padrão UTF-8
+    //Define o padrao UTF-8
     setlocale(LC_ALL, "Portuguese_Brasil");
     //Define a cor azul do terminal
     system("color 1F");

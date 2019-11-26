@@ -5,8 +5,8 @@
 #include <math.h>
 /* #include <conio.h> */
 
-#include "../../libs/structs.h" /* Essa é a classe de produto */
-#include "../../libs/voltar.h" /* Essa é a classe de produto */
+#include "../../libs/structs.h"
+#include "../../libs/voltar.h"
 #include "../../libs/Mensagem.h"
 #include "../../libs/cabSys.h"
 
@@ -29,7 +29,7 @@ int GerarID(){
 void CadastrarPizzaGrande(struct produtos prod){
 
     FILE *BigFile;
-    BigFile = fopen(".\\data\\produtos.dat", "a"); /* Abre o arquivo somente para adição */
+    BigFile = fopen(".\\data\\produtos.dat", "a"); /* Abre o arquivo somente para adicao */
 
     struct produtos grande;
 
@@ -49,7 +49,7 @@ void CadastrarPizzaGrande(struct produtos prod){
 void CadastrarMeiaPizza(struct produtos prod){
 
     FILE *HalfFile;
-    HalfFile = fopen(".\\data\\produtos.dat", "a"); /* Abre o arquivo somente para adição */
+    HalfFile = fopen(".\\data\\produtos.dat", "a"); /* Abre o arquivo somente para adicao */
 
     struct produtos meia;
 
@@ -70,12 +70,12 @@ void CadastrarMeiaPizza(struct produtos prod){
 void CadastrarProduto(){
 
     FILE *ProdFile;
-    ProdFile = fopen(".\\data\\produtos.dat", "a"); /* Abre o arquivo somente para adição */
+    ProdFile = fopen(".\\data\\produtos.dat", "a"); /* Abre o arquivo somente para adicao */
 
-    struct produtos prod; /* Cria uma instancia, da estrutura (Como uma cópia) */
+    struct produtos prod; /* Cria uma instancia, da estrutura (Como uma copia) */
 
-   printf("   ---------------------------------------------------------------------------------\n");
-    printf("  |                        O que deseja cadastrar:                                    |\n");
+    printf("   ---------------------------------------------------------------------------------\n");
+    printf("  |                        O que deseja cadastrar:                                  |\n");
     printf("  |           (1) Pizzas                     (4) Pizzas Grandes                     |\n");
     printf("  |           (2) Bebidas                    (5) Pizzas 1/2                         |\n");
     printf("  |           (3) Doces                      (6) Promocoes                          |\n");
@@ -86,10 +86,10 @@ void CadastrarProduto(){
 
     printf("\e[1;1H\e[2J"); /* Limpa a Tela */
 
-    printf("                    Informe o nome do produto.: \n");
+    printf("                    Informe o nome do produto.: ");
     scanf("%s", prod.name);
     
-    printf("                    Informe o preco do produto: \n");
+    printf("                    Informe o preco do produto: ");
     scanf("%f", &prod.price);
 
     prod.quant = 1;
@@ -115,7 +115,7 @@ void CadastrarProduto(){
 
 int main()
 {
-    //Define o padrão UTF-8
+    //Define o padrao UTF-8
     setlocale(LC_ALL, "Portuguese_Brasil");
     //Define a cor azul do terminal
     //system("color 1F");
@@ -125,7 +125,7 @@ int main()
     cab();
     CadastrarProduto();
 
-    /* Isso se tornará uma biblioteca de cabeçalho */
+    /* Isso se tornara uma biblioteca de cabecalho */
     
     voltarMenu();
 

@@ -12,7 +12,7 @@
     printf("   ---------------------------------------------------------------------------------\n");
     printf("  |                         Opcoes disponiveis:                                     |\n");
     printf("  |                                                                                 |\n");
-    printf("  |           (1) Visualizar Reclamações         (2) Cadastrar Reclamações          |\n");
+    printf("  |           (1) Visualizar Reclamacoes         (2) Cadastrar Reclamacoes          |\n");
     printf("   ---------------------------------------------------------------------------------\n");
     printf("\n \n Selecione uma das opcoes acima: ");
     scanf("%d", &resposta);

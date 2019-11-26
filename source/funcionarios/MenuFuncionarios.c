@@ -15,8 +15,8 @@
     printf("   ---------------------------------------------------------------------------------\n");
     printf("  |                         Opcoes disponiveis:                                     |\n");
     printf("  |                                                                                 |\n");
-    printf("  |           (1) Visualizar Funcionarios         (5) Excluir funcionario           |\n");
-    printf("  |           (2) Adicionar funcionario           (6) Reclamacoes                   |\n");
+    printf("  |           (1) Visualizar Funcionarios         (2) Adicionar funcionario         |\n");
+    printf("  |           (3) Excluir funcionario             (0) Sair                          |\n");
     printf("   ---------------------------------------------------------------------------------\n");
     printf("\n \n Selecione uma das opcoes acima: ");
     scanf("%d", &resposta);
@@ -32,10 +32,6 @@
         system(".\\dist\\funcionarios\\CadastrarFuncionario");
         break;
     case 3:
-        printf("\e[H\e[2J"); //Limpa a tela
-        system(".\\dist\\funcionarios\\EditarFuncionario");
-        break;
-    case 4:
         printf("\e[H\e[2J"); //Limpa a tela
         system(".\\dist\\funcionarios\\ExcluirFuncionario");
         break;

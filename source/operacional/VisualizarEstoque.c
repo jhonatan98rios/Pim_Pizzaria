@@ -19,7 +19,7 @@ printf("   -----------------------------  Visualizar Estoque  ------------------
 
 int main()
 {
-    //Define o padrão UTF-8
+    //Define o padrao UTF-8
     setlocale(LC_ALL, "Portuguese_Brasil");
     //Define a cor azul do terminal
     //system("color 1F");
@@ -34,7 +34,7 @@ int main()
     printf("   ---------------------------------------------------------------------------------\n");
     printf("   Deseja voltar ao menu?\n");
     printf("   [1] Sim \n");
-    printf("   [2] Nao\n");
+    printf("   [0] Nao\n");
     scanf("%d", &continuar);
     if(continuar == 1){
         system(".\\dist\\operacional\\MenuEstoque.exe");

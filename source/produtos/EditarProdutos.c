@@ -30,7 +30,7 @@ void editar(){
     LerProd( "Meias Pizzas", 5);
     LerProd( "Promocoes", 6);
 
-    printf("                            Informe o ID do produto à ser editado: ");
+    printf("                            Informe o ID do produto a ser editado: ");
     scanf("%d", &idProd);
     fflush(stdin);
 

@@ -6,9 +6,9 @@
 /* #include <conio.h> */
 #include "../../libs/cabSys.h"
 
-#include "../../libs/structs.h" /* Essa é a classe de produto */
-#include "../../libs/lerProd.h" /* Essa é a classe de produto */
-#include "../../libs/voltar.h" /* Essa é a classe de produto */
+#include "../../libs/structs.h" /* Essa e a classe de produto */
+#include "../../libs/lerProd.h" /* Essa e a classe de produto */
+#include "../../libs/voltar.h" /* Essa e a classe de produto */
 
 void LerProdutos(){
 
@@ -27,7 +27,7 @@ void LerProdutos(){
 
 int main()
 {
-    //Define o padrão UTF-8
+    //Define o padrao UTF-8
     setlocale(LC_ALL, "Portuguese_Brasil");
     //Define a cor azul do terminal
     //system("color 1F");
@@ -37,7 +37,7 @@ int main()
     cab();
     LerProdutos();
 
-    /* Isso se tornará uma biblioteca de cabeçalho */
+    /* Isso se tornara uma biblioteca de cabecalho */
 
     voltarMenu();
 

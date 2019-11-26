@@ -37,11 +37,11 @@ void editar(){
         }else{
             printf("\n                            Cliente encontrado com o telefone: %s ", input.telefone);
             printf ("\n                            Nome....: %s", input.nome);
-            printf ("\n                            Endereço: %s", input.endereco);
+            printf ("\n                            Endereco: %s", input.endereco);
             printf ("\n                            Telefone: %s", input.telefone);
             fflush(stdin);
              printf("\n   ---------------------------------------------------------------------------------\n");
-            printf("                             Digite o novo endereço: ");
+            printf("                             Digite o novo endereco: ");
             gets(input.endereco);
              fwrite(&input, sizeof(struct cliente),1,tempFile);
 

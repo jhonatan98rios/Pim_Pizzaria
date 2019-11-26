@@ -13,7 +13,7 @@ void error(){
 void senhaError(){
     printf("\n");
     printf("                          ------------------------------------\n");
-    printf("                          |  Confirmação de senha Invalida    |\n");
+    printf("                          |  Confirmacao de senha Invalida    |\n");
     printf("                          ------------------------------------\n");
 }
 void Editar(){
@@ -32,6 +32,6 @@ void compraFinalizada(){
 void ValorValido(){
     printf("\n");
     printf("                          ------------------------------------\n");
-    printf("                          |   Informe um valor válido         |\n");
+    printf("                          |   Informe um valor valido         |\n");
     printf("                          ------------------------------------\n");
 }

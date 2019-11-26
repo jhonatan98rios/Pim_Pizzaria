@@ -13,8 +13,8 @@
 void LerCarrinho(){
 
     FILE *carrinho;
-    struct produtos car; /* Cria uma instância para vizualização */
-    carrinho = fopen(".\\data\\vendas\\carrinho_de_compras.dat", "r"); /* Salva os produtos armazenados em memória */
+    struct produtos car; /* Cria uma instância para vizualizacao */
+    carrinho = fopen(".\\data\\vendas\\carrinho_de_compras.dat", "r"); /* Salva os produtos armazenados em memoria */
 
     float total = 0.00;
     printf("\n\n   ----------------------------- Carrinho de Compras -------------------------------\n");
@@ -32,17 +32,17 @@ void LerCarrinho(){
 
 void ApagarCarrinho(){
     FILE *carrinho;
-    struct produtos car; /* Cria uma instância para vizualização */
-    carrinho = fopen(".\\data\\vendas\\carrinho_de_compras.dat", "w"); /* Salva os produtos armazenados em memória */
+    struct produtos car; /* Cria uma instância para vizualizacao */
+    carrinho = fopen(".\\data\\vendas\\carrinho_de_compras.dat", "w"); /* Salva os produtos armazenados em memoria */
     remove(".\\data\\vendas\\carrinho_de_compras.dat");
 }
 
 void isUser(char tel[20]){
 
     /* 
-        Essa função verifica se o telefone existe.
-        Se ele existir, o programa segue em execução
-        Se não, o modulo de cadastro de clientes e chamado
+        Essa funcao verifica se o telefone existe.
+        Se ele existir, o programa segue em execucao
+        Se nao, o modulo de cadastro de clientes e chamado
     */
 
     FILE *ClieFile;
@@ -55,7 +55,7 @@ void isUser(char tel[20]){
         int compare = strcmp(tel, clie.telefone);
         if(compare == 0){
             printf ("\n                          Nome.....: %s", clie.nome);
-            printf ("\n                          Endereço.: %s", clie.endereco);
+            printf ("\n                          Endereco.: %s", clie.endereco);
             printf ("\n                          Telefone.: %s\n\n", clie.telefone);
             hasUser = 1;
             break;
@@ -63,7 +63,7 @@ void isUser(char tel[20]){
     };
 
     if(hasUser == 0){
-        /* Se o usuario for inválido, execute Cadastrar e repita a verificação */
+        /* Se o usuario for invalido, execute Cadastrar e repita a verificacao */
         system(".\\dist\\clientes\\CadastrarClientes");
         fclose (ClieFile); 
         isUser(tel);
@@ -80,8 +80,8 @@ void CadastrarPedido(){
     /* Lê a lista de clientes */
 
     FILE *Carrinho; /* Cria um arquivo para armazenar a compra */
-    Carrinho = fopen(".\\data\\vendas\\carrinho_de_compras.dat", "a"); /* Abre o arquivo para adição */
-    struct produtos input; /* clie é o objeto informado */
+    Carrinho = fopen(".\\data\\vendas\\carrinho_de_compras.dat", "a"); /* Abre o arquivo para adicao */
+    struct produtos input; /* clie e o objeto informado */
 
     char tel[20]; /* Telefone do clientes */
     int confirm = 0;
@@ -101,7 +101,7 @@ void CadastrarPedido(){
 
     FILE *ProdFile;
     ProdFile = fopen(".\\data\\produtos.dat", "r"); /* Abre o arquivo para leitura */
-    struct produtos prod; /* prod é o objeto vindo da memoria */
+    struct produtos prod; /* prod e o objeto vindo da memoria */
 
     input.category = 0;
 
@@ -143,7 +143,7 @@ void CadastrarPedido(){
         }
 
     default:
-        printf ("\n                Informe um valor válido \n\n");
+        printf ("\n                Informe um valor valido \n\n");
         fclose(ProdFile);
         goto ESCOLHA;
         break;
@@ -173,14 +173,14 @@ void CadastrarPedido(){
     };
 
     if(produtoValido == 0){
-        printf("                Produto Inválido \n");
+        printf("                Produto Invalido \n");
         fflush(stdin);
         input.category = 0;
         fclose(ProdFile);
         goto ESCOLHA;
     }else{
 
-        printf("         \n\nConfirmar pedido? [1] Sim - [0] Não: ");
+        printf("         \n\nConfirmar pedido? [1] Sim - [0] Nao: ");
 
         scanf("%d", &confirm);
 
@@ -207,7 +207,7 @@ void CadastrarPedido(){
 
         ADICIONAR:
 
-        printf("  Deseja adicionar produtos? [1] Sim - [0] Não: ");
+        printf("  Deseja adicionar produtos? [1] Sim - [0] Nao: ");
         scanf("%d", &confirm);
 
         if(confirm == 1){
@@ -226,7 +226,7 @@ void CadastrarPedido(){
 
             PAGAMENTO:
             
-            printf("     Confirmar pagamento? [1] Sim - [0] Não: ");
+            printf("     Confirmar pagamento? [1] Sim - [0] Nao: ");
             scanf("%d", &confirm);
 
             if(confirm == 1){

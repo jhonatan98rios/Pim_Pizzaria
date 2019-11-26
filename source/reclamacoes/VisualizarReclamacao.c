@@ -28,7 +28,7 @@ printf("   ----------------------------- Visualizar Reclamacoes ----------------
 
 int main()
 {
-    //Define o padrão UTF-8
+    //Define o padrao UTF-8
     setlocale(LC_ALL, "Portuguese_Brasil");
     cab();
     LerRec();

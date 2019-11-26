@@ -13,7 +13,7 @@
    printf("   ---------------------------------------------------------------------------------\n");
    printf("  |                         Opcoes disponiveis:                                     |\n");
    printf("  |                                                                                 |\n");
-   printf("  |             (1) Relatorio Diário       (2) Relatorio Mensal                     |\n");
+   printf("  |             (1) Relatorio Diario       (2) Relatorio Mensal                     |\n");
    printf("  |             (0) Voltar                                                          |\n");
    printf("   ---------------------------------------------------------------------------------\n");
    printf("\n \n Selecione uma das opcoes acima: ");

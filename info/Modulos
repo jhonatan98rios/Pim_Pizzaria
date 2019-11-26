@@ -3,11 +3,11 @@ index ->
 Home -> Menu de aplicativos
 
 Lista de aplicativos ->
-    Funcionarios,  Clientes, Produtos, Ingredientes, Pedidos, Reclamações, Promoções, Relatórios, Fechamento.
+    Funcionarios,  Clientes, Produtos, Ingredientes, Pedidos, Reclamações, Promoções, Relatorios, Fechamento.
 
-(1) Cadastrar funcionários
-(2) Editar funcionários
-(3) Vizualizar funcionários
+(1) Cadastrar funcionarios
+(2) Editar funcionarios
+(3) Vizualizar funcionarios
 
 (1) Cadastrar clientes
 (2) Editar clientes
@@ -34,7 +34,7 @@ Lista de aplicativos ->
 (3) Vizualizar promoções
 (4) Excluir promoções
 
-(1) Vizualizar relatório ->
+(1) Vizualizar relatorio ->
     Sabores mais pedidos por unidade de rede, 
     unidade de rede que mais vende, 
     totalização de area por unidade,

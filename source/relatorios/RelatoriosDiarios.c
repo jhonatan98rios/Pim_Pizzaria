@@ -54,7 +54,7 @@ void LerRelatorios(){
     while(fread(&prod, sizeof(struct produtos), 1, infile)){
 
         printf("\n      Nome.......: %s", prod.name);
-        printf("\n      Preço......: %.2f", prod.price);
+        printf("\n      Preco......: %.2f", prod.price);
         printf("\n      Quantidade.: %d\n\n", prod.quant);
 
         total += (prod.price * prod.quant);
@@ -70,7 +70,7 @@ void LerRelatorios(){
 
 int main()
 {
-    //Define o padrão UTF-8
+    //Define o padrao UTF-8
     setlocale(LC_ALL, "Portuguese_Brasil");
     cab();
     LerRelatorios();

@@ -8,15 +8,15 @@
 #include "../../libs/Mensagem.h"
 #include "../../libs/cabSys.h"
 
-/* Sctruct é uma variavel com varias propriedades */
+/* Sctruct e uma variavel com varias propriedades */
 
 
 void CadastrarCliente(){
 
     FILE *FuncFile;
-    FuncFile = fopen(".\\data\\clientes.dat", "a"); /* Abre o arquivo somente para adição */
+    FuncFile = fopen(".\\data\\clientes.dat", "a");
 
-    struct cliente cli; /* Cria uma instancia, da estrutura (Como uma cópia) */
+    struct cliente cli; /* Cria uma instancia, da estrutura (Como uma copia) */
 
     // printf("Informe o nome do cliente:\n");
     // scanf("%d", &func.category ); /* Isso vai definir como vai ser exibido em "Vizualizar Produto" */
@@ -45,7 +45,7 @@ void CadastrarCliente(){
 
 int main()
 {
-    //Define o padrão UTF-8
+    //Define o padrao UTF-8
     setlocale(LC_ALL, "Portuguese_Brasil");
     //Define a cor azul do terminal
     system("color 1F");

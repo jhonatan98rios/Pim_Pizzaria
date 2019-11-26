@@ -14,7 +14,7 @@
     printf("   ---------------------------------------------------------------------------------\n");
     printf("  |                         Opcoes disponiveis:                                     |\n");
     printf("  |                                                                                 |\n");
-    printf("  |             (1) Realizar Venda        (2) Voltar                                |\n");
+    printf("  |             (1) Realizar Venda        (0) Voltar                                |\n");
     printf("   ---------------------------------------------------------------------------------\n");
     printf("\n \n Selecione uma das opcoes acima: ");
     scanf("%d", &resposta);

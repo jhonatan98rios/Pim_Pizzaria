@@ -6,7 +6,7 @@ void voltarMenu(){
     printf("   ---------------------------------------------------------------------------------\n");
     printf("   Deseja voltar ao menu?\n");
     printf("   [1] Sim \n");
-    printf("   [2] Nao\n");
+    printf("   [0] Nao\n");
     scanf("%d", &continuar);
     if(continuar == 1){
         system(".\\dist\\menu");

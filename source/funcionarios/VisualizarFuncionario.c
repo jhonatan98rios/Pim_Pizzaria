@@ -4,8 +4,8 @@
 #include <locale.h>
 #include <math.h>
 /* #include <conio.h> */
-#include "../../libs/structs.h" /* Essa é a classe de produto */
-#include "../../libs/voltar.h" /* Essa é a classe de produto */
+#include "../../libs/structs.h" /* Essa e a classe de produto */
+#include "../../libs/voltar.h" /* Essa e a classe de produto */
 #include "../../libs/cabSys.h"
 
 void LerFunc( char titulo[10], int tipoLogin ){
@@ -32,8 +32,8 @@ void LerFuncionario(){
 
     printf("   ------------------------------Visualizar Funcionario------------------------------\n\n");
 
-    LerFunc( "Usuário Master" , 1);
-    LerFunc( "Usuário Opera." , 2);
+    LerFunc( "Usuario Administrativo" , 1);
+    LerFunc( "Usuario Operacional" , 2);
 
     printf("\n\n");
 };
@@ -41,7 +41,7 @@ void LerFuncionario(){
 int main()
 {
     /* const char* menu = "/../menu.exe"; */
-    //Define o padrão UTF-8
+    //Define o padrao UTF-8
     setlocale(LC_ALL, "Portuguese_Brasil");
     //Define a cor azul do terminal
     system("color 1F");
@@ -51,7 +51,7 @@ int main()
     cab();
     LerFuncionario();
 
-    /* Isso se tornará uma biblioteca de cabeçalho */
+    /* Isso se tornara uma biblioteca de cabecalho */
 
     voltarMenu();
 

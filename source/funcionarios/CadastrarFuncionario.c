@@ -8,7 +8,7 @@
 #include "../../libs/cabSys.h"
 #include "../../libs/Mensagem.h"
 
-/* Sctruct é uma variavel com varias propriedades */
+/* Sctruct e uma variavel com varias propriedades */
 
 
 char senhaConfirmada[10];
@@ -16,9 +16,9 @@ char senhaConfirmada[10];
 void CadastrarFuncionario(){
 
     FILE *FuncFile;
-    FuncFile = fopen(".\\data\\funcionarios.dat", "a"); /* Abre o arquivo somente para adição */
+    FuncFile = fopen(".\\data\\funcionarios.dat", "a"); /* Abre o arquivo somente para adicao */
 
-    struct funcionario func; /* Cria uma instancia, da estrutura (Como uma cópia) */
+    struct funcionario func; /* Cria uma instancia, da estrutura (Como uma copia) */
 
     printf("   ------------------------------Cadastrar Funcionario------------------------------\n\n");
 
@@ -28,7 +28,7 @@ void CadastrarFuncionario(){
     scanf("%d", &func.tipoLogin); /* Isso vai definir como vai ser exibido em "Vizualizar funcionario" */
 
     
-    printf("                              Nome|Usuário......: ");
+    printf("                              Nome|Usuario......: ");
     scanf("%s", func.name);
 
     printf("                              Infome o CPF.......: ");
@@ -40,7 +40,7 @@ void CadastrarFuncionario(){
     printf("                              Confirme sua senha.: ");
     scanf("%s", senhaConfirmada);
 
-    char senhaOk = strcmp(func.senha, senhaConfirmada);/*Compara as senhas digitadas para verificar se é verdadeira*/
+    char senhaOk = strcmp(func.senha, senhaConfirmada);/*Compara as senhas digitadas para verificar se e verdadeira*/
     if(senhaOk == 0){
         fwrite (&func, sizeof(struct funcionario), 1, FuncFile); /* Grava a estrutura no arquivo */
         sucess();
@@ -54,7 +54,7 @@ void CadastrarFuncionario(){
 
 int main()
 {
-    //Define o padrão UTF-8
+    //Define o padrao UTF-8
     setlocale(LC_ALL, "Portuguese_Brasil");
     //Define a cor azul do terminal
     system("color 1F");

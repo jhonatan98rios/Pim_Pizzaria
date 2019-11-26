@@ -100,7 +100,7 @@ void EditarEstoque(){
 
     fclose (EstoqueFile);
 
-    printf("\n                               Opções disponiveis");
+    printf("\n                               Opcoes disponiveis");
     printf("\n                               [1] Adicionar");
     printf("\n                               [2] Remover ");
     printf("\n                               O que deseja fazer:");
@@ -117,7 +117,7 @@ void EditarEstoque(){
 
 int main()
 {
-    //Define o padrão UTF-8
+    //Define o padrao UTF-8
     setlocale(LC_ALL, "Portuguese_Brasil");
     //Define a cor azul do terminal
     //system("color 1F");

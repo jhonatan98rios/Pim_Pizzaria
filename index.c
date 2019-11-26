@@ -12,4 +12,4 @@ int main(){
 }
 
 
-/* Esse arquivo deve ser executado primeiro, pois ele sera a referencia a todos os diretórios  */
+/* Esse arquivo deve ser executado primeiro, pois ele sera a referencia a todos os diretorios  */

@@ -33,7 +33,7 @@ void menuRelatorios(){
 }
 
 void menuFechamento(){
-    system(".\\dist\\fechamento\\MenuFechamento"); 
+    system(".\\dist\\fechamento\\RelatorioDiario"); 
 }
 
 

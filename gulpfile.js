@@ -42,6 +42,8 @@ const builds = [
     "gcc ./source/operacional/MenuEstoque.c -o dist/operacional/MenuEstoque",
     "gcc ./source/operacional/EditarEstoque.c -o dist/operacional/EditarEstoque",
     "gcc ./source/operacional/VisualizarEstoque.c -o dist/operacional/VisualizarEstoque",
+
+    "gcc ./source/fechamento/RelatorioDiario.c -o dist/fechamento/RelatorioDiario",
 ];
 
 
